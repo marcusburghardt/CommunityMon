@@ -1,0 +1,21 @@
+global:
+  scrape_interval:     30m
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'community-mon'
+
+#rule_files:
+#  - 'prometheus.rules.yml'
+
+scrape_configs:
+  #- job_name: 'prometheus'
+  #  scrape_interval: 30s
+  #  static_configs:
+  #    - targets: ['prometheus:9090']
+
+  - job_name: 'CommunityMon'
+    scrape_interval: 15m
+    static_configs:
+      - targets: ['pushgateway:9091']
