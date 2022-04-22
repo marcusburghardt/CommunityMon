@@ -1,5 +1,7 @@
 # CommunityMon
-This project was created for the purpose to collect metrics from relevant tools and represent them in nice dashboards, which ultimately may give insights for maintainers and quickly accessible data to support the management of Open Source projects.
+This project was created with the goal of collecting metrics from relevant tools and representing them in nice dashboards, which can ultimately provide insights for maintainers and quickly accessible data to support Open Source project management.
+
+![Grafana Dashboard](Screenshot_Grafana.png)
 
 # Architecture
 The project is composed by a stack of containers, which work together to collect metrics, store data in a time series database and finally represent them in dashboards.
