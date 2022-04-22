@@ -130,7 +130,7 @@ def get_repository_old_issues(session, repo_id, days):
 def get_repository_pulls(session, repo_id, filters_string):
     repo = get_repository_object(session, repo_id)
     if filters_string:
-        filters_dict = create_dict_from_string(filters_string, ';')
+        filters_dict = create_dict_from_string(filters_string, ',')
         filters = parse_filters_string(filters_dict, 'pull')
         filtered_pulls = repo.get_pulls(state=filters['state'])
         return filtered_pulls
@@ -159,7 +159,7 @@ def get_repository_created_pulls(session, repo_id, days):
     return recent_pulls
 
 def get_pulls_lifetime_average(session, repo_id, days) -> int:
-    closed_pulls_list = get_repository_pulls(session, repo_id, 'state=closed')
+    closed_pulls_list = get_repository_pulls(session, repo_id, 'state=closed,sort=updated')
     # INFO: Getting all closed pulls can hit the API limits depending on the project
     # activity. Here we limit the last (days) closed pulls since they are ordered by
     # closed time from the API.

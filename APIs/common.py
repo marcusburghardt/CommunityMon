@@ -35,8 +35,9 @@ def get_github_labels():
 
 def get_delta_time(start_date, end_date, unit):
     delta_time = end_date - start_date
-    if unit == 'm': return delta_time.seconds//60
-    elif unit == 'h': return delta_time.seconds//60//60
+    seconds = (delta_time.days*86400)+delta_time.seconds
+    if unit == 'm': return seconds//60
+    elif unit == 'h': return seconds//60//60
     elif unit == 'd': return delta_time.days
     else: return delta_time.seconds
 
@@ -54,7 +55,7 @@ def parse_filters_string(filters_dict, object_type=''):
     if object_type == 'issue':
         filters = { 'state':'open', 'assignee':'none', 'milestone':'none' }
     elif object_type == 'pull':
-        filters = { 'state':'open' }
+        filters = { 'state':'open', 'sort':'created' }
     for parameter in filters_dict.keys():
         if not parameter in filters.keys():
             print('Invalid filter')
