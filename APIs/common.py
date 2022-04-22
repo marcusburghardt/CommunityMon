@@ -12,7 +12,7 @@ import configparser
 
 from pytest import skip
 
-CONF_FILE="/home/mburghardt/GIT/CommunityMon/APIs/apis.conf"
+CONF_FILE="./apis.conf"
 
 def create_canonical_name(raw_string):
     canonical_name=raw_string.replace('/','_')
