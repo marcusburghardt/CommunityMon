@@ -1,0 +1,18 @@
+---
+github:
+  # Creds file is a ini file where Github token is stored.
+  # The section must be [GITHUB] and the parameter must be "github_token".
+  creds_file: /secure/path/csmon_creds.txt
+
+  # The labels informed here, separated by commas, will be used to filter issues with
+  # these labels and send their metrics to prometheus. This parameter is optional and
+  # doesn't affect the general metrics.
+  labels:
+  - good-first-issue
+  - productization-issue
+  - DISA RHEL9 STIG Alignment
+  - needs-ok-to-test
+
+prometheus:
+  push_target: localhost:9091
+  push_job: ComplianceAsCode

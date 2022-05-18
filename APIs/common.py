@@ -10,9 +10,11 @@ Author: Marcus Burghardt - https://github.com/marcusburghardt
 
 import configparser
 import os
+import sys
+import yaml
 
 root_path = os.path.dirname(os.path.realpath(__file__))
-CONF_FILE=f"{root_path}/apis.conf"
+CONF_FILE=f"{root_path}/apis.yml"
 
 def create_canonical_name(raw_string):
     canonical_name=raw_string.replace('/','_')
@@ -27,11 +29,11 @@ def create_list_from_string(string, delimiter):
     return string.split(delimiter)
 
 def get_github_token():
-    github_creds_file = get_parameter_value(CONF_FILE, 'GITHUB', 'creds_file')
+    github_creds_file = get_parameter_value(CONF_FILE, 'github', 'creds_file')
     return get_parameter_value(github_creds_file, "DEFAULT", "github_token")
 
 def get_github_labels():
-    return get_parameter_value(CONF_FILE, 'GITHUB', 'labels')
+    return get_parameter_value(CONF_FILE, 'github', 'labels')
 
 def get_delta_time(start_date, end_date, unit):
     delta_time = end_date - start_date
@@ -46,10 +48,25 @@ def get_old_date(days):
     now = datetime.now()
     return now - timedelta(days=days)
 
-def get_parameter_value(config_file, section, parameter):
+def get_parameter_from_ini(config_file, section, parameter):
     config = configparser.ConfigParser()
     config.read(config_file)
     return config[section][parameter]
+
+def get_parameter_from_yml(config_file, section, parameter):
+    with open(config_file, 'r') as yml_file:
+        try:
+            yml_content = yaml.safe_load(yml_file)
+            return yml_content[section][parameter]
+        except yaml.YAMLError as exc:
+            print(exc)
+            sys.exit(1)
+
+def get_parameter_value(config_file, section, parameter):
+    if config_file.endswith((".yml", ".yaml")):
+        return get_parameter_from_yml(config_file, section, parameter)
+    else:
+        return get_parameter_from_ini(config_file, section, parameter)
 
 def parse_filters_string(filters_dict, object_type=''):
     if object_type == 'issue':
