@@ -9,10 +9,10 @@ Author: Marcus Burghardt - https://github.com/marcusburghardt
 """
 
 import configparser
+import os
 
-from pytest import skip
-
-CONF_FILE="./apis.conf"
+root_path = os.path.dirname(os.path.realpath(__file__))
+CONF_FILE=f"{root_path}/apis.conf"
 
 def create_canonical_name(raw_string):
     canonical_name=raw_string.replace('/','_')
