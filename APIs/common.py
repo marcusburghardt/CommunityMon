@@ -33,7 +33,26 @@ def get_github_token():
     return get_parameter_value(github_creds_file, "DEFAULT", "github_token")
 
 def get_github_labels():
-    return get_parameter_value(CONF_FILE, 'github', 'labels')
+    try:
+        labels = get_parameter_value(CONF_FILE, 'github', 'labels')
+    except:
+        return None
+    return labels
+
+def get_github_metrics(context):
+    metrics = get_parameter_value(CONF_FILE, 'github', 'metrics')
+    if context == 'org':
+        return metrics['org']
+    elif context == 'repo':
+        return metrics['repo']
+    elif context == 'timeframe':
+        return sorted(metrics['timeframe'], reverse=True)
+    elif context == 'team':
+        return metrics['team']
+    elif context == 'no_activity_limit':
+        return metrics['no_activity_limit']
+    else:
+        return None
 
 def get_delta_time(start_date, end_date, unit):
     delta_time = end_date - start_date
@@ -72,11 +91,11 @@ def parse_filters_string(filters_dict, object_type=''):
     if object_type == 'issue':
         filters = { 'state':'open', 'assignee':'none', 'milestone':'none' }
     elif object_type == 'pull':
-        filters = { 'state':'open', 'sort':'created' }
+        filters = { 'state':'open', 'sort':'created', 'direction':'desc' }
     for parameter in filters_dict.keys():
         if not parameter in filters.keys():
             print('Invalid filter')
-            exit()
+            sys.exit(1)
         filters[parameter] = filters_dict[parameter]
     return filters
 
