@@ -27,6 +27,12 @@ def parse_repo_metrics(repo_metrics, registry):
                                                    registry)
     return registry
 
+def append_pushgateway_metrics(metrics: dict, metric_id: str, value: str, description: str) -> dict:
+    metrics.append({ 'metric':metric_id,
+                     'value':value,
+                     'description':description })
+    return metrics
+
 def push_pushgateway_metrics(registry):
     target = get_parameter_value(CONF_FILE, 'prometheus', 'push_target')
     job_name = get_parameter_value(CONF_FILE, 'prometheus', 'push_job')
