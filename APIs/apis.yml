@@ -13,6 +13,38 @@ github:
   - DISA RHEL9 STIG Alignment
   - needs-ok-to-test
 
+  metrics:
+    org:
+      - admins
+      - members
+      - repositories
+    repo:
+      - general_info
+      - contributors
+      - events
+      - open_pulls
+      - old_open_issues
+      - old_open_pulls
+      - issues_by_label
+      - created_pulls_by_timeframe
+      - pulls_lifetime_average
+    timeframe:
+      - 90
+      - 30
+    no_activity_limit: 15
+    team:
+      - dahaic
+      - evgenyz
+      - ggbecker
+      - jan-cerny
+      - Mab879
+      - marcusburghardt
+      - matejak
+      - matusmarhefka
+      - mildas
+      - vojtapolasek
+      - yuumasato
+
 prometheus:
   push_target: localhost:9091
   push_job: ComplianceAsCode
