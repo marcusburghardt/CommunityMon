@@ -12,21 +12,25 @@ github:
   - productization-issue
   - DISA RHEL9 STIG Alignment
   - needs-ok-to-test
+  - bugfix
+  - help-wanted
 
   metrics:
     org:
       - admins
       - members
       - repositories
+      - team_size
     repo:
       - general_info
       - contributors
       - events
       - open_pulls
       - old_open_issues
-      - old_open_pulls
       - issues_by_label
+      - created_issues_by_timeframe
       - created_pulls_by_timeframe
+      - issues_lifetime_average
       - pulls_lifetime_average
     timeframe:
       - 90
