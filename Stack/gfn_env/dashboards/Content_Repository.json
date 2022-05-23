@@ -28,79 +28,17 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "max": 0,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "orange",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 400
-              },
-              {
-                "color": "green",
-                "value": 500
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
+      "collapsed": false,
       "gridPos": {
-        "h": 3,
-        "w": 2,
+        "h": 1,
+        "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 16,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "v1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "ComplianceAsCode_content_stargazers_count",
-          "interval": "",
-          "legendFormat": "Starts",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Starts",
-      "transparent": true,
-      "type": "stat"
+      "id": 10,
+      "panels": [],
+      "title": "General Information",
+      "type": "row"
     },
     {
       "datasource": {
@@ -111,103 +49,54 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
           },
           "links": [
             {
               "targetBlank": true,
-              "title": "Forks List",
-              "url": "https://github.com/ComplianceAsCode/content/network/members"
+              "title": "Contributors List",
+              "url": "https://github.com/ComplianceAsCode/content/graphs/contributors"
             }
           ],
           "mappings": [],
-          "max": 0,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "orange",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 400
-              },
-              {
-                "color": "green",
-                "value": 500
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 2,
-        "y": 0
-      },
-      "id": 6,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "v1.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "ComplianceAsCode_content_forks_count",
-          "interval": "",
-          "legendFormat": "Starts",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Forks",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "max": 40,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 35
               }
             ]
           }
@@ -216,24 +105,26 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 7,
-        "x": 4,
-        "y": 0
+        "w": 8,
+        "x": 0,
+        "y": 1
       },
-      "id": 15,
+      "id": 18,
       "options": {
-        "orientation": "auto",
-        "reduceOptions": {
+        "legend": {
           "calcs": [
-            "lastNotNull"
+            "last",
+            "min",
+            "max"
           ],
-          "fields": "",
-          "values": false
+          "displayMode": "table",
+          "placement": "right"
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "v1.0",
       "targets": [
         {
           "datasource": {
@@ -241,8 +132,12 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_org_repositories",
-          "legendFormat": "Repositories",
+          "exemplar": false,
+          "expr": "ComplianceAsCode_content_contributors",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Contributors",
           "range": true,
           "refId": "A"
         },
@@ -252,9 +147,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_org_members",
+          "expr": "ComplianceAsCode_content_subscribers_count",
           "hide": false,
-          "legendFormat": "Members",
+          "legendFormat": "Subscribers",
           "range": true,
           "refId": "B"
         },
@@ -264,16 +159,259 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "expr": "ComplianceAsCode_org_team_size",
+          "hide": false,
+          "legendFormat": "Team Size",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_org_members",
+          "hide": false,
+          "legendFormat": "Org Members",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
           "expr": "ComplianceAsCode_org_admins",
           "hide": false,
-          "legendFormat": "Admins",
+          "legendFormat": "Org Admins",
           "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "Project Community",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 8,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ComplianceAsCode_content_events",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Number of Events",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Project Events (activity)",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 13,
+        "y": 1
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ComplianceAsCode_content_stargazers_count",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Stars",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_forks_count",
+          "hide": false,
+          "legendFormat": "Forks",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "expr": "",
+          "hide": false,
           "refId": "C"
         }
       ],
-      "title": "Organization Infos",
+      "title": "Project Popularity",
       "transparent": true,
-      "type": "gauge"
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -284,8 +422,8 @@
       "gridPos": {
         "h": 5,
         "w": 2,
-        "x": 11,
-        "y": 0
+        "x": 21,
+        "y": 1
       },
       "id": 22,
       "options": {
@@ -303,11 +441,292 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 6
       },
       "id": 20,
       "panels": [],
-      "title": "Repository Metrics",
+      "title": "Repository PR Status",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 11,
+        "x": 0,
+        "y": 7
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_pulls",
+          "interval": "",
+          "legendFormat": "Open PRs",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_unassigned_open_pulls",
+          "hide": false,
+          "legendFormat": "Unassigned PRs",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_old_open_pulls",
+          "hide": false,
+          "legendFormat": "Old Open PRs",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Open PRs",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 11,
+        "x": 11,
+        "y": 7
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ComplianceAsCode_content_created_pulls_90days",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Created PRs (90d)",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_closed_pulls_90days",
+          "hide": false,
+          "legendFormat": "Closed PRs (90d)",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_created_pulls_30days",
+          "hide": false,
+          "legendFormat": "Created PRs (30d)",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_closed_pulls_30days",
+          "hide": false,
+          "legendFormat": "Closed PRs (30d)",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "PRs Balance",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 25,
+      "panels": [],
+      "title": "Repository Issues Status",
       "type": "row"
     },
     {
@@ -319,15 +738,16 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "continuous-GrYlRd"
           },
           "custom": {
+            "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -368,7 +788,7 @@
                 "value": null
               },
               {
-                "color": "red",
+                "color": "orange",
                 "value": 320
               }
             ]
@@ -377,10 +797,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 5,
+        "h": 5,
+        "w": 11,
         "x": 0,
-        "y": 6
+        "y": 13
       },
       "id": 2,
       "options": {
@@ -391,7 +811,7 @@
             "max"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "right"
         },
         "tooltip": {
           "mode": "single",
@@ -440,13 +860,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisWidth": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -471,131 +891,6 @@
               "mode": "line"
             }
           },
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "PRs List",
-              "url": "https://github.com/ComplianceAsCode/content/pulls"
-            }
-          ],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 50
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 5,
-        "y": 6
-      },
-      "id": 11,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_pulls",
-          "interval": "",
-          "legendFormat": "Open PRs",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "ComplianceAsCode_content_old_open_pulls",
-          "hide": false,
-          "legendFormat": "Old Open PRs",
-          "range": true,
-          "refId": "B"
-        }
-      ],
-      "title": "Open PRs",
-      "transparent": true,
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
-            }
-          },
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "Contributors List",
-              "url": "https://github.com/ComplianceAsCode/content/graphs/contributors"
-            }
-          ],
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -610,12 +905,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 10,
-        "y": 6
+        "h": 5,
+        "w": 11,
+        "x": 11,
+        "y": 13
       },
-      "id": 18,
+      "id": 26,
       "options": {
         "legend": {
           "calcs": [
@@ -624,7 +919,7 @@
             "max"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "right"
         },
         "tooltip": {
           "mode": "single",
@@ -639,11 +934,11 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_contributors",
+          "expr": "ComplianceAsCode_content_created_issues_90days",
           "format": "time_series",
           "instant": false,
           "interval": "",
-          "legendFormat": "Contributors",
+          "legendFormat": "Created Issues (90d)",
           "range": true,
           "refId": "A"
         },
@@ -653,14 +948,42 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_subscribers_count",
+          "expr": "ComplianceAsCode_content_closed_issues_90days",
           "hide": false,
-          "legendFormat": "Subscribers",
+          "legendFormat": "Closed Issues (90d)",
           "range": true,
           "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ComplianceAsCode_content_created_issues_30days",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Created Issues (30d)",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_closed_issues_30days",
+          "hide": false,
+          "legendFormat": "Closed Issues (30d)",
+          "range": true,
+          "refId": "D"
         }
       ],
-      "title": "Contributors vs Subscribers",
+      "title": "Issues Balance",
       "transparent": true,
       "type": "timeseries"
     },
@@ -724,19 +1047,23 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 9,
-        "x": 15,
-        "y": 6
+        "h": 6,
+        "w": 11,
+        "x": 0,
+        "y": 18
       },
       "id": 13,
       "options": {
         "legend": {
           "calcs": [
-            "last"
+            "last",
+            "min",
+            "max"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": false
         },
         "tooltip": {
           "mode": "single",
@@ -779,6 +1106,42 @@
           "legendFormat": "need-ok-to-test",
           "range": true,
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_goodfirstissue",
+          "hide": false,
+          "legendFormat": "good-first-issue",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_bugfix",
+          "hide": false,
+          "legendFormat": "bugfix",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_helpwanted",
+          "hide": false,
+          "legendFormat": "help-wanted",
+          "range": true,
+          "refId": "F"
         }
       ],
       "title": "Labeled Issues",
@@ -791,122 +1154,12 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 24
       },
-      "id": 10,
+      "id": 30,
       "panels": [],
-      "title": "Within last 90 days",
+      "title": "PRs and Issues Lifetime",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 0,
-        "y": 14
-      },
-      "id": 3,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "ComplianceAsCode_content_created_pulls_90days",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Created PRs",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "ComplianceAsCode_content_closed_pulls_90days",
-          "hide": false,
-          "legendFormat": "Closed PRs",
-          "range": true,
-          "refId": "B"
-        }
-      ],
-      "title": "PRs Balance",
-      "transparent": true,
-      "type": "timeseries"
     },
     {
       "datasource": {
@@ -917,15 +1170,16 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "continuous-GrYlRd"
           },
           "custom": {
+            "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -965,12 +1219,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 5,
-        "y": 14
+        "h": 5,
+        "w": 11,
+        "x": 0,
+        "y": 25
       },
-      "id": 12,
+      "id": 23,
       "options": {
         "legend": {
           "calcs": [
@@ -979,7 +1233,7 @@
             "max"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "right"
         },
         "tooltip": {
           "mode": "single",
@@ -993,14 +1247,47 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "ComplianceAsCode_content_pulls_lifetime_average",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "PRs Lifetime Avg",
+          "expr": "ComplianceAsCode_content_pulls_lifetime_average_30days",
+          "hide": false,
+          "legendFormat": "Total Avg (30d)",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_pulls_lifetime_average_90days",
+          "hide": false,
+          "legendFormat": "Total Avg (90d)",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_pulls_lifetime_average_30days_team",
+          "hide": false,
+          "legendFormat": "Team Avg (30d)",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_pulls_lifetime_average_90days_team",
+          "hide": false,
+          "legendFormat": "Team Avg (90d)",
+          "range": true,
+          "refId": "D"
         }
       ],
       "title": "PRs Lifetime Average",
@@ -1012,19 +1299,20 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
+      "description": "Difference between the Issues creation and closing times.",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "continuous-GrYlRd"
           },
           "custom": {
+            "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1058,17 +1346,18 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "m"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 10,
-        "y": 14
+        "h": 5,
+        "w": 11,
+        "x": 11,
+        "y": 25
       },
-      "id": 8,
+      "id": 28,
       "options": {
         "legend": {
           "calcs": [
@@ -1077,7 +1366,7 @@
             "max"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "right"
         },
         "tooltip": {
           "mode": "single",
@@ -1091,17 +1380,50 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "ComplianceAsCode_content_events",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Number of Events",
+          "expr": "ComplianceAsCode_content_issues_lifetime_average_30days",
+          "hide": false,
+          "legendFormat": "Total Avg (30d)",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_issues_lifetime_average_90days",
+          "hide": false,
+          "legendFormat": "Total Avg (90d)",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_issues_lifetime_average_30days_team",
+          "hide": false,
+          "legendFormat": "Team Avg (30d)",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_issues_lifetime_average_90days_team",
+          "hide": false,
+          "legendFormat": "Team Avg (90d)",
+          "range": true,
+          "refId": "D"
         }
       ],
-      "title": "Events (activity)",
+      "title": "Issues Lifetime Average",
       "transparent": true,
       "type": "timeseries"
     }
@@ -1113,7 +1435,7 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {},
