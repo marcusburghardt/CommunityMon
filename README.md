@@ -36,7 +36,7 @@ Basically, `scripts` interact with the tools' APIs to collect relevant data and 
 It is pretty straightforward to start using this stack. You only need to follow some few steps to start monitoring your Open Source project.
 ## Requirements
 ### Python Modules
-> pip install PyGithub prometheus_client
+> pip install pyyaml PyGithub prometheus_client
 
 ### Packages
 #### Fedora
