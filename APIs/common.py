@@ -89,7 +89,8 @@ def get_parameter_value(config_file, section, parameter):
 
 def parse_filters_string(filters_dict, object_type=''):
     if object_type == 'issue':
-        filters = { 'state':'open', 'assignee':'none', 'milestone':'none' }
+        filters = { 'state':'open', 'assignee':'none', 'milestone':'none',
+                    'sort':'created', 'direction':'desc' }
     elif object_type == 'pull':
         filters = { 'state':'open', 'sort':'created', 'direction':'desc' }
     for parameter in filters_dict.keys():
