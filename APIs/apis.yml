@@ -14,6 +14,10 @@ github:
   - needs-ok-to-test
   - bugfix
   - help-wanted
+  - BLOCKER
+  - New Product
+  - refactoring
+  - unclear
 
   metrics:
     org:
@@ -25,9 +29,10 @@ github:
       - general_info
       - contributors
       - events
+      - open_issues
       - open_pulls
-      - old_open_issues
       - issues_by_label
+      #- pulls_by_label - not yet available in pyGithub module
       - created_issues_by_timeframe
       - created_pulls_by_timeframe
       - issues_lifetime_average

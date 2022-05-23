@@ -64,7 +64,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -218,7 +218,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -317,7 +317,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -518,7 +518,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 11,
+        "w": 10,
         "x": 0,
         "y": 7
       },
@@ -589,6 +589,93 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 10,
+        "y": 7
+      },
+      "id": 31,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "hidden",
+          "placement": "bottom"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_pulls - ComplianceAsCode_content_unassigned_open_pulls",
+          "interval": "",
+          "legendFormat": "Assigned PRs",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_unassigned_open_pulls",
+          "hide": false,
+          "legendFormat": "Unassigned PRs",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Assigned PRs",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "palette-classic",
             "seriesBy": "last"
           },
@@ -605,7 +692,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -639,8 +726,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 11,
-        "x": 11,
+        "w": 10,
+        "x": 12,
         "y": 7
       },
       "id": 3,
@@ -753,7 +840,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -798,7 +885,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 11,
+        "w": 10,
         "x": 0,
         "y": 13
       },
@@ -837,16 +924,115 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "expr": "ComplianceAsCode_content_unassigned_open_issues - ComplianceAsCode_content_unassigned_open_pulls",
+          "hide": false,
+          "legendFormat": "Unassigned Issues",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
           "expr": "ComplianceAsCode_content_old_open_issues - ComplianceAsCode_content_old_open_pulls",
           "hide": false,
           "legendFormat": "Old Open Issues",
           "range": true,
-          "refId": "B"
+          "refId": "C"
         }
       ],
       "title": "Open Issues",
       "transparent": true,
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 10,
+        "y": 13
+      },
+      "id": 32,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "hidden",
+          "placement": "bottom"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "(ComplianceAsCode_content_open_issues_count - ComplianceAsCode_content_open_pulls) - (ComplianceAsCode_content_unassigned_open_issues - ComplianceAsCode_content_unassigned_open_pulls)",
+          "interval": "",
+          "legendFormat": "Assigned Issues",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_unassigned_open_issues - ComplianceAsCode_content_unassigned_open_pulls",
+          "hide": false,
+          "legendFormat": "Unassigned Issues",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Assigned Issues",
+      "transparent": true,
+      "type": "piechart"
     },
     {
       "datasource": {
@@ -872,7 +1058,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -906,8 +1092,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 11,
-        "x": 11,
+        "w": 10,
+        "x": 12,
         "y": 13
       },
       "id": 26,
@@ -999,18 +1185,19 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1047,7 +1234,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 8,
         "w": 11,
         "x": 0,
         "y": 18
@@ -1063,7 +1250,7 @@
           "displayMode": "table",
           "placement": "right",
           "sortBy": "Last",
-          "sortDesc": false
+          "sortDesc": true
         },
         "tooltip": {
           "mode": "single",
@@ -1142,6 +1329,54 @@
           "legendFormat": "help-wanted",
           "range": true,
           "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_blocker",
+          "hide": false,
+          "legendFormat": "BLOCKER",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_newproduct",
+          "hide": false,
+          "legendFormat": "New Product",
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_refactoring",
+          "hide": false,
+          "legendFormat": "refactoring",
+          "range": true,
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_unclear",
+          "hide": false,
+          "legendFormat": "unclear",
+          "range": true,
+          "refId": "J"
         }
       ],
       "title": "Labeled Issues",
@@ -1149,12 +1384,244 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "Labels which demands maintainers support",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 11,
+        "y": 18
+      },
+      "id": 33,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_needsoktotest",
+          "hide": false,
+          "legendFormat": "need-ok-to-test",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_helpwanted",
+          "hide": false,
+          "legendFormat": "help-wanted",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_goodfirstissue",
+          "hide": false,
+          "legendFormat": "good-first-issue",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_unclear",
+          "hide": false,
+          "legendFormat": "unclear",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_newproduct",
+          "hide": false,
+          "legendFormat": "New Product",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "Community Interest Labels",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "Labels usually used by Red Hatters",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 15,
+        "y": 18
+      },
+      "id": 34,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_productizationissue",
+          "interval": "",
+          "legendFormat": "productization-issue",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_disarhel9stigalignment",
+          "hide": false,
+          "legendFormat": "DISA RHEL9 STIG Alignment",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_bugfix",
+          "hide": false,
+          "legendFormat": "bugfix",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_blocker",
+          "hide": false,
+          "legendFormat": "BLOCKER",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "ComplianceAsCode_content_open_issues_label_refactoring",
+          "hide": false,
+          "legendFormat": "refactoring",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Team Interest Labels",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 26
       },
       "id": 30,
       "panels": [],
@@ -1185,7 +1652,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1222,7 +1689,7 @@
         "h": 5,
         "w": 11,
         "x": 0,
-        "y": 25
+        "y": 27
       },
       "id": 23,
       "options": {
@@ -1318,7 +1785,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1355,7 +1822,7 @@
         "h": 5,
         "w": 11,
         "x": 11,
-        "y": 25
+        "y": 27
       },
       "id": 28,
       "options": {
@@ -1428,6 +1895,7 @@
       "type": "timeseries"
     }
   ],
+  "refresh": false,
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
