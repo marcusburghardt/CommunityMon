@@ -55,6 +55,37 @@ DAYS = int(args.days)
 def create_github_session():
     return Github(get_github_token())
 
+def filter_created_items_by_lifetime(items, days):
+    recent_items = []
+    old_date = get_old_date(days)
+    for item in items:
+        if item.created_at < old_date:
+            break
+        recent_items.append(item)
+    return recent_items
+
+def filter_items_by_owner(items, owners) -> int:
+    count = 0
+    for item in items:
+        if item.user.login in owners:
+            count += 1
+    return count
+
+def filter_outdated_items(items, days) -> list:
+    old_open_items = []
+    old_date = get_old_date(days)
+    for item in items:
+        if item.updated_at < old_date:
+            old_open_items.append(item)
+    return old_open_items
+
+def filter_repository_open_items_unassigned(items) -> int:
+    count = 0
+    for item in items:
+        if item.assignee is None:
+            count += 1
+    return count
+
 def get_organization_object(session, org_id):
     return session.get_organization(org_id)
 
@@ -88,22 +119,19 @@ def get_repository_contributors(session, repo_id):
     repo = get_repository_object(session, repo_id)
     return repo.get_contributors()
 
-def get_repository_created_pulls(session, repo_id, days):
-    filter_string = "state=all"
+def get_repository_created_issues(session, repo_id, days, filter_string):
+    open_issues = get_repository_issues(session, repo_id, filter_string, '')
+    return filter_created_items_by_lifetime(open_issues, days)
+
+def get_repository_created_pulls(session, repo_id, days, filter_string):
     open_pulls = get_repository_pulls(session, repo_id, filter_string)
-    recent_pulls = []
-    old_date = get_old_date(days)
-    for pull in open_pulls:
-        if pull.created_at < old_date:
-            break
-        recent_pulls.append(pull)
-    return recent_pulls
+    return filter_created_items_by_lifetime(open_pulls, days)
 
 def get_repository_events(session, repo_id):
     repo = get_repository_object(session, repo_id)
     return repo.get_events()
 
-def get_repository_infos(session, repo_id) -> dict:
+def get_repository_infos(session, repo_id: str) -> dict:
     repo = get_repository_object(session, repo_id)
     infos = { 'forks_count':repo.forks_count, 'stargazers_count':repo.stargazers_count,
               'subscribers_count':repo.subscribers_count, 'archived':repo.archived,
@@ -129,24 +157,14 @@ def get_repository_issues(session, repo_id, filters_string, labels_string):
         return repo.get_issues()
 
 def get_repository_old_issues(session, repo_id, days):
-    filter_string = "state=open,assignee=none"
-    open_issues_without_assignee = get_repository_issues(session, repo_id, filter_string, '')
-    old_open_issues = []
-    old_date = get_old_date(days)
-    for issue in open_issues_without_assignee:
-        if issue.updated_at < old_date:
-            old_open_issues.append(issue)
-    return old_open_issues
+    filter_string = "state=open"
+    open_issues = get_repository_issues(session, repo_id, filter_string, '')
+    return filter_outdated_items(open_issues, days)
 
 def get_repository_old_pulls(session, repo_id, days):
     filter_string = "state=open"
     open_pulls = get_repository_pulls(session, repo_id, filter_string)
-    old_open_pulls = []
-    old_date = get_old_date(days)
-    for pull in open_pulls:
-        if pull.updated_at < old_date:
-            old_open_pulls.append(pull)
-    return old_open_pulls
+    return filter_outdated_items(open_pulls, days)
 
 def get_repository_pulls(session, repo_id, filters_string):
     repo = get_repository_object(session, repo_id)
@@ -159,60 +177,78 @@ def get_repository_pulls(session, repo_id, filters_string):
     else:
         return repo.get_pulls()
 
-def get_pulls_lifetime_average(closed_pulls, days: str) -> dict:
+def get_items_lifetime_average(closed_items, days: str) -> dict:
     # INFO: Getting info from all closed pulls can hit the API limits depending on the
     # project activity. Here we limit the last (days) closed pulls since they are ordered
     # by closed time from the API.
     old_date = get_old_date(days)
-    processed_pulls = 0
-    pulls_lifetime_in_minutes = 0
+    processed_items = 0
+    lifetime_in_minutes = 0
 
     team_members = get_github_metrics('team')
-    processed_pulls_team = 0
-    pulls_lifetime_in_minutes_team = 0
+    processed_items_team = 0
+    lifetime_in_minutes_team = 0
 
-    for pull in closed_pulls:
-        if pull.closed_at < old_date:
+    for item in closed_items:
+        if item.closed_at < old_date:
             break
-        pull_delta_time = get_delta_time(pull.created_at, pull.closed_at, 'm')
-        pulls_lifetime_in_minutes += pull_delta_time
-        processed_pulls += 1
-        if pull.user.login in team_members:
-            pulls_lifetime_in_minutes_team += pull_delta_time
-            processed_pulls_team += 1
+        delta_time = get_delta_time(item.created_at, item.closed_at, 'm')
+        lifetime_in_minutes += delta_time
+        processed_items += 1
+        if item.user.login in team_members:
+            lifetime_in_minutes_team += delta_time
+            processed_items_team += 1
         if args.verbose:
             print("PR#%s - Created: %s, Updated: %s, Closed: %s, Lifetime (Min): %s" %
-                 (pull.number, pull.created_at, pull.updated_at, pull.closed_at,
-                  pull_delta_time))
-    lifetime_info = {'pulls_count': processed_pulls,
-                     'pulls_lifetime': pulls_lifetime_in_minutes//processed_pulls,
-                     'pulls_count_team': processed_pulls_team,
-                     'pulls_lifetime_team': pulls_lifetime_in_minutes_team//processed_pulls_team}
+                 (item.number, item.created_at, item.updated_at, item.closed_at,
+                  delta_time))
+    lifetime_info = {'count': processed_items,
+                     'lifetime': lifetime_in_minutes//processed_items,
+                     'count_team': processed_items_team,
+                     'lifetime_team': lifetime_in_minutes_team//processed_items_team}
     return lifetime_info
 
-def collect_created_pulls_by_team(pulls) -> int:
-    count = 0
-    team_members = get_github_metrics('team')
-    for pull in pulls:
-        if pull.user.login in team_members:
-            count += 1
-    return count
+def get_issues_lifetime_average(closed_issues, days: str) -> dict:
+    return get_items_lifetime_average(closed_issues, days)
 
-def collect_created_pulls(session, repo_id: str, metrics: dict) -> dict:
+def get_pulls_lifetime_average(closed_pulls, days: str) -> dict:
+    return get_items_lifetime_average(closed_pulls, days)
+
+def collect_created_items(repo_id, metrics: dict, created_items, timeframe: str, type: str) -> dict:
     repo_name = create_canonical_name(repo_id)
-    for timeframe in get_github_metrics('timeframe'):
-        created_pulls = get_repository_created_pulls(session, repo_id, timeframe)
-        metric = f'{repo_name}_created_pulls_{timeframe}days'
-        description = f'Number of created pulls within last {timeframe} days on {repo_id}'
-        metrics = append_pushgateway_metrics(metrics, metric, len(created_pulls), description)
-        # By team
-        count = collect_created_pulls_by_team(created_pulls)
-        metric = f'{repo_name}_created_pulls_by_team_{timeframe}days'
-        description = f'Number of pulls created by the team within last {timeframe} days on {repo_id}'
-        metrics = append_pushgateway_metrics(metrics, metric, count, description)
+    metric = f'{repo_name}_created_{type}_{timeframe}days'
+    description = f'Number of created {type} within last {timeframe} days on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, metric, len(created_items), description)
+    # By team
+    count = collect_created_issues_by_team(created_items)
+    metric = f'{repo_name}_created_{type}_by_team_{timeframe}days'
+    description = f'Number of {type} created by the team within last {timeframe} days on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, metric, count, description)
     return metrics
 
-def collect_org_metrics_prometheus(session, org_id, registry):
+def collect_created_issues_by_team(issues) -> int:
+    team_members = get_github_metrics('team')
+    return filter_items_by_owner(issues, team_members)
+
+def collect_created_issues(session, repo_id: str, metrics: dict) -> dict:
+    filter_string = "state=all"
+    for timeframe in get_github_metrics('timeframe'):
+        created_issues = get_repository_created_issues(session, repo_id, timeframe, filter_string)
+        metrics = collect_created_items(repo_id, metrics, created_issues, timeframe, 'issues')
+    return metrics
+
+def collect_created_pulls_by_team(pulls) -> int:
+    team_members = get_github_metrics('team')
+    return filter_items_by_owner(pulls, team_members)
+
+def collect_created_pulls(session, repo_id: str, metrics: dict) -> dict:
+    filter_string = "state=all"
+    for timeframe in get_github_metrics('timeframe'):
+        created_pulls = get_repository_created_pulls(session, repo_id, timeframe, filter_string)
+        metrics = collect_created_items(repo_id, metrics, created_pulls, timeframe, 'pulls')
+    return metrics
+
+def collect_org_metrics_prometheus(session, org_id: str, registry):
     for metric in get_github_metrics('org'):
         if metric == 'members':
             org_members = get_members_list(session, org_id, 'all')
@@ -223,6 +259,8 @@ def collect_org_metrics_prometheus(session, org_id, registry):
         elif metric == 'repositories':
             org_repositories = get_repositories_list(session, org_id)
             count = org_repositories.totalCount
+        elif metric == 'team_size':
+            count = len(get_github_metrics('team'))
         else:
             if args.verbose:
                 print(f'Metric {metric} is not available.')
@@ -232,30 +270,43 @@ def collect_org_metrics_prometheus(session, org_id, registry):
                                                     count, registry)
     return registry, org_repositories
 
-def collect_pulls_lifetime_average(repo_id: str, metrics: dict, closed_pulls) -> dict:
+def collect_item_lifetime_average(repo_id: str, metrics: dict, lifetime_info,
+                                  timeframe, item) -> dict:
     repo_name = create_canonical_name(repo_id)
+    # count
+    metric = f'{repo_name}_closed_{item}_{timeframe}days'
+    description = f'Number of closed {item} from last {timeframe} days on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, metric,
+                                         lifetime_info['count'], description)
+    # count team
+    metric = f'{repo_name}_closed_{item}_{timeframe}days_team'
+    description = f'Number of closed team {item} from last {timeframe} days on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, metric,
+                                         lifetime_info['count_team'], description)
+    # lifetime
+    metric = f'{repo_name}_{item}_lifetime_average_{timeframe}days'
+    description = f'Average lifetime of closed {item} from last {timeframe} days on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, metric,
+                                         lifetime_info['lifetime'], description)
+    # lifetime team
+    metric = f'{repo_name}_{item}_lifetime_average_{timeframe}days_team'
+    description = f'Average lifetime of closed team {item} from last {timeframe} days on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, metric,
+                                         lifetime_info['lifetime_team'], description)
+    return metrics
+
+def collect_issues_lifetime_average(repo_id: str, metrics: dict, closed_issues) -> dict:
+    for timeframe in get_github_metrics('timeframe'):
+        lifetime_info = get_issues_lifetime_average(closed_issues, timeframe)
+        metrics = collect_item_lifetime_average(repo_id, metrics, lifetime_info, timeframe,
+                                                'issues')
+    return metrics
+
+def collect_pulls_lifetime_average(repo_id: str, metrics: dict, closed_pulls) -> dict:
     for timeframe in get_github_metrics('timeframe'):
         lifetime_info = get_pulls_lifetime_average(closed_pulls, timeframe)
-        # count
-        metric = f'{repo_name}_closed_pulls_{timeframe}days'
-        description = f'Number of closed pulls from last {timeframe} days on {repo_id}'
-        metrics = append_pushgateway_metrics(metrics, metric,
-                                             lifetime_info['pulls_count'], description)
-        # count team
-        metric = f'{repo_name}_closed_pulls_{timeframe}days_team'
-        description = f'Number of closed team pulls from last {timeframe} days on {repo_id}'
-        metrics = append_pushgateway_metrics(metrics, metric,
-                                             lifetime_info['pulls_count_team'], description)
-        # lifetime
-        metric = f'{repo_name}_pulls_lifetime_average_{timeframe}days'
-        description = f'Average lifetime of closed pulls from last {timeframe} days on {repo_id}'
-        metrics = append_pushgateway_metrics(metrics, metric,
-                                             lifetime_info['pulls_lifetime'], description)
-        # lifetime team
-        metric = f'{repo_name}_pulls_lifetime_average_{timeframe}days_team'
-        description = f'Average lifetime of closed team pulls from last {timeframe} days on {repo_id}'
-        metrics = append_pushgateway_metrics(metrics, metric,
-                                             lifetime_info['pulls_lifetime_team'], description)
+        metrics = collect_item_lifetime_average(repo_id, metrics, lifetime_info, timeframe,
+                                                'pulls')
     return metrics
 
 def collect_repository_info(session, repo_id: str, metrics: dict) -> dict:
@@ -267,41 +318,64 @@ def collect_repository_info(session, repo_id: str, metrics: dict) -> dict:
                                              repo_infos[repo_info], description)
     return metrics
 
-def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, state: str) -> dict:
+def collect_repository_items_by_label(repo_id: str, metrics: dict, items, label: str, state: str,
+                                      type: str) -> dict:
     repo_name = create_canonical_name(repo_id)
-    for label in get_github_labels():
-        canonical_name = create_canonical_name(label)
-        issues = get_repository_issues(session, repo_id, f'state={state}', label)
-        description = f'Count of {state} issues on {repo_id} with label {label}'
-        metrics = append_pushgateway_metrics(metrics, f'{repo_name}_{canonical_name.lower()}',
-                                             issues.totalCount, description)
+    canonical_label = create_canonical_name(label)
+    metric = f'{repo_name}_{state}_{type}_label_{canonical_label.lower()}'
+    description = f'Count of {state} {type} on {repo_id} with label {label}'
+    metrics = append_pushgateway_metrics(metrics, metric, items.totalCount, description)
     return metrics
 
-def collect_repository_metrics_prometheus(session, repo_id, days) -> list:
+def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, state: str) -> dict:
+    for label in get_github_labels():
+        issues = get_repository_issues(session, repo_id, f'state={state}', label)
+        metrics = collect_repository_items_by_label(repo_id, metrics, issues, label, state, 'issues')
+    return metrics
+
+def collect_repository_open_items(repo_id: str, metrics: dict, items, type: str) -> dict:
+    repo_name = create_canonical_name(repo_id)
+    count = items.totalCount
+    description = f'Count of open {type} on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_open_{type}',
+                                         count, description)
+
+    count = filter_repository_open_items_unassigned(items)
+    description = f'Count of unassigned open {type} on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_unassigned_open_{type}',
+                                         count, description)
+
+    days = get_github_metrics('no_activity_limit')
+    count = len(filter_outdated_items(items, days))
+    description = f'Count of old open {type} on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_old_open_{type}',
+                                         count, description)
+    return metrics
+
+def collect_repository_open_issues(session, repo_id: str, metrics: dict) -> dict:
+    open_issues = get_repository_issues(session, repo_id, 'state=open', '')
+    return collect_repository_open_items(repo_id, metrics, open_issues, 'issues')
+
+def collect_repository_open_pulls(session, repo_id: str, metrics: dict) -> dict:
+    open_pulls = get_repository_pulls(session, repo_id, 'state=open')
+    return collect_repository_open_items(repo_id, metrics, open_pulls, 'pulls')
+
+def collect_repository_metrics_prometheus(session, repo_id) -> list:
     repo_name=create_canonical_name(repo_id)
     if args.verbose:
         print(repo_name)
 
     metrics = []
     for metric in get_github_metrics('repo'):
-        if metric in ['contributors', 'events', 'open_pulls', 'old_open_issues', 'old_open_pulls']:
+        if args.verbose:
+            print(metric)
+        if metric in ['contributors', 'events']:
             if metric == 'contributors':
                 contributors = get_repository_contributors(session, repo_id)
                 count = contributors.totalCount
             elif metric == 'events':
                 events = get_repository_events(session, repo_id)
                 count = events.totalCount
-            elif metric == 'open_pulls':
-                open_pulls = get_repository_pulls(session, repo_id, 'state=open')
-                count = open_pulls.totalCount
-            elif metric == 'old_open_issues':
-                days = get_github_metrics('no_activity_limit')
-                old_open_issues = get_repository_old_issues(session, repo_id, days)
-                count = len(old_open_issues)
-            elif metric == 'old_open_pulls':
-                days = get_github_metrics('no_activity_limit')
-                old_open_pulls = get_repository_old_pulls(session, repo_id, days)
-                count = len(old_open_pulls)
             description = f'Count of {metric} on {repo_id}'
             metrics = append_pushgateway_metrics(metrics, f'{repo_name}_{metric}', count, description)
         elif metric == 'general_info':
@@ -310,10 +384,21 @@ def collect_repository_metrics_prometheus(session, repo_id, days) -> list:
             metrics = collect_repository_issues_by_label(session, repo_id, metrics, 'open')
         elif metric == 'created_pulls_by_timeframe':
             metrics = collect_created_pulls(session, repo_id, metrics)
+        elif metric == 'created_issues_by_timeframe':
+            metrics = collect_created_issues(session, repo_id, metrics)
+        elif metric == 'open_issues':
+            metrics = collect_repository_open_issues(session, repo_id, metrics)
+        elif metric == 'open_pulls':
+            metrics = collect_repository_open_pulls(session, repo_id, metrics)
         elif metric == 'pulls_lifetime_average':
             closed_pulls_list = get_repository_pulls(session, repo_id,
                                                      'state=closed,sort=updated,direction=desc')
             metrics = collect_pulls_lifetime_average(repo_id, metrics, closed_pulls_list)
+        elif metric == 'issues_lifetime_average':
+            closed_issues_list = get_repository_issues(session, repo_id,
+                                                       'state=closed,sort=updated,direction=desc',
+                                                       '')
+            metrics = collect_issues_lifetime_average(repo_id, metrics, closed_issues_list)
         else:
             if args.verbose:
                 print(f'Metric {metric} is not available.')
