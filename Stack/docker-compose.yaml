@@ -6,11 +6,6 @@ services:
     volumes:
       - ./prometheus/conf/:/etc/prometheus/:Z
       - ./prometheus/data/:/prometheus/:Z
-    #securityContext:
-    #  fsGroup: 65534
-    #  runAsGroup: 65534
-    #  runAsNonRoot: true
-    #  runAsUser: 65534
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
