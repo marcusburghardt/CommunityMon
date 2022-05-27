@@ -32,6 +32,7 @@ Here are described the metrics currently collected and sent to prometheus.
 * <org_id>_<repo_id>_issues_lifetime_average_30days_team: Average lifetime of closed team issues within last 30 days. Team issues means issues reported by team members, as defined in `apis.yml` file.
 * <org_id>_<repo_id>_issues_lifetime_average_90days: Average lifetime of closed issues within last 90 days.
 * <org_id>_<repo_id>_issues_lifetime_average_90days_team: Average lifetime of closed team issues within last 90 days. Team issues means issues reported by team members, as defined in `apis.yml` file.
+* <org_id>_<repo_id>_labels_count: Number of existing labels in the repository.
 * <org_id>_<repo_id>_old_open_issues: Number of issues without updates within n days.
 * <org_id>_<repo_id>_old_open_pulls: Number of pulls without updates within n days.
 * <org_id>_<repo_id>_open_issues: Number of open issues. This metric comes from repository issues query.
