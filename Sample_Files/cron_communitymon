@@ -1,0 +1,1 @@
+*/30 * * * * community-mon /bin/python /opt/CommunityMon/CommunityMon/APIs/github_monitor.py -o ComplianceAsCode -r ComplianceAsCode/content -a push-metrics-prometheus

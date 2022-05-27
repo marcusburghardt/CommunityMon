@@ -9,14 +9,7 @@ github:
   # doesn't affect the general metrics.
   labels:
   - good-first-issue
-  - productization-issue
-  - DISA RHEL9 STIG Alignment
-  - needs-ok-to-test
-  - bugfix
   - help-wanted
-  - BLOCKER
-  - New Product
-  - refactoring
   - unclear
 
   metrics:
@@ -42,18 +35,8 @@ github:
       - 30
     no_activity_limit: 15
     team:
-      - dahaic
-      - evgenyz
-      - ggbecker
-      - jan-cerny
-      - Mab879
       - marcusburghardt
-      - matejak
-      - matusmarhefka
-      - mildas
-      - vojtapolasek
-      - yuumasato
 
 prometheus:
   push_target: localhost:9091
-  push_job: ComplianceAsCode
+  push_job: CommunityMon_Job

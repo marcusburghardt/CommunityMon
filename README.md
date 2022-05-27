@@ -35,15 +35,54 @@ Basically, `scripts` interact with the tools' APIs to collect relevant data and 
 # Get Started
 It is pretty straightforward to start using this stack. You only need to follow some few steps to start monitoring your Open Source project.
 ## Requirements
-### Python Modules
-> pip install pyyaml PyGithub prometheus_client
-
 ### Packages
 #### Fedora
-> dnf install -y podman-compose
+> sudo dnf install -y git podman-compose
+
+### Users
+It is recommended to create a limited user to run this stack.
+> sudo useradd community-mon
 
 ### Content
+> sudo mkdir /opt/CommunityMon
+> sudo chown community-mon:community-mon /opt/CommunityMon
+
+#### Clone the Repository
+**_NOTE:_** At this point, it is better to start a new session using the newly created user (community-mon).
+
+> cd /opt/CommunityMon
 > git clone https://github.com/marcusburghardt/CommunityMon.git
+
+#### Python Modules
+Install the Python modules used by the API scripts:
+> pip install pyyaml PyGithub prometheus_client
+
+### Custom Settings
+It is likely that you need to adjust some settings applicable to your context. Therefore, the relevant configuration files are defined in the `.gitinore` while the respective sample files are located in `Sample_Files` folder. Let's copy them to the proper locations.
+> cp /opt/CommunityMon/CommunityMon/Sample_Files/apis_apis.yml /opt/CommunityMon/CommunityMon/APIs/apis.yml
+> cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_env_grafana /opt/CommunityMon/CommunityMon/Stack/.env_grafana
+> cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_GRAFANA_ADMIN_PASSWORD /opt/CommunityMon/CommunityMon/Stack/.GRAFANA_ADMIN_PASSWORD
+
+**_NOTE:_** Don't forget to adjust the grafana admin password in `.GRAFANA_ADMIN_PASSWORD`.
+
+### SELinux
+It is necessary to properly set the SELinux file context for the data folder in order to allow the prometheus container to store the data.
+> sudo chcon -R -t container_file_t /opt/CommunityMon/CommunityMon/Stack/prometheus/data
+
+**_NOTE:_** Please, do not set SELinux to permissive mode. If necessary, take a look in the `audit2allow` and `getsebool` commands. They could be handy.
+
+### Optional Settings
+#### Crond
+It is necessary to trigger the script in order to collect the metrics and send them to `Pushgateway`. One simple way to do so in through a cron job. You can use the provided sample file as reference:
+> sudo cp /opt/CommunityMon/CommunityMon/Sample_Files/cron_communitymon /etc/cron.d
+
+#### NGINX as Reverse Proxy
+If you want to provide external access to the dashboard, you have to make it accessible. It is recommended to use a NGINX as frontend to your Stack in order to easily enable HTTPs and protect the backend services.
+> sudo dnf install nginx certbot python3-certbot-nginx
+> sudo systemctl enable nginx
+> sudo systemctl start nginx
+
+Use the `nginx_communitymon.conf` file from the `Sample_Files` folder to get a reference. There is also the `nginx_hardening.conf`, which is recommended to be checked and implemented.
 
 ### Tokens
 #### Github
@@ -51,11 +90,11 @@ Read the respective documentation to generate your token:
 * https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 Once the token is generated, create a file in a place you consider secure, with the following content:
-```dotnetcli
+```
 [DEFAULT]
 github_token = ghp_*****
 ```
-Inform the absolute path for this file in the `api.conf` file.
+Inform the absolute path for this file in the `apis.yml` file.
 
 ## Start
 Navigate to the folder where the `docker-compose.yaml` file is located and execute the following command:
