@@ -37,52 +37,73 @@ It is pretty straightforward to start using this stack. You only need to follow 
 ## Requirements
 ### Packages
 #### Fedora
-> sudo dnf install -y git podman-compose
+```shell
+sudo dnf install -y git podman-compose
+```
 
 ### Users
 It is recommended to create a limited user to run this stack.
-> sudo useradd community-mon
+```shell
+sudo useradd community-mon
+```
 
 ### Content
-> sudo mkdir /opt/CommunityMon
-> sudo chown community-mon:community-mon /opt/CommunityMon
+```shell
+sudo mkdir /opt/CommunityMon
+sudo chown community-mon:community-mon /opt/CommunityMon
+```
 
 #### Clone the Repository
 **_NOTE:_** At this point, it is better to start a new session using the newly created user (community-mon).
 
-> cd /opt/CommunityMon
-> git clone https://github.com/marcusburghardt/CommunityMon.git
+```shell
+cd /opt/CommunityMon
+git clone https://github.com/marcusburghardt/CommunityMon.git
+```
 
 #### Python Modules
 Install the Python modules used by the API scripts:
-> pip install pyyaml PyGithub prometheus_client
+```shell
+pip install pyyaml PyGithub prometheus_client
+```
 
 ### Custom Settings
 It is likely that you need to adjust some settings applicable to your context. Therefore, the relevant configuration files are defined in the `.gitinore` while the respective sample files are located in `Sample_Files` folder. Let's copy them to the proper locations.
-> cp /opt/CommunityMon/CommunityMon/Sample_Files/apis_apis.yml /opt/CommunityMon/CommunityMon/APIs/apis.yml
-> cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_env_grafana /opt/CommunityMon/CommunityMon/Stack/.env_grafana
-> cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_GRAFANA_ADMIN_PASSWORD /opt/CommunityMon/CommunityMon/Stack/.GRAFANA_ADMIN_PASSWORD
+```shell
+cp /opt/CommunityMon/CommunityMon/Sample_Files/apis_apis.yml /opt/CommunityMon/CommunityMon/APIs/apis.yml
+cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_env_grafana /opt/CommunityMon/CommunityMon/Stack/.env_grafana
+cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_GRAFANA_ADMIN_PASSWORD /opt/CommunityMon/CommunityMon/Stack/.GRAFANA_ADMIN_PASSWORD
+```
 
 **_NOTE:_** Don't forget to adjust the grafana admin password in `.GRAFANA_ADMIN_PASSWORD`.
 
 ### SELinux
 It is necessary to properly set the SELinux file context for the data folder in order to allow the prometheus container to store the data.
-> sudo chcon -R -t container_file_t /opt/CommunityMon/CommunityMon/Stack/prometheus/data
+```shell
+sudo chcon -R -t container_file_t /opt/CommunityMon/CommunityMon/Stack/prometheus/data
+```
 
 **_NOTE:_** Please, do not set SELinux to permissive mode. If necessary, take a look in the `audit2allow` and `getsebool` commands. They could be handy.
 
 ### Optional Settings
 #### Crond
-It is necessary to trigger the script in order to collect the metrics and send them to `Pushgateway`. One simple way to do so in through a cron job. You can use the provided sample file as reference:
-> sudo cp /opt/CommunityMon/CommunityMon/Sample_Files/cron_communitymon /etc/cron.d
+It is necessary to trigger the script in order to collect the metrics and send them to `Pushgateway`. You can do it manually but one simple way to collect and send metrics without human interaction in through a cron job. You can use the provided sample file as reference:
+```shell
+sudo cp /opt/CommunityMon/CommunityMon/Sample_Files/cron_communitymon /etc/cron.d
+```
+**_NOTE:_** You can also define a cron task directly to the `community-mon` user using the `crontab -e` command.
 
 #### NGINX as Reverse Proxy
 If you want to provide external access to the dashboard, you have to make it accessible. It is recommended to use a NGINX as frontend to your Stack in order to easily enable HTTPs and protect the backend services.
-> sudo dnf install nginx certbot python3-certbot-nginx
-> sudo systemctl enable nginx
-> sudo systemctl start nginx
+```shell
+sudo dnf install nginx certbot python3-certbot-nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
 
 Use the `nginx_communitymon.conf` file from the `Sample_Files` folder to get a reference. There is also the `nginx_hardening.conf`, which is recommended to be checked and implemented.
+
+**_NOTE:_** Check the [certbot](https://certbot.eff.org/) documentation to get a [Let's Encrypt](https://letsencrypt.org/) certificate.
 
 ### Tokens
 #### Github
@@ -98,16 +119,28 @@ Inform the absolute path for this file in the `apis.yml` file.
 
 ## Start
 Navigate to the folder where the `docker-compose.yaml` file is located and execute the following command:
-> podman-compose up -d
-
+```shell
+podman-compose up -d
+```
+## Updates
+Whenever you desire to update the stack, just follow these few simple steps:
+```shell
+cd /opt/CommunityMon/CommunityMon
+git pull
+cd /opt/CommunityMon/CommunityMon/Stack
+podman-compose down
+podman-compose up -d
+```
 ### Access the tools
 * Grafana: [locahost:3000](http://localhost:3000)
 * Prometheus: [locahost:9090](http://localhost:9090)
 * Pushgateway: [locahost:9091](http://localhost:9091)
 
 ### Collect the first metrics
-The following example is collecting metrics from the Github `ComplianceAsCode` organization and the `ComplianceAsCode/content` repository, considering issues and pulls which are without updates longer than `15` days as old issues and pulls. Finally, the script action is to `push-metrics` to prometheus:
-> ./CommunityMon/APIs/github_monitor.py -o ComplianceAsCode -r ComplianceAsCode/content -a push-metrics-prometheus -d 15
+The following example is collecting metrics from the Github `ComplianceAsCode` organization and the `ComplianceAsCode/content` repository, considering the parameters from `apis.yml` file. The last parameter informs the action `push-metrics-prometheus` which means that the collected metrics will be sent to Prometheus Pushgateway:
+```shell
+./CommunityMon/APIs/github_monitor.py -o ComplianceAsCode -r ComplianceAsCode/content -a push-metrics-prometheus
+```
 
 Check the `Metrics.md` file in `Docs` folder for more information about the collected metrics.
 
