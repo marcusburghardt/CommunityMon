@@ -1,1 +1,2 @@
-*/30 * * * * community-mon /bin/python /opt/CommunityMon/CommunityMon/APIs/github_monitor.py -o ComplianceAsCode -r ComplianceAsCode/content -a push-metrics-prometheus
+#*/30 * * * * community-mon /bin/python /opt/CommunityMon/CommunityMon/APIs/github_monitor.py -o ComplianceAsCode -r ComplianceAsCode/content -a push-metrics-prometheus
+#0 5,10 * * sun root certbot renew --post-hook "systemctl reload nginx"
