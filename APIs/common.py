@@ -95,7 +95,7 @@ def parse_filters_string(filters_dict, object_type=''):
         filters = { 'state':'open', 'assignee':'none', 'milestone':'none',
                     'sort':'created', 'direction':'desc' }
     elif object_type == 'pull':
-        filters = { 'state':'open', 'sort':'created', 'direction':'desc' }
+        filters = { 'state':'open', 'assignee':'none', 'sort':'created', 'direction':'desc' }
     if filters_dict is not None:
         for parameter in filters_dict.keys():
             if not parameter in filters.keys():
@@ -109,17 +109,16 @@ def print_object_info_header(object_type):
         print('actor,eventType,createdAt')
     elif object_type in ['issue', 'pull']:
         print('number,state,issueUrl,createdAt,updatedAt,closedAt,lifetime,milestone,reporter,\
-              assignee,title')
+assignee,title')
     elif object_type == 'label':
         # The description field may use commas.
-        print('name,description,url')
+        print('name,color,description,url')
     elif object_type == 'repository':
         print('repoName,repoFullName,repoId,repoUrl,private,owner,ownerUrl,forks_count,\
-              stargazers_count,open_issues_count,subscribers_count,created_at,pushed_at,\
-              updated_at,private')
+stargazers_count,open_issues_count,subscribers_count,created_at,pushed_at,updated_at,private')
     elif object_type == 'user':
         print('user,name,email,userUrl,membershipState,organization,organizationRole,\
-              contributions')
+contributions')
     else:
         print('itemName')
 
@@ -138,22 +137,22 @@ def print_object_info(object_type, item, org):
         else:
             end_date = item.updated_at
         lifetime = get_delta_time(item.created_at, end_date, 'm')
-        print(f'{item.number},{item.state},{item.html_url},{item.created_at},{item.updated_at},\
-              {item.closed_at},{lifetime},{milestone},{item.user.login},{assignee},{item.title}')
+        print(f'{item.number},{item.state},{item.html_url} ,{item.created_at},{item.updated_at},\
+{item.closed_at},{lifetime},{milestone},{item.user.login},{assignee},{item.title}')
     elif object_type == 'label':
         # The description field may use commas.
-        print(f'{item.name};{item.description};{item.url}')
+        print(f'{item.name};{item.color},{item.description};{item.url}')
     elif object_type == 'repository':
         print(f'{item.name},{item.full_name},{item.id},{item.html_url},{item.private},\
-              {item.owner.login},{item.owner.html_url},{item.forks_count},{item.stargazers_count},\
-              {item.open_issues_count},{item.subscribers_count},{item.created_at},\
-              {item.pushed_at},{item.updated_at},{item.private}')
+{item.owner.login},{item.owner.html_url},{item.forks_count},{item.stargazers_count},\
+{item.open_issues_count},{item.subscribers_count},{item.created_at},{item.pushed_at},\
+{item.updated_at},{item.private}')
     elif object_type == 'user':
         try:
             membership = item.get_organization_membership(org)
             print(f'{item.login},{membership.user.name},{membership.user.email},\
-                  {membership.user.url},{membership.state},{membership.organization.login},\
-                  {membership.role},{item.contributions}')
+{membership.user.url},{membership.state},{membership.organization.login},{membership.role},\
+{item.contributions}')
         except:
             print(f'{item.login},-,-,{item.html_url},-,-,-,{item.contributions}')
     else:
