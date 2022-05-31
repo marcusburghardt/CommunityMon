@@ -30,7 +30,7 @@ parser.add_argument('-a', '--action', action='store', default='list-org-repos',
                     help='list-org-repos, list-org-members, list-repo-contributors, \
                     list-repo-events, list-repo-infos, list-repo-issues, list-repo-labels, \
                     list-repo-old-issues, list-repo-pulls, list-repo-old-pulls, \
-                    calc-repo-pulls-lifetime, push-metrics-prometheus')
+                    calc-repo-issues-lifetime, calc-repo-pulls-lifetime, push-metrics-prometheus')
 parser.add_argument('-c', '--count', action='store_true',
                     help='Show the numbers only.')
 parser.add_argument('-d', '--days', action='store', default='30',
@@ -213,11 +213,15 @@ def get_items_lifetime_average(closed_items, days: str) -> dict:
         if args.verbose:
             print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at},\
                   Closed: {item.closed_at}, Lifetime (Min): {delta_time}')
-    lifetime_info = {'count': processed_items,
-                     'lifetime': lifetime_in_minutes//processed_items,
-                     'count_team': processed_items_team,
-                     'lifetime_team': lifetime_in_minutes_team//processed_items_team}
-    return lifetime_info
+    if processed_items:
+        lifetime_info = {'count': processed_items,
+                        'lifetime': lifetime_in_minutes//processed_items,
+                        'count_team': processed_items_team,
+                        'lifetime_team': lifetime_in_minutes_team//processed_items_team}
+        return lifetime_info
+    else:
+        print(f'It was not found closed items within last {days} days')
+        exit(1)
 
 def get_issues_lifetime_average(closed_issues, days: str) -> dict:
     return get_items_lifetime_average(closed_issues, days)
@@ -480,9 +484,14 @@ def main():
     elif ACTION == 'list-repo-recent-pulls':
         results = get_repository_created_pulls(ghs, REPOSITORY, DAYS)
         print_results(results, 'pull')
+    elif ACTION == 'calc-repo-issues-lifetime':
+        closed_issues = get_repository_issues(ghs, REPOSITORY,
+                                             'state=closed,sort=updated,direction=desc','')
+        lifetime_info = get_issues_lifetime_average(closed_issues, DAYS)
+        print(f'Issues lifetime average for the last {DAYS} days: {lifetime_info["lifetime"]} minutes for {lifetime_info["count"]} issues')
     elif ACTION == 'calc-repo-pulls-lifetime':
         closed_pulls = get_repository_pulls(ghs, REPOSITORY,
-                                                 'state=closed,sort=updated,direction=desc')
+                                            'state=closed,sort=updated,direction=desc')
         lifetime_info = get_pulls_lifetime_average(closed_pulls, DAYS)
         print(f'Pulls lifetime average for the last {DAYS} days: {lifetime_info["lifetime"]} minutes for {lifetime_info["count"]} pulls')
     elif ACTION == 'push-metrics-prometheus':
