@@ -196,10 +196,12 @@ def get_items_lifetime_average(closed_items, days: str) -> dict:
     old_date = get_old_date(days)
     processed_items = 0
     lifetime_in_minutes = 0
+    lifetime = 0
 
     team_members = get_github_metrics('team')
     processed_items_team = 0
     lifetime_in_minutes_team = 0
+    lifetime_team = 0
 
     for item in closed_items:
         if item.closed_at < old_date:
@@ -214,14 +216,17 @@ def get_items_lifetime_average(closed_items, days: str) -> dict:
             print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at},\
                   Closed: {item.closed_at}, Lifetime (Min): {delta_time}')
     if processed_items:
-        lifetime_info = {'count': processed_items,
-                        'lifetime': lifetime_in_minutes//processed_items,
-                        'count_team': processed_items_team,
-                        'lifetime_team': lifetime_in_minutes_team//processed_items_team}
-        return lifetime_info
+        lifetime = lifetime_in_minutes//processed_items
     else:
-        print(f'It was not found closed items within last {days} days')
-        exit(1)
+        if args.verbose:
+            print(f'It was not found closed items within last {days} days')
+    if processed_items_team:
+        lifetime_team = lifetime_in_minutes_team//processed_items_team
+    lifetime_info = {'count': processed_items,
+                    'lifetime': lifetime,
+                    'count_team': processed_items_team,
+                    'lifetime_team': lifetime_team}
+    return lifetime_info
 
 def get_issues_lifetime_average(closed_issues, days: str) -> dict:
     return get_items_lifetime_average(closed_issues, days)
