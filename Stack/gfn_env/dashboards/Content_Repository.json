@@ -133,7 +133,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_contributors",
+          "expr": "sum(ComplianceAsCode_content_contributors{exported_job=~\".*\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -147,7 +147,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_subscribers_count",
+          "expr": "sum(ComplianceAsCode_content_subscribers_count{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Subscribers",
           "range": true,
@@ -159,7 +159,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_org_team_size",
+          "expr": "sum(ComplianceAsCode_org_team_size{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Team Size",
           "range": true,
@@ -171,7 +171,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_org_members",
+          "expr": "sum(ComplianceAsCode_org_members{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Org Members",
           "range": true,
@@ -183,7 +183,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_org_admins",
+          "expr": "sum(ComplianceAsCode_org_admins{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Org Admins",
           "range": true,
@@ -280,7 +280,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_events",
+          "expr": "sum(ComplianceAsCode_content_events{exported_job=~\".*\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -379,7 +379,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_stargazers_count",
+          "expr": "sum(ComplianceAsCode_content_stargazers_count{exported_job=~\".*\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -393,7 +393,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_forks_count",
+          "expr": "sum(ComplianceAsCode_content_forks_count{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Forks",
           "range": true,
@@ -404,8 +404,11 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "",
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_subscribers_count{exported_job=~\".*\"})",
           "hide": false,
+          "legendFormat": "Subscribers",
+          "range": true,
           "refId": "C"
         }
       ],
@@ -545,7 +548,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})",
           "interval": "",
           "legendFormat": "Open PRs",
           "range": true,
@@ -557,7 +560,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_unassigned_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Unassigned PRs",
           "range": true,
@@ -569,7 +572,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_old_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Old Open PRs",
           "range": true,
@@ -644,7 +647,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_pulls - ComplianceAsCode_content_unassigned_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "interval": "",
           "legendFormat": "Assigned PRs",
           "range": true,
@@ -656,7 +659,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_unassigned_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Unassigned PRs",
           "range": true,
@@ -754,7 +757,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_created_pulls_90days",
+          "expr": "sum(ComplianceAsCode_content_created_pulls_90days{exported_job=~\".*\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -768,7 +771,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_closed_pulls_90days",
+          "expr": "sum(ComplianceAsCode_content_closed_pulls_90days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Closed PRs (90d)",
           "range": true,
@@ -780,7 +783,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_created_pulls_30days",
+          "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Created PRs (30d)",
           "range": true,
@@ -792,7 +795,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_closed_pulls_30days",
+          "expr": "sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Closed PRs (30d)",
           "range": true,
@@ -912,7 +915,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_count - ComplianceAsCode_content_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})",
           "interval": "",
           "legendFormat": "Open Issues",
           "range": true,
@@ -924,7 +927,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_unassigned_open_issues - ComplianceAsCode_content_unassigned_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Unassigned Issues",
           "range": true,
@@ -936,7 +939,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_old_open_issues - ComplianceAsCode_content_old_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_old_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Old Open Issues",
           "range": true,
@@ -1011,7 +1014,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "(ComplianceAsCode_content_open_issues_count - ComplianceAsCode_content_open_pulls) - (ComplianceAsCode_content_unassigned_open_issues - ComplianceAsCode_content_unassigned_open_pulls)",
+          "expr": "(sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})) - (sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"}))",
           "interval": "",
           "legendFormat": "Assigned Issues",
           "range": true,
@@ -1023,7 +1026,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_unassigned_open_issues - ComplianceAsCode_content_unassigned_open_pulls",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Unassigned Issues",
           "range": true,
@@ -1120,7 +1123,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_created_issues_90days",
+          "expr": "sum(ComplianceAsCode_content_created_issues_90days{exported_job=~\".*\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1134,7 +1137,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_closed_issues_90days",
+          "expr": "sum(ComplianceAsCode_content_closed_issues_90days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Closed Issues (90d)",
           "range": true,
@@ -1147,7 +1150,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_created_issues_30days",
+          "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"})",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -1162,7 +1165,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_closed_issues_30days",
+          "expr": "sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Closed Issues (30d)",
           "range": true,
@@ -1264,7 +1267,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_productizationissue",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
           "interval": "",
           "legendFormat": "productization-issue",
           "range": true,
@@ -1276,7 +1279,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_disarhel9stigalignment",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_disarhel9stigalignment{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "DISA RHEL9 STIG Alignment",
           "range": true,
@@ -1288,7 +1291,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_needsoktotest",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_needsoktotest{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "need-ok-to-test",
           "range": true,
@@ -1300,7 +1303,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_goodfirstissue",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_goodfirstissue{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "good-first-issue",
           "range": true,
@@ -1312,7 +1315,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_bugfix",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "bugfix",
           "range": true,
@@ -1324,7 +1327,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_helpwanted",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_helpwanted{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "help-wanted",
           "range": true,
@@ -1336,7 +1339,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_blocker",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_blocker{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "BLOCKER",
           "range": true,
@@ -1348,7 +1351,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_newproduct",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_newproduct{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "New Product",
           "range": true,
@@ -1360,7 +1363,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_refactoring",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_refactoring{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "refactoring",
           "range": true,
@@ -1372,7 +1375,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_unclear",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_unclear{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "unclear",
           "range": true,
@@ -1440,7 +1443,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_needsoktotest",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_needsoktotest{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "need-ok-to-test",
           "range": true,
@@ -1452,7 +1455,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_helpwanted",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_helpwanted{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "help-wanted",
           "range": true,
@@ -1464,7 +1467,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_goodfirstissue",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_goodfirstissue{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "good-first-issue",
           "range": true,
@@ -1476,7 +1479,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_unclear",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_unclear{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "unclear",
           "range": true,
@@ -1488,7 +1491,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_newproduct",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_newproduct{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "New Product",
           "range": true,
@@ -1556,7 +1559,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_productizationissue",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
           "interval": "",
           "legendFormat": "productization-issue",
           "range": true,
@@ -1568,7 +1571,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_disarhel9stigalignment",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_disarhel9stigalignment{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "DISA RHEL9 STIG Alignment",
           "range": true,
@@ -1580,7 +1583,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_bugfix",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "bugfix",
           "range": true,
@@ -1592,7 +1595,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_blocker",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_blocker{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "BLOCKER",
           "range": true,
@@ -1604,7 +1607,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_open_issues_label_refactoring",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_refactoring{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "refactoring",
           "range": true,
@@ -1679,7 +1682,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "ComplianceAsCode_content_labels_count",
+          "expr": "sum(ComplianceAsCode_content_labels_count{exported_job=~\".*\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1791,7 +1794,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_pulls_lifetime_average_30days",
+          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_30days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Total Avg (30d)",
           "range": true,
@@ -1803,7 +1806,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_pulls_lifetime_average_90days",
+          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_90days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Total Avg (90d)",
           "range": true,
@@ -1815,7 +1818,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_pulls_lifetime_average_30days_team",
+          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_30days_team{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Team Avg (30d)",
           "range": true,
@@ -1827,7 +1830,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_pulls_lifetime_average_90days_team",
+          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_90days_team{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Team Avg (90d)",
           "range": true,
@@ -1924,7 +1927,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_issues_lifetime_average_30days",
+          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_30days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Total Avg (30d)",
           "range": true,
@@ -1936,7 +1939,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_issues_lifetime_average_90days",
+          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_90days{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Total Avg (90d)",
           "range": true,
@@ -1948,7 +1951,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_issues_lifetime_average_30days_team",
+          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_30days_team{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Team Avg (30d)",
           "range": true,
@@ -1960,7 +1963,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "ComplianceAsCode_content_issues_lifetime_average_90days_team",
+          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_90days_team{exported_job=~\".*\"})",
           "hide": false,
           "legendFormat": "Team Avg (90d)",
           "range": true,
@@ -1980,7 +1983,7 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
