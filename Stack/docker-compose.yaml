@@ -3,6 +3,7 @@ version: '3.5'
 services:
   prometheus:
     image: prom/prometheus:latest
+    restart: unless-stopped
     volumes:
       - ./prometheus/conf/:/etc/prometheus/:Z
       - ./prometheus/data/:/prometheus/:Z
@@ -32,6 +33,7 @@ services:
 
   grafana:
     image: grafana/grafana:latest
+    restart: unless-stopped
     ports:
       - 3000:3000
     volumes:
