@@ -412,11 +412,11 @@ def collect_repository_metrics_prometheus(session, repo_id) -> list:
             metrics = collect_repository_open_pulls(session, repo_id, metrics)
         elif metric == 'pulls_lifetime_average':
             closed_pulls_list = get_repository_pulls(session, repo_id,
-                                                     'state=closed,sort=updated,direction=desc')
+                                                     'state=closed,sort=closed,direction=desc')
             metrics = collect_pulls_lifetime_average(repo_id, metrics, closed_pulls_list)
         elif metric == 'issues_lifetime_average':
             closed_issues_list = get_repository_issues(session, repo_id,
-                                                       'state=closed,sort=updated,direction=desc',
+                                                       'state=closed,sort=closed,direction=desc',
                                                        '')
             metrics = collect_issues_lifetime_average(repo_id, metrics, closed_issues_list)
         else:
@@ -491,12 +491,12 @@ def main():
         print_results(results, 'pull')
     elif ACTION == 'calc-repo-issues-lifetime':
         closed_issues = get_repository_issues(ghs, REPOSITORY,
-                                             'state=closed,sort=updated,direction=desc','')
+                                             'state=closed,sort=closed,direction=desc','')
         lifetime_info = get_issues_lifetime_average(closed_issues, DAYS)
         print(f'Issues lifetime average for the last {DAYS} days: {lifetime_info["lifetime"]} minutes for {lifetime_info["count"]} issues')
     elif ACTION == 'calc-repo-pulls-lifetime':
         closed_pulls = get_repository_pulls(ghs, REPOSITORY,
-                                            'state=closed,sort=updated,direction=desc')
+                                            'state=closed,sort=closed,direction=desc')
         lifetime_info = get_pulls_lifetime_average(closed_pulls, DAYS)
         print(f'Pulls lifetime average for the last {DAYS} days: {lifetime_info["lifetime"]} minutes for {lifetime_info["count"]} pulls')
     elif ACTION == 'push-metrics-prometheus':
