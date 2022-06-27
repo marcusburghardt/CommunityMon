@@ -433,7 +433,7 @@
         "content": "* <a href=\"https://github.com/ComplianceAsCode/content\" target=\"_blank\">Code</a>\n* <a href=\"https://github.com/ComplianceAsCode/content/issues\" target=\"_blank\">Issues</a>\n* <a href=\"https://github.com/ComplianceAsCode/content/pulls\" target=\"_blank\">Pull requests</a>\n* <a href=\"https://github.com/ComplianceAsCode/content/discussions\" target=\"_blank\">Discussions</a>\n* <a href=\"https://github.com/ComplianceAsCode/content/actions\" target=\"_blank\">Actions</a>\n* <a href=\"https://github.com/ComplianceAsCode/content/pulse\" target=\"_blank\">Insights</a>\n\n",
         "mode": "markdown"
       },
-      "pluginVersion": "v1.0",
+      "pluginVersion": "8.5.3",
       "title": "Quick Links",
       "transparent": true,
       "type": "text"
@@ -531,7 +531,8 @@
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean"
           ],
           "displayMode": "table",
           "placement": "right"
@@ -739,7 +740,8 @@
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean"
           ],
           "displayMode": "table",
           "placement": "right"
@@ -898,7 +900,8 @@
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean"
           ],
           "displayMode": "table",
           "placement": "right"
@@ -1105,7 +1108,8 @@
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean"
           ],
           "displayMode": "table",
           "placement": "right"
@@ -1673,7 +1677,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "v1.0",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1777,7 +1781,8 @@
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean"
           ],
           "displayMode": "table",
           "placement": "right"
@@ -1910,7 +1915,8 @@
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean"
           ],
           "displayMode": "table",
           "placement": "right"
