@@ -1241,7 +1241,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 11,
         "x": 0,
         "y": 18
@@ -1271,6 +1271,146 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "bugfix",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_cis{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "CIS",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
+          "interval": "",
+          "legendFormat": "productization-issue",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_stig{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "STIG",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel7{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "RHEL7",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel8{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "RHEL8",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel9{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "RHEL9",
+          "range": true,
+          "refId": "H"
+        }
+      ],
+      "title": "Labeled Issues",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "Labels usually used by Red Hatters",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 11,
+        "y": 18
+      },
+      "id": 34,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
           "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
           "interval": "",
           "legendFormat": "productization-issue",
@@ -1283,35 +1423,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_disarhel9stigalignment{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_stig{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "DISA RHEL9 STIG Alignment",
+          "legendFormat": "STIG",
           "range": true,
           "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_needsoktotest{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "need-ok-to-test",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_goodfirstissue{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "good-first-issue",
-          "range": true,
-          "refId": "D"
         },
         {
           "datasource": {
@@ -1331,9 +1447,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_helpwanted{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_cis{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "help-wanted",
+          "legendFormat": "CIS",
           "range": true,
           "refId": "F"
         },
@@ -1343,52 +1459,40 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_blocker{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel7{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "BLOCKER",
+          "legendFormat": "RHEL7",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel8{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "RHEL8",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel9{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "RHEL9",
           "range": true,
           "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_newproduct{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "New Product",
-          "range": true,
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_refactoring{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "refactoring",
-          "range": true,
-          "refId": "I"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_unclear{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "unclear",
-          "range": true,
-          "refId": "J"
         }
       ],
-      "title": "Labeled Issues",
+      "title": "Team Interest Labels",
       "transparent": true,
-      "type": "timeseries"
+      "type": "piechart"
     },
     {
       "datasource": {
@@ -1414,8 +1518,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 4,
-        "x": 11,
+        "w": 5,
+        "x": 16,
         "y": 18
       },
       "id": 33,
@@ -1483,127 +1587,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_unclear{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "unclear",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_newproduct{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "New Product",
-          "range": true,
-          "refId": "E"
-        }
-      ],
-      "title": "Community Interest Labels",
-      "transparent": true,
-      "type": "piechart"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "Labels usually used by Red Hatters",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            }
-          },
-          "mappings": []
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 5,
-        "x": 15,
-        "y": 18
-      },
-      "id": 34,
-      "options": {
-        "displayLabels": [
-          "value"
-        ],
-        "legend": {
-          "displayMode": "list",
-          "placement": "right"
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
-          "interval": "",
-          "legendFormat": "productization-issue",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_disarhel9stigalignment{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "DISA RHEL9 STIG Alignment",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "bugfix",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
           "expr": "sum(ComplianceAsCode_content_open_issues_label_blocker{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "BLOCKER",
+          "legendFormat": "blocker",
           "range": true,
-          "refId": "C"
+          "refId": "D"
         },
         {
           "datasource": {
@@ -1615,10 +1603,22 @@
           "hide": false,
           "legendFormat": "refactoring",
           "range": true,
-          "refId": "D"
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_donotmerge_workinprogress{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "work-in-progress",
+          "range": true,
+          "refId": "F"
         }
       ],
-      "title": "Team Interest Labels",
+      "title": "Community Interest Labels",
       "transparent": true,
       "type": "piechart"
     },
@@ -1658,9 +1658,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 3,
-        "x": 20,
+        "x": 21,
         "y": 18
       },
       "id": 35,
@@ -1705,7 +1705,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 25
       },
       "id": 30,
       "panels": [],
@@ -1773,7 +1773,7 @@
         "h": 5,
         "w": 11,
         "x": 0,
-        "y": 27
+        "y": 26
       },
       "id": 23,
       "options": {
@@ -1907,7 +1907,7 @@
         "h": 5,
         "w": 11,
         "x": 11,
-        "y": 27
+        "y": 26
       },
       "id": 28,
       "options": {
@@ -1989,13 +1989,13 @@
     "list": []
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Content_Repository",
   "uid": "5CYqOs87k",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
