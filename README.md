@@ -122,6 +122,10 @@ Navigate to the folder where the `docker-compose.yaml` file is located and execu
 ```shell
 podman-compose up -d
 ```
+If you close the session where the containers were started, `systemd` will detect and stop any container associated with the respective session. Therefore, if you need the containers running even after the logout, enable the `linger` functionality for the user:
+```shell
+loginctl enable-linger
+```
 ## Updates
 Whenever you desire to update the stack, just follow these few simple steps:
 ```shell
