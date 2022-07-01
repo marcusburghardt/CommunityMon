@@ -39,6 +39,7 @@ services:
     volumes:
         - ./gfn_env/provisioning:/etc/grafana/provisioning:Z
         - ./gfn_env/dashboards:/var/lib/grafana/dashboards:Z
+        - ./logs/grafana/:/var/log/grafana:Z
     env_file:
     - .env_grafana
     secrets:

@@ -74,8 +74,17 @@ cp /opt/CommunityMon/CommunityMon/Sample_Files/apis_apis.yml /opt/CommunityMon/C
 cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_env_grafana /opt/CommunityMon/CommunityMon/Stack/.env_grafana
 cp /opt/CommunityMon/CommunityMon/Sample_Files/stack_dot_GRAFANA_ADMIN_PASSWORD /opt/CommunityMon/CommunityMon/Stack/.GRAFANA_ADMIN_PASSWORD
 ```
-
 **_NOTE:_** Don't forget to adjust the grafana admin password in `.GRAFANA_ADMIN_PASSWORD`.
+#### Persistent Logs
+It might be necessary to persist the application logs for auditing purposes. This feature is already defined but commented for Grafana in the `stack_dot_env_grafana`. You can enable it anytime in your environment, if necessary. If enabled, a local `logs` folder must be created.
+```shell
+sudo mkdir -p /opt/CommunityMon/CommunityMon/Stack/logs/grafana
+```
+**_NOTE:_** This folder is automatically ignored by git.
+
+For convenience, in the respective `Grafana` section of `docker-compose-yml` the proper volume is already mapped.
+
+**_NOTE:_** Nothing will be logged in files if the `GF_LOG_MODE` variable doesn't contain `file` as value.
 
 ### SELinux
 It is necessary to properly set the SELinux file context for the data folder in order to allow the prometheus container to store the data.
