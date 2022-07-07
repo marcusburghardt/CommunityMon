@@ -509,10 +509,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "orange",
-                "value": 50
               }
             ]
           }
@@ -878,10 +874,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "orange",
-                "value": 320
               }
             ]
           }
@@ -1996,6 +1988,6 @@
   "timezone": "",
   "title": "Content_Repository",
   "uid": "5CYqOs87k",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
