@@ -78,6 +78,14 @@ def filter_outdated_items(items, days) -> list:
             old_open_items.append(item)
     return old_open_items
 
+def filter_repository_open_items_team(items) -> list:
+    team_members = get_github_metrics('team')
+    open_items_team = []
+    for item in items:
+        if item.user.login in team_members:
+            open_items_team.append(item)
+    return open_items_team
+
 def filter_repository_open_items_unassigned(items) -> int:
     count = 0
     for item in items:
@@ -356,6 +364,7 @@ def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, sta
 def collect_repository_open_items(repo_id: str, metrics: dict, items, type: str) -> dict:
     repo_name = create_canonical_name(repo_id)
     count = items.totalCount
+
     description = f'Count of open {type} on {repo_id}'
     metrics = append_pushgateway_metrics(metrics, f'{repo_name}_open_{type}',
                                          count, description)
@@ -370,6 +379,23 @@ def collect_repository_open_items(repo_id: str, metrics: dict, items, type: str)
     description = f'Count of old open {type} on {repo_id}'
     metrics = append_pushgateway_metrics(metrics, f'{repo_name}_old_open_{type}',
                                          count, description)
+
+    # Metrics restricted to the team members
+    team_items = filter_repository_open_items_team(items)
+    description_team = f'Count of open {type} reported by the team on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_open_{type}_team',
+                                         len(team_items), description_team)
+
+    count = filter_repository_open_items_unassigned(team_items)
+    description_team = f'Count of unassigned open {type} on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_unassigned_open_{type}_team',
+                                         count, description_team)
+
+    days = get_github_metrics('no_activity_limit')
+    count = len(filter_outdated_items(team_items, days))
+    description_team = f'Count of old open {type} on {repo_id}'
+    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_old_open_{type}_team',
+                                         count, description_team)
     return metrics
 
 def collect_repository_open_issues(session, repo_id: str, metrics: dict) -> dict:
