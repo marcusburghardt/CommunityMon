@@ -492,7 +492,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "line"
+              "mode": "off"
             }
           },
           "links": [
@@ -516,22 +516,30 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 10,
+        "h": 8,
+        "w": 6,
         "x": 0,
         "y": 7
       },
       "id": 11,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
       "options": {
         "legend": {
           "calcs": [
             "last",
             "min",
             "max",
-            "mean"
+            "mean",
+            "diff"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "bottom"
         },
         "tooltip": {
           "mode": "single",
@@ -610,19 +618,27 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 2,
-        "x": 10,
+        "x": 6,
         "y": 7
       },
-      "id": 31,
+      "id": 47,
+      "links": [
+        {
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
       "options": {
         "displayLabels": [
-          "value"
+          "value",
+          "percent"
         ],
         "legend": {
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": []
         },
         "pieType": "pie",
         "reduceOptions": {
@@ -644,9 +660,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
           "interval": "",
-          "legendFormat": "Assigned PRs",
+          "legendFormat": "Updated",
           "range": true,
           "refId": "A"
         },
@@ -656,294 +672,16 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "Unassigned PRs",
+          "legendFormat": "+15 days old",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "Assigned PRs",
+      "title": "PRs Activity",
       "transparent": true,
       "type": "piechart"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic",
-            "seriesBy": "last"
-          },
-          "custom": {
-            "axisGridShow": false,
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 10,
-        "x": 12,
-        "y": 7
-      },
-      "id": 3,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(ComplianceAsCode_content_created_pulls_90days{exported_job=~\".*\"})",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Created PRs (90d)",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_closed_pulls_90days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Closed PRs (90d)",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Created PRs (30d)",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Closed PRs (30d)",
-          "range": true,
-          "refId": "D"
-        }
-      ],
-      "title": "PRs Balance",
-      "transparent": true,
-      "type": "timeseries"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 12
-      },
-      "id": 25,
-      "panels": [],
-      "title": "Repository Issues Status",
-      "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "Old Open Issues are only considered when no assignee is defined.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
-          },
-          "custom": {
-            "axisGridShow": false,
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
-            }
-          },
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "Issues List",
-              "url": "https://github.com/ComplianceAsCode/content/issues"
-            }
-          ],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 10,
-        "x": 0,
-        "y": 13
-      },
-      "id": 2,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})",
-          "interval": "",
-          "legendFormat": "Open Issues",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Unassigned Issues",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_old_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Old Open Issues",
-          "range": true,
-          "refId": "C"
-        }
-      ],
-      "title": "Open Issues",
-      "transparent": true,
-      "type": "timeseries"
     },
     {
       "datasource": {
@@ -975,19 +713,27 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 2,
-        "x": 10,
-        "y": 13
+        "x": 8,
+        "y": 7
       },
-      "id": 32,
+      "id": 40,
+      "links": [
+        {
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
       "options": {
         "displayLabels": [
-          "value"
+          "value",
+          "percent"
         ],
         "legend": {
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": []
         },
         "pieType": "pie",
         "reduceOptions": {
@@ -1009,9 +755,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "(sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})) - (sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"}))",
+          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "interval": "",
-          "legendFormat": "Assigned Issues",
+          "legendFormat": "Assigned",
           "range": true,
           "refId": "A"
         },
@@ -1021,14 +767,14 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "Unassigned Issues",
+          "legendFormat": "Unassigned",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "Assigned Issues",
+      "title": "Assigning Rate",
       "transparent": true,
       "type": "piechart"
     },
@@ -1044,67 +790,53 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisGridShow": false,
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
-            },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "mappings": []
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 10,
-        "x": 12,
-        "y": 13
+        "h": 8,
+        "w": 2,
+        "x": 10,
+        "y": 7
       },
-      "id": 26,
+      "id": 43,
+      "links": [
+        {
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
       "options": {
+        "displayLabels": [
+          "value",
+          "percent"
+        ],
         "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": []
+        },
+        "pieType": "pie",
+        "reduceOptions": {
           "calcs": [
-            "last",
-            "min",
-            "max",
-            "mean"
+            "lastNotNull"
           ],
-          "displayMode": "table",
-          "placement": "right"
+          "fields": "",
+          "values": false
         },
         "tooltip": {
           "mode": "single",
@@ -1118,12 +850,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(ComplianceAsCode_content_created_issues_90days{exported_job=~\".*\"})",
-          "format": "time_series",
-          "instant": false,
+          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_issues_label_donotmerge_workinprogress{exported_job=~\".*\"})",
           "interval": "",
-          "legendFormat": "Created Issues (90d)",
+          "legendFormat": "Ready for Review",
           "range": true,
           "refId": "A"
         },
@@ -1133,55 +862,124 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_closed_issues_90days{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_donotmerge_workinprogress{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "Closed Issues (90d)",
+          "legendFormat": "WIP",
           "range": true,
           "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"})",
-          "format": "time_series",
-          "hide": false,
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Created Issues (30d)",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Closed Issues (30d)",
-          "range": true,
-          "refId": "D"
         }
       ],
-      "title": "Issues Balance",
+      "title": "PRs Drafts",
       "transparent": true,
-      "type": "timeseries"
+      "type": "piechart"
     },
     {
       "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "Count of issues with specific labels.",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 12,
+        "y": 7
+      },
+      "id": 45,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
+      "options": {
+        "displayLabels": [
+          "percent",
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls_team{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Team",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls_team{exported_job=~\".*\"})",
+          "interval": "",
+          "legendFormat": "External Contributors",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "PRs Source",
+      "transparent": true,
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd",
+            "seriesBy": "last"
           },
           "custom": {
             "axisGridShow": false,
@@ -1215,6 +1013,13 @@
               "mode": "off"
             }
           },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -1222,10 +1027,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "orange",
-                "value": 10
               }
             ]
           }
@@ -1233,23 +1034,30 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 11,
-        "x": 0,
-        "y": 18
+        "h": 8,
+        "w": 6,
+        "x": 14,
+        "y": 7
       },
-      "id": 13,
+      "id": 36,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
       "options": {
         "legend": {
           "calcs": [
             "last",
             "min",
-            "max"
+            "max",
+            "mean",
+            "diff"
           ],
           "displayMode": "table",
-          "placement": "right",
-          "sortBy": "Last",
-          "sortDesc": true
+          "placement": "bottom"
         },
         "tooltip": {
           "mode": "single",
@@ -1263,9 +1071,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "bugfix",
+          "expr": "sum(ComplianceAsCode_content_open_pulls_team{exported_job=~\".*\"})",
+          "interval": "",
+          "legendFormat": "Open PRs",
           "range": true,
           "refId": "A"
         },
@@ -1275,9 +1083,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_cis{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls_team{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "CIS",
+          "legendFormat": "Unassigned PRs",
           "range": true,
           "refId": "B"
         },
@@ -1287,332 +1095,16 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
-          "interval": "",
-          "legendFormat": "productization-issue",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_stig{exported_job=~\".*\"})",
+          "expr": "sum(ComplianceAsCode_content_old_open_pulls_team{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "STIG",
+          "legendFormat": "Old Open PRs",
           "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel7{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "RHEL7",
-          "range": true,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel8{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "RHEL8",
-          "range": true,
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel9{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "RHEL9",
-          "range": true,
-          "refId": "H"
+          "refId": "C"
         }
       ],
-      "title": "Labeled Issues",
+      "title": "Open PRs Sent By Team Members",
       "transparent": true,
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "Labels usually used by Red Hatters",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            }
-          },
-          "mappings": []
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 11,
-        "y": 18
-      },
-      "id": 34,
-      "options": {
-        "displayLabels": [
-          "value"
-        ],
-        "legend": {
-          "displayMode": "list",
-          "placement": "right"
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
-          "interval": "",
-          "legendFormat": "productization-issue",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_stig{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "STIG",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "bugfix",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_cis{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "CIS",
-          "range": true,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel7{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "RHEL7",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel8{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "RHEL8",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel9{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "RHEL9",
-          "range": true,
-          "refId": "G"
-        }
-      ],
-      "title": "Team Interest Labels",
-      "transparent": true,
-      "type": "piechart"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "Labels which demands maintainers support",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            }
-          },
-          "mappings": []
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 5,
-        "x": 16,
-        "y": 18
-      },
-      "id": 33,
-      "options": {
-        "displayLabels": [
-          "value"
-        ],
-        "legend": {
-          "displayMode": "list",
-          "placement": "right"
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_needsoktotest{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "need-ok-to-test",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_helpwanted{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "help-wanted",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_goodfirstissue{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "good-first-issue",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_blocker{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "blocker",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_refactoring{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "refactoring",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_donotmerge_workinprogress{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "work-in-progress",
-          "range": true,
-          "refId": "F"
-        }
-      ],
-      "title": "Community Interest Labels",
-      "transparent": true,
-      "type": "piechart"
     },
     {
       "datasource": {
@@ -1623,41 +1115,50 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
-          "displayName": "labels",
-          "mappings": [],
-          "max": 70,
-          "min": 10,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 50
-              },
-              {
-                "color": "red",
-                "value": 60
-              }
-            ]
-          }
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "PRs List",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "mappings": []
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 3,
-        "x": 21,
-        "y": 18
+        "h": 8,
+        "w": 2,
+        "x": 20,
+        "y": 7
       },
-      "id": 35,
+      "id": 41,
+      "links": [
+        {
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
       "options": {
-        "orientation": "auto",
+        "displayLabels": [
+          "value",
+          "percent"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "values": []
+        },
+        "pieType": "pie",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1665,11 +1166,11 @@
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": true,
-        "showThresholdMarkers": true,
-        "text": {}
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1677,300 +1178,1864 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(ComplianceAsCode_content_labels_count{exported_job=~\".*\"})",
-          "format": "time_series",
-          "instant": false,
+          "expr": "sum(ComplianceAsCode_content_open_pulls_team{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls_team{exported_job=~\".*\"})",
           "interval": "",
-          "legendFormat": "Existing Labels",
+          "legendFormat": "Assigned",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_unassigned_open_pulls_team{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Unassigned",
+          "range": true,
+          "refId": "B"
         }
       ],
-      "title": "Existing Labels",
+      "title": "Team PRs",
       "transparent": true,
-      "type": "gauge"
+      "type": "piechart"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 15
       },
-      "id": 30,
-      "panels": [],
-      "title": "PRs and Issues Lifetime",
+      "id": 25,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Old Open Issues are only considered when no assignee is defined.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "Issues List",
+                  "url": "https://github.com/ComplianceAsCode/content/issues"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 16
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "Open Issues",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Unassigned Issues",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_old_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Old Open Issues",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Open Issues",
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "PRs List",
+                  "url": "https://github.com/ComplianceAsCode/content/pulls"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 2,
+            "x": 6,
+            "y": 16
+          },
+          "id": 50,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Open Issues",
+              "url": "https://github.com/ComplianceAsCode/content/issues"
+            }
+          ],
+          "options": {
+            "displayLabels": [
+              "value",
+              "percent"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom"
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "(sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})) - (sum(ComplianceAsCode_content_old_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"}))",
+              "interval": "",
+              "legendFormat": "Updated",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_old_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_old_open_pulls{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "+15 days old",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "Issues Activity",
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "PRs List",
+                  "url": "https://github.com/ComplianceAsCode/content/pulls"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 2,
+            "x": 8,
+            "y": 16
+          },
+          "id": 32,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Open Issues",
+              "url": "https://github.com/ComplianceAsCode/content/issues"
+            }
+          ],
+          "options": {
+            "displayLabels": [
+              "value",
+              "percent"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom"
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "(sum(ComplianceAsCode_content_open_issues_count{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_pulls{exported_job=~\".*\"})) - (sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"}))",
+              "interval": "",
+              "legendFormat": "Assigned",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_unassigned_open_issues{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_unassigned_open_pulls{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Unassigned",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "Assigning Rate",
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "Issues List",
+                  "url": "https://github.com/ComplianceAsCode/content/issues"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 10,
+            "y": 16
+          },
+          "id": 56,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "Open",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_unassigned{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Unassigned",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_old{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Old",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Productization Issues History",
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 20,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 10
+                  },
+                  {
+                    "color": "red",
+                    "value": 15
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 2,
+            "x": 16,
+            "y": 16
+          },
+          "id": 54,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Open PRs",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": false,
+            "text": {
+              "valueSize": 35
+            }
+          },
+          "pluginVersion": "8.5.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "expr": "ComplianceAsCode_content_open_issues_label_productizationissue",
+              "refId": "A"
+            }
+          ],
+          "title": "Prod Issues",
+          "transparent": true,
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "PRs List",
+                  "url": "https://github.com/ComplianceAsCode/content/pulls"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 2,
+            "x": 18,
+            "y": 16
+          },
+          "id": 60,
+          "links": [
+            {
+              "title": "Open PRs",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "options": {
+            "displayLabels": [
+              "value",
+              "percent"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_issues_label_productizationissue_unassigned{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "Assigned",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_unassigned{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Unassigned",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "Assigning Rate",
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "PRs List",
+                  "url": "https://github.com/ComplianceAsCode/content/pulls"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 2,
+            "x": 20,
+            "y": 16
+          },
+          "id": 58,
+          "links": [
+            {
+              "title": "Open PRs",
+              "url": "https://github.com/ComplianceAsCode/content/pulls"
+            }
+          ],
+          "options": {
+            "displayLabels": [
+              "value",
+              "percent"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_open_issues_label_productizationissue_old{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "Updated",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_old{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "+15 days old",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "Activity",
+          "transparent": true,
+          "type": "piechart"
+        }
+      ],
+      "title": "Repository Issues Status",
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
       },
-      "description": "Difference between the PR creation and closing times.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
+      "id": 52,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
           },
-          "custom": {
-            "axisGridShow": false,
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "displayName": "labels",
+              "mappings": [],
+              "max": 70,
+              "min": 10,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 50
+                  },
+                  {
+                    "color": "red",
+                    "value": 60
+                  }
+                ]
+              }
             },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 3,
+            "x": 0,
+            "y": 20
+          },
+          "id": 35,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
             },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "showThresholdLabels": true,
+            "showThresholdMarkers": true,
+            "text": {}
+          },
+          "pluginVersion": "8.5.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(ComplianceAsCode_content_labels_count{exported_job=~\".*\"})",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Existing Labels",
+          "transparent": true,
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Count of issues with specific labels.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 10
+                  }
+                ]
+              }
             },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 11,
+            "x": 3,
+            "y": 20
+          },
+          "id": 13,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "sortBy": "Last",
+              "sortDesc": true
             },
-            "thresholdsStyle": {
-              "mode": "line"
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "m"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 11,
-        "x": 0,
-        "y": 26
-      },
-      "id": 23,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max",
-            "mean"
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "bugfix",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_cis{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "CIS",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "productization-issue",
+              "range": true,
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_stig{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "STIG",
+              "range": true,
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel7{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "RHEL7",
+              "range": true,
+              "refId": "F"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel8{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "RHEL8",
+              "range": true,
+              "refId": "G"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel9{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "RHEL9",
+              "range": true,
+              "refId": "H"
+            }
           ],
-          "displayMode": "table",
-          "placement": "right"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_30days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Total Avg (30d)",
-          "range": true,
-          "refId": "A"
+          "title": "Labeled Issues",
+          "transparent": true,
+          "type": "timeseries"
         },
         {
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_90days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Total Avg (90d)",
-          "range": true,
-          "refId": "B"
+          "description": "Labels usually used by Red Hatters",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 5,
+            "x": 14,
+            "y": 20
+          },
+          "id": 34,
+          "options": {
+            "displayLabels": [
+              "value"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right"
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "productization-issue",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_stig{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "STIG",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_bugfix{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "bugfix",
+              "range": true,
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_cis{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "CIS",
+              "range": true,
+              "refId": "F"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel7{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "RHEL7",
+              "range": true,
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel8{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "RHEL8",
+              "range": true,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_rhel9{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "RHEL9",
+              "range": true,
+              "refId": "G"
+            }
+          ],
+          "title": "Team Interest Labels",
+          "transparent": true,
+          "type": "piechart"
         },
         {
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_30days_team{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Team Avg (30d)",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+          "description": "Labels which demands maintainers support",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
           },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_90days_team{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Team Avg (90d)",
-          "range": true,
-          "refId": "D"
+          "gridPos": {
+            "h": 7,
+            "w": 5,
+            "x": 19,
+            "y": 20
+          },
+          "id": 33,
+          "options": {
+            "displayLabels": [
+              "value"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right"
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_needsoktotest{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "need-ok-to-test",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_helpwanted{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "help-wanted",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_goodfirstissue{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "good-first-issue",
+              "range": true,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_blocker{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "blocker",
+              "range": true,
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_refactoring{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "refactoring",
+              "range": true,
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_donotmerge_workinprogress{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "work-in-progress",
+              "range": true,
+              "refId": "F"
+            }
+          ],
+          "title": "Community Interest Labels",
+          "transparent": true,
+          "type": "piechart"
         }
       ],
-      "title": "PRs Lifetime Average",
-      "transparent": true,
-      "type": "timeseries"
+      "title": "Labels Information",
+      "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
       },
-      "description": "Difference between the Issues creation and closing times.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
+      "id": 38,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
           },
-          "custom": {
-            "axisGridShow": false,
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic",
+                "seriesBy": "last"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
             },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 11,
+            "x": 0,
+            "y": 28
+          },
+          "id": 3,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right"
             },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "m"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 11,
-        "x": 11,
-        "y": 26
-      },
-      "id": 28,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max",
-            "mean"
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(ComplianceAsCode_content_created_pulls_90days{exported_job=~\".*\"})",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Created PRs (90d)",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_closed_pulls_90days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Closed PRs (90d)",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Created PRs (30d)",
+              "range": true,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Closed PRs (30d)",
+              "range": true,
+              "refId": "D"
+            }
           ],
-          "displayMode": "table",
-          "placement": "right"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_30days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Total Avg (30d)",
-          "range": true,
-          "refId": "A"
+          "title": "PRs Balance",
+          "transparent": true,
+          "type": "timeseries"
         },
         {
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_90days{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Total Avg (90d)",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
           },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_30days_team{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Team Avg (30d)",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+          "gridPos": {
+            "h": 5,
+            "w": 11,
+            "x": 11,
+            "y": 28
           },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_90days_team{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Team Avg (90d)",
-          "range": true,
-          "refId": "D"
+          "id": 26,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(ComplianceAsCode_content_created_issues_90days{exported_job=~\".*\"})",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Created Issues (90d)",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_closed_issues_90days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Closed Issues (90d)",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"})",
+              "format": "time_series",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Created Issues (30d)",
+              "range": true,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Closed Issues (30d)",
+              "range": true,
+              "refId": "D"
+            }
+          ],
+          "title": "Issues Balance",
+          "transparent": true,
+          "type": "timeseries"
         }
       ],
-      "title": "Issues Lifetime Average",
-      "transparent": true,
-      "type": "timeseries"
+      "title": "PRs and Issues Balance",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 30,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Difference between the PR creation and closing times.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "m"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 11,
+            "x": 0,
+            "y": 29
+          },
+          "id": 23,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_30days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Total Avg (30d)",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_90days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Total Avg (90d)",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_30days_team{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Team Avg (30d)",
+              "range": true,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_pulls_lifetime_average_90days_team{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Team Avg (90d)",
+              "range": true,
+              "refId": "D"
+            }
+          ],
+          "title": "PRs Lifetime Average",
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Difference between the Issues creation and closing times.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "m"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 11,
+            "x": 11,
+            "y": 29
+          },
+          "id": 28,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_30days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Total Avg (30d)",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_90days{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Total Avg (90d)",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_30days_team{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Team Avg (30d)",
+              "range": true,
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_issues_lifetime_average_90days_team{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Team Avg (90d)",
+              "range": true,
+              "refId": "D"
+            }
+          ],
+          "title": "Issues Lifetime Average",
+          "transparent": true,
+          "type": "timeseries"
+        }
+      ],
+      "title": "PRs and Issues Lifetime",
+      "type": "row"
     }
   ],
   "refresh": false,
@@ -1981,13 +3046,13 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Content_Repository",
   "uid": "5CYqOs87k",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
