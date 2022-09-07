@@ -353,6 +353,17 @@ def collect_repository_items_by_label(repo_id: str, metrics: dict, items, label:
     metric = f'{repo_name}_{state}_{type}_label_{canonical_label.lower()}'
     description = f'Count of {state} {type} on {repo_id} with label {label}'
     metrics = append_pushgateway_metrics(metrics, metric, items.totalCount, description)
+
+    count = filter_repository_open_items_unassigned(items)
+    metric = f'{repo_name}_{state}_{type}_label_{canonical_label.lower()}_unassigned'
+    description = f'Count of unassigned {state} {type} on {repo_id} with label {label}'
+    metrics = append_pushgateway_metrics(metrics, metric, count, description)
+
+    days = get_github_metrics('no_activity_limit')
+    count = len(filter_outdated_items(items, days))
+    metric = f'{repo_name}_{state}_{type}_label_{canonical_label.lower()}_old'
+    description = f'Count of old {state} {type} on {repo_id} with label {label}'
+    metrics = append_pushgateway_metrics(metrics, metric, count, description)
     return metrics
 
 def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, state: str) -> dict:
