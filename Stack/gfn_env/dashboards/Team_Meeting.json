@@ -831,133 +831,147 @@
       "type": "piechart"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
-          },
-          "custom": {
-            "axisGridShow": false,
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line"
-            }
-          },
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "Issues List",
-              "url": "https://github.com/ComplianceAsCode/content/issues"
-            }
-          ],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
+      "collapsed": true,
       "gridPos": {
-        "h": 5,
-        "w": 10,
-        "x": 11,
-        "y": 9
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
       },
-      "id": 47,
-      "options": {
-        "legend": {
-          "calcs": [
-            "last",
-            "min",
-            "max",
-            "mean",
-            "diff"
+      "id": 50,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisGridShow": false,
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line"
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "Issues List",
+                  "url": "https://github.com/ComplianceAsCode/content/issues"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 11,
+            "x": 0,
+            "y": 17
+          },
+          "id": 47,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
+              "interval": "",
+              "legendFormat": "Open",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_unassigned{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Unassigned",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_old{exported_job=~\".*\"})",
+              "hide": false,
+              "legendFormat": "Old",
+              "range": true,
+              "refId": "C"
+            }
           ],
-          "displayMode": "table",
-          "placement": "right"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue{exported_job=~\".*\"})",
-          "interval": "",
-          "legendFormat": "Open",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_unassigned{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Unassigned",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "sum(ComplianceAsCode_content_open_issues_label_productizationissue_old{exported_job=~\".*\"})",
-          "hide": false,
-          "legendFormat": "Old",
-          "range": true,
-          "refId": "C"
+          "title": "Productization Issues History",
+          "transparent": true,
+          "type": "timeseries"
         }
       ],
-      "title": "Productization Issues History",
-      "transparent": true,
-      "type": "timeseries"
+      "title": "More details",
+      "type": "row"
     }
   ],
   "refresh": "",
@@ -975,6 +989,6 @@
   "timezone": "",
   "title": "Team_Meeting",
   "uid": "8ho1fhMVk",
-  "version": 14,
+  "version": 15,
   "weekStart": ""
 }
