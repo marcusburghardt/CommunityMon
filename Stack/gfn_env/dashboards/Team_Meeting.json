@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -140,8 +139,13 @@
           "links": [
             {
               "targetBlank": true,
-              "title": "PRs List",
-              "url": "https://github.com/ComplianceAsCode/content/pulls"
+              "title": "Open PRs - Oldest First",
+              "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+sort%3Acreated-asc"
+            },
+            {
+              "targetBlank": true,
+              "title": "Open PRs - Newest First",
+              "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+sort%3Acreated-desc"
             }
           ],
           "mappings": []
@@ -157,8 +161,14 @@
       "id": 43,
       "links": [
         {
-          "title": "Open PRs",
-          "url": "https://github.com/ComplianceAsCode/content/pulls"
+          "targetBlank": true,
+          "title": "Open PRs - Oldest First",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+sort%3Acreated-asc"
+        },
+        {
+          "targetBlank": true,
+          "title": "Open PRs - Newest First",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+sort%3Acreated-desc"
         }
       ],
       "options": {
@@ -235,8 +245,13 @@
           "links": [
             {
               "targetBlank": true,
-              "title": "PRs List",
-              "url": "https://github.com/ComplianceAsCode/content/pulls"
+              "title": "Assigned PRs",
+              "url": "https://github.com/ComplianceAsCode/content/pulls/assigned/*"
+            },
+            {
+              "targetBlank": true,
+              "title": "Unassigned PRs",
+              "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aopen+no%3Aassignee"
             }
           ],
           "mappings": []
@@ -252,8 +267,14 @@
       "id": 40,
       "links": [
         {
-          "title": "Open PRs",
-          "url": "https://github.com/ComplianceAsCode/content/pulls"
+          "targetBlank": true,
+          "title": "Assigned PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aopen+no%3Aassignee"
+        },
+        {
+          "targetBlank": true,
+          "title": "Unassigned PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls/assigned/*"
         }
       ],
       "options": {
@@ -330,8 +351,13 @@
           "links": [
             {
               "targetBlank": true,
-              "title": "PRs List",
-              "url": "https://github.com/ComplianceAsCode/content/pulls"
+              "title": "Work-In-Progress PRs",
+              "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+label%3Ado-not-merge%2Fwork-in-progress+"
+            },
+            {
+              "targetBlank": true,
+              "title": "PRs Ready for Review",
+              "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+no%3Ado-not-merge%2Fwork-in-progress+"
             }
           ],
           "mappings": []
@@ -347,8 +373,14 @@
       "id": 44,
       "links": [
         {
-          "title": "Open PRs",
-          "url": "https://github.com/ComplianceAsCode/content/pulls"
+          "targetBlank": true,
+          "title": "Work-In-Progress PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+sort%3Acreated-asc+label%3Ado-not-merge%2Fwork-in-progress"
+        },
+        {
+          "targetBlank": true,
+          "title": "PRs Ready for Review",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Aopen+is%3Apr+no%3Ado-not-merge%2Fwork-in-progress+"
         }
       ],
       "options": {
@@ -425,7 +457,7 @@
           "links": [
             {
               "targetBlank": true,
-              "title": "PRs List",
+              "title": "All Open PRs",
               "url": "https://github.com/ComplianceAsCode/content/pulls"
             }
           ],
@@ -443,7 +475,7 @@
       "links": [
         {
           "targetBlank": true,
-          "title": "PRs",
+          "title": "All Open PRs",
           "url": "https://github.com/ComplianceAsCode/content/pulls"
         }
       ],
@@ -558,7 +590,7 @@
         {
           "targetBlank": true,
           "title": "Productization Issues",
-          "url": "https://github.com/ComplianceAsCode/content/pulls"
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue"
         }
       ],
       "options": {
@@ -612,8 +644,13 @@
           "links": [
             {
               "targetBlank": true,
-              "title": "PRs List",
-              "url": "https://github.com/ComplianceAsCode/content/pulls"
+              "title": "Prod Issues - Oldest First",
+              "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+sort%3Acreated-asc"
+            },
+            {
+              "targetBlank": true,
+              "title": "Prod Issues - Newest First",
+              "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+sort%3Acreated-desc"
             }
           ],
           "mappings": []
@@ -629,8 +666,9 @@
       "id": 48,
       "links": [
         {
-          "title": "Open PRs",
-          "url": "https://github.com/ComplianceAsCode/content/pulls"
+          "targetBlank": true,
+          "title": "Prod Issues - Oldest First",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+sort%3Acreated-asc"
         }
       ],
       "options": {
@@ -707,8 +745,13 @@
           "links": [
             {
               "targetBlank": true,
-              "title": "PRs List",
-              "url": "https://github.com/ComplianceAsCode/content/pulls"
+              "title": "Assigned Prod Issues",
+              "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+assignee%3A*"
+            },
+            {
+              "targetBlank": true,
+              "title": "Unassigned Prod Issues",
+              "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+no%3Aassignee"
             }
           ],
           "mappings": []
@@ -724,8 +767,14 @@
       "id": 42,
       "links": [
         {
-          "title": "Open PRs",
-          "url": "https://github.com/ComplianceAsCode/content/pulls"
+          "targetBlank": true,
+          "title": "Assigned Prod Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+assignee%3A*"
+        },
+        {
+          "targetBlank": true,
+          "title": "Unassigned Prod Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue+no%3Aassignee"
         }
       ],
       "options": {
@@ -926,6 +975,6 @@
   "timezone": "",
   "title": "Team_Meeting",
   "uid": "8ho1fhMVk",
-  "version": 13,
+  "version": 14,
   "weekStart": ""
 }
