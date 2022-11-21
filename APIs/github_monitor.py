@@ -35,13 +35,13 @@ parser.add_argument('-c', '--count', action='store_true',
                     help='Show the numbers only.')
 parser.add_argument('-d', '--days', action='store', default='30',
                     help='Number of days to filter older issues or pulls.')
+parser.add_argument('-v', '--verbose', action='store_true',
+                    help='Show some extra information during the actions.')
 group = parser.add_mutually_exclusive_group()
 group.add_argument('-f', '--filters', action='store', default='',
                     help='Query filters accepted by the API: https://docs.github.com/en/rest/reference/')
 group.add_argument('-l', '--labels', action='store', default='',
                     help='Comma separated labels used to filter the results.')
-parser.add_argument('-v', '--verbose', action='store_true',
-                    help='Show some extra information during the actions.')
 
 args = parser.parse_args()
 ORG = args.org
