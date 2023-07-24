@@ -16,12 +16,31 @@ Author: Marcus Burghardt - https://github.com/marcusburghardt
 # - https://pygithub.readthedocs.io/en/latest/github_objects.html
 # - https://docs.github.com/en/rest
 
-import argparse
 from github import Github
-from common import *
-from prometheus_pushgw import *
+from argparse import ArgumentParser
 
-parser = argparse.ArgumentParser(description='Collect Github Information.')
+from common import (
+    create_canonical_name,
+    create_dict_from_string,
+    create_list_from_string,
+    parse_filters_string,
+    get_delta_time,
+    get_github_labels,
+    get_github_metrics,
+    get_github_token,
+    get_old_date,
+    print_object_info,
+    print_object_info_header,
+    )
+from prometheus_pushgw import (
+    append_pushgateway_metrics,
+    create_pushgateway_gauge_metric,
+    create_pushgateway_registry,
+    parse_repo_metrics,
+    push_pushgateway_metrics,
+    )
+
+parser = ArgumentParser(description='Collect Github Information.')
 parser.add_argument(
     '-o', '--org', action='store', default='ExampleOrg',
     help='The organization ID to be consulted.')
@@ -469,7 +488,7 @@ def collect_repository_open_pulls(session, repo_id: str, metrics: dict) -> dict:
 
 
 def collect_repository_metrics_prometheus(session, repo_id) -> list:
-    repo_name=create_canonical_name(repo_id)
+    repo_name = create_canonical_name(repo_id)
     if args.verbose:
         print(repo_name)
 
