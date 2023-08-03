@@ -275,7 +275,7 @@ def get_items_lifetime_average(items: list, days: str, lifetime_info: dict, stat
             lifetime_in_minutes_team += delta_time
             processed_items_team += 1
         if args.verbose:
-            print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at},'
+            print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at}, '
                   f'Closed: {item.closed_at}, Lifetime (Min): {delta_time}')
 
     if processed_items:
@@ -580,12 +580,16 @@ def print_results(results, object_type='') -> str:
         print_object_info(object_type, item, ORG)
 
 
-def print_lifetime_results(lifetime_info) -> str:
+def print_lifetime_results(lifetime_info, type) -> str:
     for state in ['closed', 'open']:
         count_key = f'{state}_count'
+        count = lifetime_info[count_key]
         lifetime_key = f'{state}_lifetime'
-        print(f'{state} issues lifetime average for the last {DAYS} days: '
-              f'{lifetime_info[lifetime_key]} minutes for {lifetime_info[count_key]} issues')
+        lifetime = lifetime_info[lifetime_key]
+        hours = lifetime // 60
+        days = lifetime // 1440
+        print(f'{state} {type} lifetime average for the last {DAYS} days: '
+              f'{lifetime} minutes ({hours} hours or {days} days) for {count} {type}')
 
 
 def main():
@@ -641,7 +645,7 @@ def main():
                                                    lifetime_info, 'closed')
         lifetime_info = get_items_lifetime_average(open_issues, DAYS,
                                                    lifetime_info, 'open')
-        print_lifetime_results(lifetime_info)
+        print_lifetime_results(lifetime_info, 'issues')
     elif ACTION == 'calc-repo-pulls-lifetime':
         lifetime_info = dict()
         closed_pulls = get_repository_pulls(ghs, REPOSITORY,
@@ -652,7 +656,7 @@ def main():
                                           'state=open,sort=opened,direction=desc')
         lifetime_info = get_items_lifetime_average(open_pulls, DAYS,
                                                    lifetime_info, 'open')
-        print_lifetime_results(lifetime_info)
+        print_lifetime_results(lifetime_info, 'pulls')
     elif ACTION == 'push-metrics-prometheus':
         push_metrics_prometheus(ghs, ORG)
         print("Metrics successfully sent!")
