@@ -439,40 +439,42 @@ def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, sta
     return metrics
 
 
-def collect_repository_open_items(repo_id: str, metrics: dict, items, type: str) -> dict:
+def process_open_items(repo_id: str, metrics: dict, items: list, type: str, suffix='') -> dict:
     repo_name = create_canonical_name(repo_id)
-    count = items.totalCount
+    days = get_github_metrics('no_activity_limit')
+    if suffix:
+        # suffix is passed as a text for the metric description.
+        # For the respective metric id it is used the last word of the suffix.
+        metric_suffix = f'_{create_canonical_name(suffix.split()[-1])}'
+    else:
+        metric_suffix = ''
 
-    description = f'Count of open {type} on {repo_id}'
+    if isinstance(items, list):
+        count = len(items)
+    else:
+        count = items.totalCount
+    description = f'Count of open {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(
-        metrics, f'{repo_name}_open_{type}', count, description)
+        metrics, f'{repo_name}_open_{type}{metric_suffix}', count, description)
 
     count = filter_repository_open_items_unassigned(items)
-    description = f'Count of unassigned open {type} on {repo_id}'
+    description = f'Count of unassigned open {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(
-        metrics, f'{repo_name}_unassigned_open_{type}', count, description)
+        metrics, f'{repo_name}_unassigned_open_{type}{metric_suffix}', count, description)
 
-    days = get_github_metrics('no_activity_limit')
     count = len(filter_outdated_items(items, days))
-    description = f'Count of old open {type} on {repo_id}'
+    description = f'Count of old open {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(
-        metrics, f'{repo_name}_old_open_{type}', count, description)
+        metrics, f'{repo_name}_old_open_{type}{metric_suffix}', count, description)
 
+    return metrics
+
+
+def collect_repository_open_items(repo_id: str, metrics: dict, items: list, type: str) -> dict:
+    metrics = process_open_items(repo_id, metrics, items, type, '')
     # Metrics based on filtered objects created by team members
     team_items = filter_repository_open_items_team(items)
-    description_team = f'Count of open {type} reported by the team on {repo_id}'
-    metrics = append_pushgateway_metrics(
-        metrics, f'{repo_name}_open_{type}_team', len(team_items), description_team)
-
-    count = filter_repository_open_items_unassigned(team_items)
-    description_team = f'Count of unassigned open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(
-        metrics, f'{repo_name}_unassigned_open_{type}_team', count, description_team)
-
-    count = len(filter_outdated_items(team_items, days))
-    description_team = f'Count of old open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(
-        metrics, f'{repo_name}_old_open_{type}_team', count, description_team)
+    metrics = process_open_items(repo_id, metrics, team_items, type, 'filed by team')
     return metrics
 
 
