@@ -50,7 +50,7 @@ parser.add_argument(
 parser.add_argument(
     '-a', '--action', action='store', default='list-org-repos',
     help='list-org-repos, list-org-members, list-repo-contributors, list-repo-events,'
-         'list-repo-infos, list-repo-issues, list-repo-labels,list-repo-old-issues,'
+         'list-repo-infos, list-repo-issues, list-repo-labels, list-repo-old-issues,'
          'list-repo-pulls, list-repo-old-pulls, calc-repo-issues-lifetime,'
          'calc-repo-pulls-lifetime, push-metrics-prometheus')
 parser.add_argument(
@@ -444,36 +444,36 @@ def collect_repository_open_items(repo_id: str, metrics: dict, items, type: str)
     count = items.totalCount
 
     description = f'Count of open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_open_{type}',
-                                         count, description)
+    metrics = append_pushgateway_metrics(
+        metrics, f'{repo_name}_open_{type}', count, description)
 
     count = filter_repository_open_items_unassigned(items)
     description = f'Count of unassigned open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_unassigned_open_{type}',
-                                         count, description)
+    metrics = append_pushgateway_metrics(
+        metrics, f'{repo_name}_unassigned_open_{type}', count, description)
 
     days = get_github_metrics('no_activity_limit')
     count = len(filter_outdated_items(items, days))
     description = f'Count of old open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_old_open_{type}',
-                                         count, description)
+    metrics = append_pushgateway_metrics(
+        metrics, f'{repo_name}_old_open_{type}', count, description)
 
-    # Metrics restricted to the team members
+    # Metrics based on filtered objects created by team members
     team_items = filter_repository_open_items_team(items)
     description_team = f'Count of open {type} reported by the team on {repo_id}'
-    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_open_{type}_team',
-                                         len(team_items), description_team)
+    metrics = append_pushgateway_metrics(
+        metrics, f'{repo_name}_open_{type}_team', len(team_items), description_team)
 
     count = filter_repository_open_items_unassigned(team_items)
     description_team = f'Count of unassigned open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_unassigned_open_{type}_team',
-                                         count, description_team)
+    metrics = append_pushgateway_metrics(
+        metrics, f'{repo_name}_unassigned_open_{type}_team', count, description_team)
 
     days = get_github_metrics('no_activity_limit')
     count = len(filter_outdated_items(team_items, days))
     description_team = f'Count of old open {type} on {repo_id}'
-    metrics = append_pushgateway_metrics(metrics, f'{repo_name}_old_open_{type}_team',
-                                         count, description_team)
+    metrics = append_pushgateway_metrics(
+        metrics, f'{repo_name}_old_open_{type}_team', count, description_team)
     return metrics
 
 
