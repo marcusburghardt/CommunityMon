@@ -248,7 +248,7 @@ def get_repository_pulls(session, repo_id, filters_string) -> list:
         return repo.get_pulls()
 
 
-def get_items_lifetime_average(closed_items, days: str) -> dict:
+def get_items_lifetime_average(items: list, days: str, lifetime_info: dict, state='closed') -> dict:
     # INFO: Getting info from all closed pulls can hit the API limits depending on the
     # project activity. Here we limit the last (days) closed pulls since they are ordered
     # by closed time from the API.
@@ -262,10 +262,13 @@ def get_items_lifetime_average(closed_items, days: str) -> dict:
     lifetime_in_minutes_team = 0
     lifetime_team = 0
 
-    for item in closed_items:
-        if item.closed_at < old_date:
-            break
-        delta_time = get_delta_time(item.created_at, item.closed_at, 'm')
+    for item in items:
+        if state == 'closed':
+            if item.closed_at < old_date:
+                break
+            delta_time = get_delta_time(item.created_at, item.closed_at, 'm')
+        else:
+            delta_time = get_delta_time(item.created_at, item.updated_at, 'm')
         lifetime_in_minutes += delta_time
         processed_items += 1
         if item.user.login in team_members:
@@ -274,26 +277,21 @@ def get_items_lifetime_average(closed_items, days: str) -> dict:
         if args.verbose:
             print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at},'
                   f'Closed: {item.closed_at}, Lifetime (Min): {delta_time}')
+
     if processed_items:
         lifetime = lifetime_in_minutes//processed_items
     else:
         if args.verbose:
             print(f'It was not found closed items within last {days} days')
+
     if processed_items_team:
         lifetime_team = lifetime_in_minutes_team//processed_items_team
-    lifetime_info = {'count': processed_items,
-                     'lifetime': lifetime,
-                     'count_team': processed_items_team,
-                     'lifetime_team': lifetime_team}
+
+    lifetime_info.update({f'{state}_count': processed_items})
+    lifetime_info.update({f'{state}_lifetime': lifetime})
+    lifetime_info.update({f'{state}_count_team': processed_items_team})
+    lifetime_info.update({f'{state}_lifetime_team': lifetime_team})
     return lifetime_info
-
-
-def get_issues_lifetime_average(closed_issues, days: str) -> dict:
-    return get_items_lifetime_average(closed_issues, days)
-
-
-def get_pulls_lifetime_average(closed_pulls, days: str) -> dict:
-    return get_items_lifetime_average(closed_pulls, days)
 
 
 def collect_created_items(repo_id, metrics: dict, created_items, timeframe: str, type: str) -> dict:
@@ -359,44 +357,70 @@ def collect_org_metrics_prometheus(session, org_id: str, registry):
 
 
 def collect_item_lifetime_average(repo_id: str, metrics: dict, lifetime_info,
-                                  timeframe, item) -> dict:
+                                  timeframe: str, type: str, state='closed') -> dict:
     repo_name = create_canonical_name(repo_id)
+    if state == 'closed':
+        suffix = f'from last {timeframe} days'
+        metric_suffix = f'_{timeframe}days'
+    else:
+        suffix = ''
+        metric_suffix = ''
+
     # count
-    metric = f'{repo_name}_closed_{item}_{timeframe}days'
-    description = f'Number of closed {item} from last {timeframe} days on {repo_id}'
+    metric = f'{repo_name}_{state}_{type}{metric_suffix}'
+    description = f'Number of {state} {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(metrics, metric,
-                                         lifetime_info['count'], description)
+                                         lifetime_info[f'{state}_count'], description)
     # count team
-    metric = f'{repo_name}_closed_{item}_{timeframe}days_team'
-    description = f'Number of closed team {item} from last {timeframe} days on {repo_id}'
+    metric = f'{repo_name}_{state}_{type}{metric_suffix}_team'
+    description = f'Number of {state} team {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(metrics, metric,
-                                         lifetime_info['count_team'], description)
+                                         lifetime_info[f'{state}_count_team'], description)
     # lifetime
-    metric = f'{repo_name}_{item}_lifetime_average_{timeframe}days'
-    description = f'Average lifetime of closed {item} from last {timeframe} days on {repo_id}'
+    metric = f'{repo_name}_{state}_{type}_lifetime_average{metric_suffix}'
+    description = f'Average lifetime of {state} {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(metrics, metric,
-                                         lifetime_info['lifetime'], description)
+                                         lifetime_info[f'{state}_lifetime'], description)
     # lifetime team
-    metric = f'{repo_name}_{item}_lifetime_average_{timeframe}days_team'
-    description = f'Average lifetime of closed team {item} from last {timeframe} days on {repo_id}'
+    metric = f'{repo_name}_{state}_{type}_lifetime_average{metric_suffix}_team'
+    description = f'Average lifetime of {state} team {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(metrics, metric,
-                                         lifetime_info['lifetime_team'], description)
+                                         lifetime_info[f'{state}_lifetime_team'], description)
     return metrics
 
 
-def collect_issues_lifetime_average(repo_id: str, metrics: dict, closed_issues) -> dict:
+def collect_issues_lifetime_average(session, repo_id: str, metrics: dict) -> dict:
+    lifetime_info = dict()
+    closed_issues = get_repository_issues(session, repo_id,
+                                          'state=closed,sort=closed,direction=desc', '')
     for timeframe in get_github_metrics('timeframe'):
-        lifetime_info = get_issues_lifetime_average(closed_issues, timeframe)
+        lifetime_info = get_items_lifetime_average(closed_issues, timeframe,
+                                                   lifetime_info, 'closed')
         metrics = collect_item_lifetime_average(repo_id, metrics, lifetime_info, timeframe,
-                                                'issues')
+                                                'issues', 'closed')
+    open_issues = get_repository_issues(session, repo_id,
+                                        'state=open,sort=opened,direction=desc', '')
+    lifetime_info = get_items_lifetime_average(open_issues, timeframe, lifetime_info, 'open')
+    metrics = collect_item_lifetime_average(repo_id, metrics, lifetime_info, timeframe,
+                                            'issues', 'open')
     return metrics
 
 
-def collect_pulls_lifetime_average(repo_id: str, metrics: dict, closed_pulls) -> dict:
+def collect_pulls_lifetime_average(session, repo_id: str, metrics: dict) -> dict:
+    lifetime_info = dict()
+    closed_pulls = get_repository_pulls(session, repo_id,
+                                        'state=closed,sort=closed,direction=desc')
     for timeframe in get_github_metrics('timeframe'):
-        lifetime_info = get_pulls_lifetime_average(closed_pulls, timeframe)
+        lifetime_info = get_items_lifetime_average(closed_pulls, timeframe,
+                                                   lifetime_info, 'closed')
         metrics = collect_item_lifetime_average(repo_id, metrics, lifetime_info, timeframe,
-                                                'pulls')
+                                                'pulls', 'closed')
+
+    open_pulls = get_repository_pulls(session, repo_id,
+                                      'state=open,sort=opened,direction=desc')
+    lifetime_info = get_items_lifetime_average(open_pulls, timeframe, lifetime_info, 'open')
+    metrics = collect_item_lifetime_average(repo_id, metrics, lifetime_info, timeframe,
+                                            'pulls', 'open')
     return metrics
 
 
@@ -442,6 +466,8 @@ def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, sta
 def process_open_items(repo_id: str, metrics: dict, items: list, type: str, suffix='') -> dict:
     repo_name = create_canonical_name(repo_id)
     days = get_github_metrics('no_activity_limit')
+    outdated_items = filter_outdated_items(items, days)
+
     if suffix:
         # suffix is passed as a text for the metric description.
         # For the respective metric id it is used the last word of the suffix.
@@ -462,7 +488,7 @@ def process_open_items(repo_id: str, metrics: dict, items: list, type: str, suff
     metrics = append_pushgateway_metrics(
         metrics, f'{repo_name}_unassigned_open_{type}{metric_suffix}', count, description)
 
-    count = len(filter_outdated_items(items, days))
+    count = len(outdated_items)
     description = f'Count of old open {type} on {repo_id} {suffix}'
     metrics = append_pushgateway_metrics(
         metrics, f'{repo_name}_old_open_{type}{metric_suffix}', count, description)
@@ -519,14 +545,9 @@ def collect_repository_metrics_prometheus(session, repo_id) -> list:
         elif metric == 'open_pulls':
             metrics = collect_repository_open_pulls(session, repo_id, metrics)
         elif metric == 'pulls_lifetime_average':
-            closed_pulls_list = get_repository_pulls(session, repo_id,
-                                                     'state=closed,sort=closed,direction=desc')
-            metrics = collect_pulls_lifetime_average(repo_id, metrics, closed_pulls_list)
+            metrics = collect_pulls_lifetime_average(session, repo_id, metrics)
         elif metric == 'issues_lifetime_average':
-            closed_issues_list = get_repository_issues(session, repo_id,
-                                                       'state=closed,sort=closed,direction=desc',
-                                                       '')
-            metrics = collect_issues_lifetime_average(repo_id, metrics, closed_issues_list)
+            metrics = collect_issues_lifetime_average(session, repo_id, metrics)
         else:
             if args.verbose:
                 print(f'Metric {metric} is not available.')
@@ -557,6 +578,14 @@ def print_results(results, object_type='') -> str:
     print_object_info_header(object_type)
     for item in results:
         print_object_info(object_type, item, ORG)
+
+
+def print_lifetime_results(lifetime_info) -> str:
+    for state in ['closed', 'open']:
+        count_key = f'{state}_count'
+        lifetime_key = f'{state}_lifetime'
+        print(f'{state} issues lifetime average for the last {DAYS} days: '
+              f'{lifetime_info[lifetime_key]} minutes for {lifetime_info[count_key]} issues')
 
 
 def main():
@@ -601,17 +630,29 @@ def main():
         results = get_repository_created_pulls(ghs, REPOSITORY, DAYS)
         print_results(results, 'pull')
     elif ACTION == 'calc-repo-issues-lifetime':
+        lifetime_info = dict()
         closed_issues = get_repository_issues(ghs, REPOSITORY,
                                               'state=closed,sort=closed,direction=desc', '')
-        lifetime_info = get_issues_lifetime_average(closed_issues, DAYS)
-        print(f'Issues lifetime average for the last {DAYS} days: {lifetime_info["lifetime"]}'
-              f'minutes for {lifetime_info["count"]} issues')
+        lifetime_info = get_items_lifetime_average(closed_issues, DAYS,
+                                                   lifetime_info, 'closed')
+        open_issues = get_repository_issues(ghs, REPOSITORY,
+                                            'state=open,sort=opened,direction=desc', '')
+        lifetime_info = get_items_lifetime_average(closed_issues, DAYS,
+                                                   lifetime_info, 'closed')
+        lifetime_info = get_items_lifetime_average(open_issues, DAYS,
+                                                   lifetime_info, 'open')
+        print_lifetime_results(lifetime_info)
     elif ACTION == 'calc-repo-pulls-lifetime':
+        lifetime_info = dict()
         closed_pulls = get_repository_pulls(ghs, REPOSITORY,
                                             'state=closed,sort=closed,direction=desc')
-        lifetime_info = get_pulls_lifetime_average(closed_pulls, DAYS)
-        print(f'Pulls lifetime average for the last {DAYS} days: {lifetime_info["lifetime"]}'
-              f'minutes for {lifetime_info["count"]} pulls')
+        lifetime_info = get_items_lifetime_average(closed_pulls, DAYS,
+                                                   lifetime_info, 'closed')
+        open_pulls = get_repository_pulls(ghs, REPOSITORY,
+                                          'state=open,sort=opened,direction=desc')
+        lifetime_info = get_items_lifetime_average(open_pulls, DAYS,
+                                                   lifetime_info, 'open')
+        print_lifetime_results(lifetime_info)
     elif ACTION == 'push-metrics-prometheus':
         push_metrics_prometheus(ghs, ORG)
         print("Metrics successfully sent!")
