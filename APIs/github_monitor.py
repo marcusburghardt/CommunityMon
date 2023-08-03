@@ -469,7 +469,6 @@ def collect_repository_open_items(repo_id: str, metrics: dict, items, type: str)
     metrics = append_pushgateway_metrics(
         metrics, f'{repo_name}_unassigned_open_{type}_team', count, description_team)
 
-    days = get_github_metrics('no_activity_limit')
     count = len(filter_outdated_items(team_items, days))
     description_team = f'Count of old open {type} on {repo_id}'
     metrics = append_pushgateway_metrics(
