@@ -110,6 +110,14 @@ def filter_outdated_items(items, days) -> list:
     return old_open_items
 
 
+def filter_pulls_from_issues(items: list) -> list:
+    pulls_list = []
+    for item in items:
+        if item.pull_request:
+            pulls_list.append(item)
+    return pulls_list
+
+
 def filter_repository_open_items_team(items) -> list:
     team_members = get_github_metrics('team')
     open_items_team = []
@@ -460,6 +468,9 @@ def collect_repository_issues_by_label(session, repo_id: str, metrics: dict, sta
         issues = get_repository_issues(session, repo_id, f'state={state}', label)
         metrics = collect_repository_items_by_label(repo_id, metrics, issues, label, state,
                                                     'issues')
+        pulls = filter_pulls_from_issues(issues)
+        metrics = collect_repository_items_by_label(repo_id, metrics, pulls, label, state,
+                                                    'pulls')
     return metrics
 
 
