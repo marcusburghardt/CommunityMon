@@ -597,8 +597,12 @@ def print_lifetime_results(lifetime_info: dict, type: str) -> str:
         lifetime = lifetime_info[lifetime_key]
         hours = lifetime // 60
         days = lifetime // 1440
-        print(f'{state} {type} lifetime average for the last {DAYS} days: '
-              f'{lifetime} minutes ({hours} hours or {days} days) for {count} {type}')
+        if state == 'closed':
+            suffix = f' within the last {DAYS} days'
+        else:
+            suffix = ''
+        print(f'{state} {type} lifetime average{suffix}: '
+              f'{days} day(s) or {hours} hour(s) or {lifetime} minute(s) for {count} {type}')
 
 
 def main():
