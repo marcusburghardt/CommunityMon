@@ -254,9 +254,11 @@ def get_repository_pulls(session, repo_id: str, filters_string: str) -> list:
 
 def get_items_lifetime_average(items: list, days: int, lifetime_info: dict,
                                state='closed') -> dict:
-    # INFO: Getting info from all closed pulls can hit the API limits depending on the
-    # project activity. Here we limit the last (days) closed pulls since they are ordered
-    # by closed time from the API.
+    # INFO: Getting detailed info from all items can hit the API limits and take long time
+    # depending on the project activity. Therefore, this function limits the items by ignoring
+    # items older than N "days". The API returns items ordered by closed or created datetime
+    # depending on the items state in the list, so the loop can be safely stopped as soon as the
+    # first old item is found. This API behavior might change along the time.
     lifetime_in_minutes = 0
     lifetime_in_minutes_team = 0
     lifetime = 0
@@ -274,18 +276,18 @@ def get_items_lifetime_average(items: list, days: int, lifetime_info: dict,
             delta_time = get_delta_time(item.created_at, item.updated_at, 'm')
         lifetime_in_minutes += delta_time
         processed_items += 1
+
         if item.user.login in team_members:
             lifetime_in_minutes_team += delta_time
             processed_items_team += 1
+
         if args.verbose:
             print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at}, '
-                  f'Closed: {item.closed_at}, Lifetime (Min): {delta_time}')
+                  f'Closed: {item.closed_at}, Lifetime: {delta_time // 1440} day(s) '
+                  f'{delta_time // 60:>8} hour(s) {delta_time:>10} minute(s)')
 
     if processed_items:
         lifetime = lifetime_in_minutes//processed_items
-    else:
-        if args.verbose:
-            print(f'It was not found closed items within last {days} days')
 
     if processed_items_team:
         lifetime_team = lifetime_in_minutes_team//processed_items_team
