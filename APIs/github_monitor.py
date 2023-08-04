@@ -85,9 +85,8 @@ def create_github_session() -> Github:
 
 def filter_created_items_by_lifetime(items: list, days: int) -> list:
     recent_items = []
-    old_date = get_old_date(days)
     for item in items:
-        if item.created_at < old_date:
+        if item.created_at < get_old_date(days):
             break
         recent_items.append(item)
     return recent_items
@@ -103,9 +102,8 @@ def filter_items_by_owner(items: list, owners: list) -> int:
 
 def filter_outdated_items(items: list, days: int) -> list:
     old_open_items = []
-    old_date = get_old_date(days)
     for item in items:
-        if item.updated_at < old_date:
+        if item.updated_at < get_old_date(days):
             old_open_items.append(item)
     return old_open_items
 
@@ -119,8 +117,8 @@ def filter_pulls_from_issues(items: list) -> list:
 
 
 def filter_repository_open_items_team(items: list) -> list:
-    team_members = get_github_metrics('team')
     open_items_team = []
+    team_members = get_github_metrics('team')
     for item in items:
         if item.user.login in team_members:
             open_items_team.append(item)
@@ -150,8 +148,7 @@ def get_milestone_by_title(repo, milestone_title: str) -> object:
     for item in milestones:
         if item.title == milestone_title:
             return item
-    print("The milestone title was not found!")
-    exit(1)
+    raise Exception("The milestone title was not found!")
 
 
 def get_user_by_login(session, user_login: str) -> object:
@@ -204,7 +201,6 @@ def get_repository_issues(session, repo_id: str, filters_string: str, labels_str
     filters_dict = create_dict_from_string(filters_string, ',')
     filters = parse_filters_string(filters_dict, 'issue')
     assignee = get_user_by_login(session, filters['assignee'])
-
     repo = get_repository_object(session, repo_id)
     milestone = get_milestone_by_title(repo, filters['milestone'])
 
@@ -256,23 +252,22 @@ def get_repository_pulls(session, repo_id: str, filters_string: str) -> list:
         return repo.get_pulls()
 
 
-def get_items_lifetime_average(items: list, days: int, lifetime_info: dict, state='closed') -> dict:
+def get_items_lifetime_average(items: list, days: int, lifetime_info: dict,
+                               state='closed') -> dict:
     # INFO: Getting info from all closed pulls can hit the API limits depending on the
     # project activity. Here we limit the last (days) closed pulls since they are ordered
     # by closed time from the API.
-    old_date = get_old_date(days)
-    processed_items = 0
     lifetime_in_minutes = 0
-    lifetime = 0
-
-    team_members = get_github_metrics('team')
-    processed_items_team = 0
     lifetime_in_minutes_team = 0
+    lifetime = 0
     lifetime_team = 0
+    processed_items = 0
+    processed_items_team = 0
+    team_members = get_github_metrics('team')
 
     for item in items:
         if state == 'closed':
-            if item.closed_at < old_date:
+            if item.closed_at < get_old_date(days):
                 break
             delta_time = get_delta_time(item.created_at, item.closed_at, 'm')
         else:
