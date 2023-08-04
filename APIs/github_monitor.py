@@ -215,12 +215,12 @@ def get_repository_issues(session, repo_id: str, filters_string: str, labels_str
     return filtered_issues
 
 
-def get_repository_label_count(session, repo_id: str, label: str) -> str:
-    filter_string = 'state=all'
-    issues = get_repository_issues(session, repo_id, filter_string, label)
-    count_open = len([issues for issue in issues if issue.state == 'open'])
-    count_closed = len([issues for issue in issues if issue.state == 'closed'])
-    print(f'{label},{count_open},{count_closed}')
+def get_repository_label_usage_count(session, repo_id: str, label: str) -> str:
+    open_filter_string = 'state=open'
+    open_issues = get_repository_issues(session, repo_id, open_filter_string, label)
+    closed_filter_string = 'state=closed'
+    closed_issues = get_repository_issues(session, repo_id, closed_filter_string, label)
+    print(f'{label},{open_issues.totalCount},{closed_issues.totalCount}')
 
 
 def get_repository_labels(session, repo_id: str) -> list:
@@ -627,7 +627,7 @@ def main():
     elif ACTION == 'list-repo-labels-count':
         print("name,open_issues,closed_issues")
         for label in get_repository_labels(ghs, REPOSITORY):
-            get_repository_label_count(ghs, REPOSITORY, label.name)
+            get_repository_label_usage_count(ghs, REPOSITORY, label.name)
     elif ACTION == 'list-repo-old-issues':
         results = get_repository_outdated_issues(ghs, REPOSITORY, DAYS)
         print_results(results, 'issue')
