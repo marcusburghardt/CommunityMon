@@ -339,14 +339,14 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 4,
+            "h": 3,
             "w": 2,
             "x": 16,
             "y": 1
           },
           "id": 35,
           "options": {
-            "colorMode": "value",
+            "colorMode": "none",
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
@@ -378,7 +378,7 @@
               "refId": "A"
             }
           ],
-          "title": "Existing Labels",
+          "title": "Project Labels",
           "transparent": true,
           "type": "stat"
         },
@@ -389,7 +389,7 @@
           },
           "description": "",
           "gridPos": {
-            "h": 6,
+            "h": 5,
             "w": 2,
             "x": 18,
             "y": 1
@@ -403,6 +403,156 @@
           "title": "Quick Links",
           "transparent": true,
           "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 20,
+            "y": 1
+          },
+          "id": 101,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Org Repositories",
+              "url": "https://github.com/orgs/ComplianceAsCode/repositories"
+            }
+          ],
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.5.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(ComplianceAsCode_org_repositories{exported_job=~\".*\"})",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Org Repos",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 20,
+            "y": 4
+          },
+          "id": 102,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Org Repositories",
+              "url": "https://github.com/orgs/ComplianceAsCode/repositories"
+            }
+          ],
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.5.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(ComplianceAsCode_org_team_size{exported_job=~\".*\"})",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Org Team",
+          "transparent": true,
+          "type": "stat"
         },
         {
           "datasource": {
@@ -2610,6 +2760,1129 @@
         "x": 0,
         "y": 13
       },
+      "id": 38,
+      "panels": [],
+      "title": "PRs and Issues Balance",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This chart shows the proportion of PRs created and closed in the last 30 days.\n\nIt is interesting to identify trends. If the difference in Created PRs is positive, it could indicate that project activity is increasing and this is likely related to a relevant context, such as a Benchmark update, new contributors, a team task force, etc.\n\nIt is also interesting to identify necessary actions. For example, if the average Closed PRs is lower than the Created PRs for a long time, maintainers should take actions to change this. Ideally, the Created and Closed means should be equal.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 9,
+        "x": 0,
+        "y": 14
+      },
+      "id": 3,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Closed PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aclosed"
+        },
+        {
+          "targetBlank": true,
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max",
+            "mean",
+            "diff"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Created PRs (30d)",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Closed PRs (30d)",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "PRs Balance Last 30 Days",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This status represents the result of the number of PRs created minus the number of PRs closed in 30 days.\n\n- A negative result is Great.\n- A positive result up to 5 is OK.\n- A positive result higher than 5 is Not Good.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "OK"
+                },
+                "to": 5
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 6,
+                "result": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "Not Good"
+                },
+                "to": 100
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": -100,
+                "result": {
+                  "color": "green",
+                  "index": 2,
+                  "text": "Great"
+                },
+                "to": -1
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 9,
+        "y": 14
+      },
+      "id": 94,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Status",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This trend is defined based on the difference of  result of the number of PRs created minus the number of PRs closed in 30 days.\n\n- A negative result means it is Getting Better.\n- A positive result up to 3 means it is Stable.\n- A positive result higher than 3 means it is Getting Worse.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Stable"
+                },
+                "to": 2
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 3,
+                "result": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "Getting Worse"
+                },
+                "to": 100
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": -100,
+                "result": {
+                  "color": "green",
+                  "index": 2,
+                  "text": "Getting Better"
+                },
+                "to": -1
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 11,
+        "y": 14
+      },
+      "id": 92,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "diff"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"})",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Creation Trend",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This trend is defined based on the difference of  result of the number of PRs created minus the number of PRs closed in 30 days.\n\n- A positive result higher than 3 means it is Getting Better.\n- A positive result up to 3 means it is Stable.\n- A negative result means it is Getting Worse.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Stable"
+                },
+                "to": 2
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 3,
+                "result": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Getting Better"
+                },
+                "to": 100
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": -100,
+                "result": {
+                  "color": "yellow",
+                  "index": 2,
+                  "text": "Getting Worse"
+                },
+                "to": -1
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 13,
+        "y": 14
+      },
+      "id": 96,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "diff"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Closing Trend",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This chart shows the proportion of PRs created and closed in the last 90 days.\n\nIt is interesting to identify trends. If the difference in Created PRs is positive, it could indicate that project activity is increasing and this is likely related to a relevant context, such as a Benchmark update, new contributors, a team task force, etc.\n\nIt is also interesting to identify necessary actions. For example, if the average Closed PRs is lower than the Created PRs for a long time, maintainers should take actions to change this. Ideally, the Created and Closed means should be equal.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 9,
+        "x": 15,
+        "y": 14
+      },
+      "id": 88,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Closed PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aclosed"
+        },
+        {
+          "targetBlank": true,
+          "title": "Open PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls"
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max",
+            "mean",
+            "diff"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_created_pulls_90days{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Created PRs (30d)",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_closed_pulls_90days{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Closed PRs (30d)",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "PRs Balance Last 90 Days",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This chart shows the proportion of Issues created and closed in the last 30 days.\n\nIt is interesting to identify trends. If the difference in Created Issues is positive, it could indicate that some recent change had side effects or better quality tests were implemented.\n\nIt is also interesting to identify necessary actions. For example, if the average Closed Issues is lower than the Created Issues for a long time, maintainers should take actions to change this. Ideally, the Created and Closed means should be equal.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 9,
+        "x": 0,
+        "y": 18
+      },
+      "id": 26,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Closed Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aclosed"
+        },
+        {
+          "targetBlank": true,
+          "title": "Open Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues"
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max",
+            "mean",
+            "diff"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Created Issues (30d)",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Closed Issues (30d)",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Issues Balance Last 30 Days",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This status represents the result of the number of Issues created minus the number of Issues closed in 30 days.\n\n- A negative result is Great.\n- A positive result up to 5 is OK.\n- A positive result higher than 5 is Not Good.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "OK"
+                },
+                "to": 5
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 6,
+                "result": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "Not Good"
+                },
+                "to": 100
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": -100,
+                "result": {
+                  "color": "green",
+                  "index": 2,
+                  "text": "Great"
+                },
+                "to": -1
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 9,
+        "y": 18
+      },
+      "id": 97,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"}) - sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Status",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This trend is defined based on the difference of  result of the number of Issues created minus the number of Issues closed in 30 days.\n\n- A negative result means it is Getting Better.\n- A positive result up to 3 means it is Stable.\n- A positive result higher than 3 means it is Getting Worse.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Stable"
+                },
+                "to": 2
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 3,
+                "result": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "Getting Worse"
+                },
+                "to": 100
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": -100,
+                "result": {
+                  "color": "green",
+                  "index": 2,
+                  "text": "Getting Better"
+                },
+                "to": -1
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 11,
+        "y": 18
+      },
+      "id": 98,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "diff"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"})",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Creation Trend",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This trend is defined based on the difference of  result of the number of Issues created minus the number of Issues closed in 30 days.\n\n- A positive result higher than 3 means it is Getting Better.\n- A positive result up to 3 means it is Stable.\n- A negative result means it is Getting Worse.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Stable"
+                },
+                "to": 2
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 3,
+                "result": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Getting Better"
+                },
+                "to": 100
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": -100,
+                "result": {
+                  "color": "yellow",
+                  "index": 2,
+                  "text": "Getting Worse"
+                },
+                "to": -1
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 13,
+        "y": 18
+      },
+      "id": 99,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "diff"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 20
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Closing Trend",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "This chart shows the proportion of Issues created and closed in the last 90 days.\n\nIt is interesting to identify trends. If the difference in Created Issues is positive, it could indicate that some recent change had side effects or better quality tests were implemented.\n\nIt is also interesting to identify necessary actions. For example, if the average Closed Issues is lower than the Created Issues for a long time, maintainers should take actions to change this. Ideally, the Created and Closed means should be equal.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisGridShow": false,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 9,
+        "x": 15,
+        "y": 18
+      },
+      "id": 90,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Closed Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aclosed"
+        },
+        {
+          "targetBlank": true,
+          "title": "Open Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues"
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "min",
+            "max",
+            "mean",
+            "diff"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(ComplianceAsCode_content_created_issues_90days{exported_job=~\".*\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Created Issues (30d)",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_closed_issues_90days{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Closed Issues (30d)",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Issues Balance Last 90 Days",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
       "id": 52,
       "panels": [],
       "title": "Information Based on Labels",
@@ -2653,7 +3926,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 14
+        "y": 23
       },
       "id": 74,
       "links": [
@@ -2880,7 +4153,7 @@
         "h": 8,
         "w": 10,
         "x": 6,
-        "y": 14
+        "y": 23
       },
       "id": 77,
       "links": [
@@ -3034,7 +4307,7 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "This chart shows the history of PRs and Issues based on some relevant labels.\n\nThese metrics are interesting to identify patterns and peaks of specific issues or PRs.",
+      "description": "This chart shows the history of PRs and Issues based on some relevant labels.\n\nThe numbers include both Issues and PRs.\n\nThese metrics are interesting to identify patterns and peaks of specific Issues or PRs.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3082,10 +4355,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 7,
+        "h": 8,
+        "w": 8,
         "x": 16,
-        "y": 14
+        "y": 23
       },
       "id": 79,
       "links": [
@@ -3113,20 +4386,23 @@
           "targetBlank": true,
           "title": "Blocker PRs",
           "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aopen+label%3Ablocker"
+        },
+        {
+          "targetBlank": true,
+          "title": "Blocked Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Ablocked"
         }
       ],
       "options": {
         "legend": {
           "calcs": [
             "last",
-            "min",
-            "max",
             "diff"
           ],
           "displayMode": "table",
-          "placement": "bottom",
-          "sortBy": "Last *",
-          "sortDesc": false
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": true
         },
         "tooltip": {
           "mode": "single",
@@ -3181,6 +4457,18 @@
           "legendFormat": "highlight",
           "range": true,
           "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_blocked{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "blocked",
+          "range": true,
+          "refId": "E"
         }
       ],
       "title": "Other Relevant Labels",
@@ -3225,7 +4513,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 22
+        "y": 31
       },
       "id": 75,
       "links": [
@@ -3428,7 +4716,7 @@
         "h": 7,
         "w": 10,
         "x": 6,
-        "y": 22
+        "y": 31
       },
       "id": 78,
       "links": [
@@ -3452,7 +4740,9 @@
             "diff"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": true
         },
         "tooltip": {
           "mode": "single",
@@ -3551,295 +4841,153 @@
       "type": "timeseries"
     },
     {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 30
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
       },
-      "id": 38,
-      "panels": [
+      "description": "This chart shows the history of PRs and Issues based on some relevant labels.\n\nThe numbers include both Issues and PRs.\n\nThese metrics are interesting to identify patterns and peaks of specific Issues or PRs.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 31
+      },
+      "id": 100,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Productization Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Aproductization-issue"
+        },
+        {
+          "targetBlank": true,
+          "title": "Highlight PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aopen+label%3AHighlight+"
+        },
+        {
+          "targetBlank": true,
+          "title": "Bugfix PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aopen+label%3Abugfix"
+        },
+        {
+          "targetBlank": true,
+          "title": "Blocker Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+label%3Ablocker+is%3Aopen"
+        },
+        {
+          "targetBlank": true,
+          "title": "Blocker PRs",
+          "url": "https://github.com/ComplianceAsCode/content/pulls?q=is%3Apr+is%3Aopen+label%3Ablocker"
+        },
+        {
+          "targetBlank": true,
+          "title": "Blocked Issues",
+          "url": "https://github.com/ComplianceAsCode/content/issues?q=is%3Aissue+is%3Aopen+label%3Ablocked"
+        }
+      ],
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "diff"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic",
-                "seriesBy": "last"
-              },
-              "custom": {
-                "axisGridShow": false,
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 5,
-                "gradientMode": "opacity",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "smooth",
-                "lineStyle": {
-                  "fill": "solid"
-                },
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "line"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 15
-          },
-          "id": 3,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last",
-                "min",
-                "max",
-                "mean"
-              ],
-              "displayMode": "table",
-              "placement": "right"
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(ComplianceAsCode_content_created_pulls_90days{exported_job=~\".*\"})",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Created PRs (90d)",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum(ComplianceAsCode_content_closed_pulls_90days{exported_job=~\".*\"})",
-              "hide": false,
-              "legendFormat": "Closed PRs (90d)",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum(ComplianceAsCode_content_created_pulls_30days{exported_job=~\".*\"})",
-              "hide": false,
-              "legendFormat": "Created PRs (30d)",
-              "range": true,
-              "refId": "C"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum(ComplianceAsCode_content_closed_pulls_30days{exported_job=~\".*\"})",
-              "hide": false,
-              "legendFormat": "Closed PRs (30d)",
-              "range": true,
-              "refId": "D"
-            }
-          ],
-          "title": "PRs Balance",
-          "transparent": true,
-          "type": "timeseries"
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_ansible{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Ansible",
+          "range": true,
+          "refId": "A"
         },
         {
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisGridShow": false,
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 5,
-                "gradientMode": "opacity",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "smooth",
-                "lineStyle": {
-                  "fill": "solid"
-                },
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "line"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_bash{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "Bash",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
           },
-          "gridPos": {
-            "h": 8,
-            "w": 11,
-            "x": 12,
-            "y": 15
-          },
-          "id": 26,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last",
-                "min",
-                "max",
-                "mean"
-              ],
-              "displayMode": "table",
-              "placement": "right"
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(ComplianceAsCode_content_created_issues_90days{exported_job=~\".*\"})",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Created Issues (90d)",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum(ComplianceAsCode_content_closed_issues_90days{exported_job=~\".*\"})",
-              "hide": false,
-              "legendFormat": "Closed Issues (90d)",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(ComplianceAsCode_content_created_issues_30days{exported_job=~\".*\"})",
-              "format": "time_series",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Created Issues (30d)",
-              "range": true,
-              "refId": "C"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum(ComplianceAsCode_content_closed_issues_30days{exported_job=~\".*\"})",
-              "hide": false,
-              "legendFormat": "Closed Issues (30d)",
-              "range": true,
-              "refId": "D"
-            }
-          ],
-          "title": "Issues Balance",
-          "transparent": true,
-          "type": "timeseries"
+          "editorMode": "code",
+          "expr": "sum(ComplianceAsCode_content_open_issues_label_oval{exported_job=~\".*\"})",
+          "hide": false,
+          "legendFormat": "OVAL",
+          "range": true,
+          "refId": "C"
         }
       ],
-      "title": "PRs and Issues Balance",
-      "type": "row"
+      "title": "History of Check and Remediation",
+      "transparent": true,
+      "type": "timeseries"
     }
   ],
   "refresh": false,
@@ -3857,6 +5005,6 @@
   "timezone": "",
   "title": "Content_Repository",
   "uid": "5CYqOs87k",
-  "version": 4,
+  "version": 5,
   "weekStart": ""
 }
