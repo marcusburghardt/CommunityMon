@@ -126,7 +126,7 @@ def get_members_list(session, org_id: str, role: str) -> list:
 
 def get_repositories_list(session, org_id: str) -> list:
     org = get_organization_object(session, org_id)
-    return org.get_repos(type=REPOSITORY)
+    return org.get_repos(type='all')
 
 
 def get_repository_contributors(session, repo_id: str) -> list:
@@ -243,11 +243,6 @@ def get_items_lifetime_average(items: list, days: int, lifetime_info: dict,
             lifetime_in_minutes_team += delta_time
             processed_items_team += 1
 
-        if args.verbose:
-            print(f'PR#{item.number} - Created: {item.created_at}, Updated: {item.updated_at}, '
-                  f'Closed: {item.closed_at}, Lifetime: {delta_time // 1440} day(s) '
-                  f'{delta_time // 60:>8} hour(s) {delta_time:>10} minute(s)')
-
     if processed_items:
         lifetime = lifetime_in_minutes//processed_items
 
@@ -315,8 +310,7 @@ def collect_org_metrics_prometheus(session, org_id: str, registry):
         elif metric == 'team_size':
             count = len(get_github_metrics('team'))
         else:
-            if args.verbose:
-                print(f'Metric {metric} is not available.')
+            print(f'Metric {metric} is not available.')
             continue
         registry = create_pushgateway_gauge_metric(f'{org_id}_org_{metric}',
                                                    f'Count of {metric} on {org_id} org',
@@ -491,13 +485,9 @@ def collect_repository_open_pulls(session, repo_id: str, metrics: dict) -> dict:
 
 def collect_repository_metrics_prometheus(session, repo_id: str) -> list:
     repo_name = create_canonical_name(repo_id)
-    if args.verbose:
-        print(repo_name)
 
     metrics = []
     for metric in get_github_metrics('repo'):
-        if args.verbose:
-            print(metric)
         if metric in ['contributors', 'events']:
             if metric == 'contributors':
                 contributors = get_repository_contributors(session, repo_id)
@@ -524,26 +514,25 @@ def collect_repository_metrics_prometheus(session, repo_id: str) -> list:
         elif metric == 'issues_lifetime_average':
             metrics = collect_issues_lifetime_average(session, repo_id, metrics)
         else:
-            if args.verbose:
-                print(f'Metric {metric} is not available.')
+            print(f'Metric {metric} is not available.')
             continue
     return metrics
 
 
-def push_metrics_prometheus(session, org_id: str) -> None:
+def push_metrics_prometheus(session, org_id: str, repo_id: str) -> None:
     registry = create_pushgateway_registry()
     registry, org_repositories = collect_org_metrics_prometheus(session, org_id, registry)
-    if REPOSITORY == 'all':
+    if repo_id == 'all':
         for repo in org_repositories:
             repo_metrics = collect_repository_metrics_prometheus(session, repo.full_name)
             registry = parse_repo_metrics(repo_metrics, registry)
     else:
-        repo_metrics = collect_repository_metrics_prometheus(session, REPOSITORY)
+        repo_metrics = collect_repository_metrics_prometheus(session, repo_id)
         registry = parse_repo_metrics(repo_metrics, registry)
     push_pushgateway_metrics(registry)
 
 
-def print_results(results: list, object_type='') -> str:
+def print_results(results: list, object_type: str, args) -> str:
     if args.count:
         if type(results) is list:
             print(len(results))
@@ -552,7 +541,7 @@ def print_results(results: list, object_type='') -> str:
         exit(0)
     print_object_info_header(object_type)
     for item in results:
-        print_object_info(object_type, item, ORG)
+        print_object_info(object_type, item, args.org)
 
 
 def print_lifetime_results(lifetime_info: dict, type: str) -> str:
@@ -582,10 +571,10 @@ def parse_arguments():
     parser.add_argument(
         '-a', '--action', action='store',
         choices=['list-org-repos', 'list-org-members', 'list-repo-contributors',
-                'list-repo-infos', 'list-repo-labels', 'list-repo-events',
-                'list-repo-issues', 'list-repo-old-issues', 'calc-repo-issues-lifetime',
-                'list-repo-pulls', 'list-repo-old-pulls', 'calc-repo-pulls-lifetime',
-                'push-metrics-prometheus'],
+                 'list-repo-infos', 'list-repo-labels', 'list-repo-events',
+                 'list-repo-issues', 'list-repo-old-issues', 'calc-repo-issues-lifetime',
+                 'list-repo-pulls', 'list-repo-old-pulls', 'calc-repo-pulls-lifetime',
+                 'push-metrics-prometheus'],
         help='Choose one of the available options.')
     parser.add_argument(
         '-c', '--count', action='store_true',
@@ -593,9 +582,6 @@ def parse_arguments():
     parser.add_argument(
         '-d', '--days', action='store', default='30',
         help='Number of days to filter older issues or pulls.')
-    parser.add_argument(
-        '-v', '--verbose', action='store_true',
-        help='Show some extra information during the actions.')
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         '-f', '--filters', action='store', default='',
@@ -619,42 +605,42 @@ def main():
 
     if ACTION == 'list-org-repos':
         results = get_repositories_list(ghs, ORG)
-        print_results(results, 'repository')
+        print_results(results, 'repository', args)
     elif ACTION == 'list-org-members':
         results = get_members_list(ghs, ORG, 'all')
-        print_results(results, 'user')
+        print_results(results, 'user', args)
     elif ACTION == 'list-repo-contributors':
         results = get_repository_contributors(ghs, REPOSITORY)
-        print_results(results, 'user')
+        print_results(results, 'user', args)
     elif ACTION == 'list-repo-events':
         results = get_repository_events(ghs, REPOSITORY)
-        print_results(results, 'event')
+        print_results(results, 'event', args)
     elif ACTION == 'list-repo-infos':
         repo_infos = get_repository_infos(ghs, REPOSITORY)
         for info in repo_infos.keys():
             print(f'{info},{repo_infos[info]}')
     elif ACTION == 'list-repo-issues':
         results = get_repository_issues(ghs, REPOSITORY, FILTERS, LABELS)
-        print_results(results, 'issue')
+        print_results(results, 'issue', args)
     elif ACTION == 'list-repo-labels':
         results = get_repository_labels(ghs, REPOSITORY)
-        print_results(results, 'label')
+        print_results(results, 'label', args)
     elif ACTION == 'list-repo-labels-count':
         print("name,open_issues,closed_issues")
         for label in get_repository_labels(ghs, REPOSITORY):
             get_repository_label_usage_count(ghs, REPOSITORY, label.name)
     elif ACTION == 'list-repo-old-issues':
         results = get_repository_outdated_issues(ghs, REPOSITORY, DAYS)
-        print_results(results, 'issue')
+        print_results(results, 'issue', args)
     elif ACTION == 'list-repo-pulls':
         results = get_repository_pulls(ghs, REPOSITORY, FILTERS)
-        print_results(results, 'pull')
+        print_results(results, 'pull', args)
     elif ACTION == 'list-repo-old-pulls':
         results = get_repository_outdated_pulls(ghs, REPOSITORY, DAYS)
-        print_results(results, 'pull')
+        print_results(results, 'pull', args)
     elif ACTION == 'list-repo-recent-pulls':
         results = get_repository_created_pulls(ghs, REPOSITORY, DAYS)
-        print_results(results, 'pull')
+        print_results(results, 'pull', args)
     elif ACTION == 'calc-repo-issues-lifetime':
         lifetime_info = dict()
         closed_issues = get_repository_issues(ghs, REPOSITORY,
@@ -680,7 +666,7 @@ def main():
                                                    lifetime_info, 'open')
         print_lifetime_results(lifetime_info, 'pulls')
     elif ACTION == 'push-metrics-prometheus':
-        push_metrics_prometheus(ghs, ORG)
+        push_metrics_prometheus(ghs, ORG, REPOSITORY)
         print("Metrics successfully sent!")
     else:
         print("Action not found!")
