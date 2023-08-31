@@ -48,11 +48,13 @@ parser.add_argument(
     '-r', '--repository', action='store', default='all',
     help='Repository name when required by a function.')
 parser.add_argument(
-    '-a', '--action', action='store', default='list-org-repos',
-    help='list-org-repos, list-org-members, list-repo-contributors, list-repo-events,'
-         'list-repo-infos, list-repo-issues, list-repo-labels, list-repo-old-issues,'
-         'list-repo-pulls, list-repo-old-pulls, calc-repo-issues-lifetime,'
-         'calc-repo-pulls-lifetime, push-metrics-prometheus')
+    '-a', '--action', action='store',
+    choices=['list-org-repos', 'list-org-members', 'list-repo-contributors',
+             'list-repo-infos', 'list-repo-labels', 'list-repo-events',
+             'list-repo-issues', 'list-repo-old-issues', 'calc-repo-issues-lifetime',
+             'list-repo-pulls', 'list-repo-old-pulls', 'calc-repo-pulls-lifetime',
+             'push-metrics-prometheus'],
+    help='Choose one of the available options.')
 parser.add_argument(
     '-c', '--count', action='store_true',
     help='Show the numbers only.')
