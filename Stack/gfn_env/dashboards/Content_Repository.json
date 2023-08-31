@@ -92,8 +92,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -239,8 +238,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -330,8 +328,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -420,8 +417,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -495,8 +491,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -602,8 +597,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -3296,7 +3290,7 @@
           "editorMode": "code",
           "expr": "sum(ComplianceAsCode_content_created_pulls_90days{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "Created PRs (30d)",
+          "legendFormat": "Created PRs (90d)",
           "range": true,
           "refId": "A"
         },
@@ -3308,7 +3302,7 @@
           "editorMode": "code",
           "expr": "sum(ComplianceAsCode_content_closed_pulls_90days{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "Closed PRs (30d)",
+          "legendFormat": "Closed PRs (90d)",
           "range": true,
           "refId": "B"
         }
@@ -3854,7 +3848,7 @@
           "hide": false,
           "instant": false,
           "interval": "",
-          "legendFormat": "Created Issues (30d)",
+          "legendFormat": "Created Issues (90d)",
           "range": true,
           "refId": "A"
         },
@@ -3866,7 +3860,7 @@
           "editorMode": "code",
           "expr": "sum(ComplianceAsCode_content_closed_issues_90days{exported_job=~\".*\"})",
           "hide": false,
-          "legendFormat": "Closed Issues (30d)",
+          "legendFormat": "Closed Issues (90d)",
           "range": true,
           "refId": "B"
         }
@@ -5005,6 +4999,6 @@
   "timezone": "",
   "title": "Content_Repository",
   "uid": "5CYqOs87k",
-  "version": 5,
+  "version": 6,
   "weekStart": ""
 }
