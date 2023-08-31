@@ -40,46 +40,6 @@ from prometheus_pushgw import (
     push_pushgateway_metrics,
     )
 
-parser = ArgumentParser(description='Collect Github Information.')
-parser.add_argument(
-    '-o', '--org', action='store', default='ExampleOrg',
-    help='The organization ID to be consulted.')
-parser.add_argument(
-    '-r', '--repository', action='store', default='all',
-    help='Repository name when required by a function.')
-parser.add_argument(
-    '-a', '--action', action='store',
-    choices=['list-org-repos', 'list-org-members', 'list-repo-contributors',
-             'list-repo-infos', 'list-repo-labels', 'list-repo-events',
-             'list-repo-issues', 'list-repo-old-issues', 'calc-repo-issues-lifetime',
-             'list-repo-pulls', 'list-repo-old-pulls', 'calc-repo-pulls-lifetime',
-             'push-metrics-prometheus'],
-    help='Choose one of the available options.')
-parser.add_argument(
-    '-c', '--count', action='store_true',
-    help='Show the numbers only.')
-parser.add_argument(
-    '-d', '--days', action='store', default='30',
-    help='Number of days to filter older issues or pulls.')
-parser.add_argument(
-    '-v', '--verbose', action='store_true',
-    help='Show some extra information during the actions.')
-group = parser.add_mutually_exclusive_group()
-group.add_argument(
-    '-f', '--filters', action='store', default='',
-    help='Query filters accepted by the API: https://docs.github.com/en/rest/reference/')
-group.add_argument(
-    '-l', '--labels', action='store', default='',
-    help='Comma separated labels used to filter the results.')
-
-args = parser.parse_args()
-ORG = args.org
-REPOSITORY = args.repository
-ACTION = args.action
-FILTERS = args.filters
-LABELS = args.labels
-DAYS = int(args.days)
-
 
 def create_github_session() -> Github:
     return Github(get_github_token())
@@ -611,7 +571,50 @@ def print_lifetime_results(lifetime_info: dict, type: str) -> str:
               f'{days} day(s) or {hours} hour(s) or {lifetime} minute(s) for {count} {type}')
 
 
+def parse_arguments():
+    parser = ArgumentParser(description='Collect Github Information.')
+    parser.add_argument(
+        '-o', '--org', action='store', default='ExampleOrg',
+        help='The organization ID to be consulted.')
+    parser.add_argument(
+        '-r', '--repository', action='store', default='all',
+        help='Repository name when required by a function.')
+    parser.add_argument(
+        '-a', '--action', action='store',
+        choices=['list-org-repos', 'list-org-members', 'list-repo-contributors',
+                'list-repo-infos', 'list-repo-labels', 'list-repo-events',
+                'list-repo-issues', 'list-repo-old-issues', 'calc-repo-issues-lifetime',
+                'list-repo-pulls', 'list-repo-old-pulls', 'calc-repo-pulls-lifetime',
+                'push-metrics-prometheus'],
+        help='Choose one of the available options.')
+    parser.add_argument(
+        '-c', '--count', action='store_true',
+        help='Show the numbers only.')
+    parser.add_argument(
+        '-d', '--days', action='store', default='30',
+        help='Number of days to filter older issues or pulls.')
+    parser.add_argument(
+        '-v', '--verbose', action='store_true',
+        help='Show some extra information during the actions.')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        '-f', '--filters', action='store', default='',
+        help='Query filters accepted by the API: https://docs.github.com/en/rest/reference/')
+    group.add_argument(
+        '-l', '--labels', action='store', default='',
+        help='Comma separated labels used to filter the results.')
+    return parser.parse_args()
+
+
 def main():
+    args = parse_arguments()
+    ORG = args.org
+    REPOSITORY = args.repository
+    ACTION = args.action
+    FILTERS = args.filters
+    LABELS = args.labels
+    DAYS = int(args.days)
+
     ghs = create_github_session()
 
     if ACTION == 'list-org-repos':
