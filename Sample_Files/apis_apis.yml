@@ -40,20 +40,20 @@ github:
       names:
         - 'Github Pages'
       status:
-        - action_required
-        - completed
-        - cancelled
-        - failure
-        - in_progress
-        - neutral
-        - pending
-        - queued
-        - requested
-        - skipped
-        - stale
-        - success
-        - timed_out
-        - waiting
+        - completed: 0
+        - neutral: 0
+        - skipped: 0
+        - success: 0
+        - failure: 1
+        - cancelled: 2
+        - timed_out: 2
+        - in_progress: 3
+        - action_required: 4
+        - pending: 5
+        - queued: 5
+        - requested: 5
+        - stale: 5
+        - waiting: 5
 
 prometheus:
   push_target: localhost:9091

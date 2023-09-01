@@ -41,7 +41,10 @@ from prometheus_pushgw import (
     append_pushgateway_metrics,
     create_pushgateway_gauge_metric,
     create_pushgateway_registry,
+    create_workflows_runs_metric,
+    append_workflows_runs_metric,
     parse_repo_metrics,
+    parse_workflow_metrics,
     push_pushgateway_metrics,
     )
 
@@ -498,19 +501,22 @@ def get_workflows_runs_stats(repo: Repository) -> dict:
     workflows_metrics = get_github_metrics('workflows')
     runs_summary = {}
     for status in workflows_metrics['status']:
-        query = repo.get_workflow_runs(status=status)
-        runs_summary.update({status: query.totalCount})
+        key = list(status.keys())[0]
+        query = repo.get_workflow_runs(status=key)
+        runs_summary.update({key: query.totalCount})
     return runs_summary
 
 
-def collect_workflows_runs_stats(repo: Repository) -> dict:
-    repo_name = create_canonical_name(repo.name)
+def collect_workflows_runs_stats(
+        repo: Repository, registry: CollectorRegistry) -> CollectorRegistry:
+    repo_name = create_canonical_name(repo.full_name)
     runs_summary = get_workflows_runs_stats(repo)
+    metric = f'{repo_name}_workflows_status'
+    description = f'Count of workflows runs by status on {repo_name}'
+    metric = create_workflows_runs_metric(metric, description, registry)
     for status in runs_summary.keys():
-        metric = f'{repo_name}_workflows_status'
-        description = f'Count of {status} workflows runs on {repo_name}'
-        value = runs_summary[status]
-        print(f'{metric}: {value} - {description}')
+        metric = append_workflows_runs_metric(metric, status, runs_summary[status])
+    return registry
 
 
 def get_workflow_id_by_name(repo: Repository, name: str) -> int:
@@ -531,23 +537,36 @@ def get_workflow_last_run_info(repo: Repository, name: str) -> int:
     return workflow_info
 
 
-def collect_workflows_last_run_info(repo: Repository) -> int:
-    workflows_metrics = get_github_metrics('workflows')
-    repo_name = create_canonical_name(repo.name)
-    for name in workflows_metrics['names']:
+def collect_workflows_last_run_info(
+        repo: Repository, workflows_names: list,
+        registry: CollectorRegistry) -> CollectorRegistry:
+    repo_name = create_canonical_name(repo.full_name)
+    for name in workflows_names:
         workflow_info = get_workflow_last_run_info(repo, name)
+        workflow_metrics = parse_workflow_metrics(workflow_info)
         workflow_name = create_canonical_name(name)
-        for info in workflow_info.keys():
-            metric = f'{repo_name}_workflow_{workflow_name}_info'
-            description = f'Count of {info} workflows runs on {repo_name}'
-            value = workflow_info[info]
-            print(f'{metric}: {value} - {description}')
+        for info in workflow_metrics.keys():
+            metric = f'{repo_name}_workflow_{workflow_name}_{info}'
+            description = f'{info} of last {workflow_name} workflow runs on {repo_name}'
+            registry = create_pushgateway_gauge_metric(
+                metric, description, workflow_metrics[info], registry)
+    return registry
 
 
-def collect_workflows_information(session: Github, repo_id: str) -> dict:
+def collect_workflows_metrics_prometheus(
+        session: Github, repo_id: str, registry: CollectorRegistry) -> CollectorRegistry:
     repo = get_repository_object(session, repo_id)
-    collect_workflows_runs_stats(repo)
-    collect_workflows_last_run_info(repo)
+    workflows_metrics = get_github_metrics('workflows')
+    for metric in workflows_metrics:
+        if metric == 'status':
+            registry = collect_workflows_runs_stats(repo, registry)
+        elif metric == 'names':
+            workflow_names = workflows_metrics[metric]
+            registry = collect_workflows_last_run_info(repo, workflow_names, registry)
+        else:
+            print(f'Metric {metric} is not available.')
+            continue
+    return registry
 
 
 def collect_repository_metrics_prometheus(session: Github, repo_id: str) -> list:
@@ -581,8 +600,6 @@ def collect_repository_metrics_prometheus(session: Github, repo_id: str) -> list
             metrics = collect_pulls_lifetime_average(session, repo_id, metrics)
         elif metric == 'issues_lifetime_average':
             metrics = collect_issues_lifetime_average(session, repo_id, metrics)
-        elif metric == 'workflows':
-            collect_workflows_information(session, repo_id)
         else:
             print(f'Metric {metric} is not available.')
             continue
@@ -599,6 +616,7 @@ def push_metrics_prometheus(session: Github, org_id: str, repo_id: str) -> None:
     else:
         repo_metrics = collect_repository_metrics_prometheus(session, repo_id)
         registry = parse_repo_metrics(repo_metrics, registry)
+        registry = collect_workflows_metrics_prometheus(session, repo_id, registry)
     push_pushgateway_metrics(registry)
 
 

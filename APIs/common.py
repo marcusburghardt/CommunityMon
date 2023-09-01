@@ -32,6 +32,13 @@ def create_dict_from_string(string, delimiter):
         return None
 
 
+def create_dict_from_list(list: list) -> dict:
+    result_dict = {}
+    for item in list:
+        result_dict.update(item)
+    return result_dict
+
+
 def create_list_from_string(string, delimiter):
     return string.split(delimiter)
 
