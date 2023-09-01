@@ -273,7 +273,7 @@ def collect_created_items(
     # By team
     count = collect_created_issues_by_team(created_items)
     metric = f'{repo_name}_created_{type}_by_team_{timeframe}days'
-    description = f'Number of {type} created by the team within last {timeframe} days on {repo_id}'
+    description = f'Number of {type} created by team within last {timeframe} days on {repo_id}'
     metrics = append_pushgateway_metrics(metrics, metric, count, description)
     return metrics
 
@@ -494,6 +494,62 @@ def collect_repository_open_pulls(session: Github, repo_id: str, metrics: dict) 
     return collect_repository_open_items(repo_id, metrics, open_pulls, 'pulls')
 
 
+def get_workflows_runs_stats(repo: Repository) -> dict:
+    workflows_metrics = get_github_metrics('workflows')
+    runs_summary = {}
+    for status in workflows_metrics['status']:
+        query = repo.get_workflow_runs(status=status)
+        runs_summary.update({status: query.totalCount})
+    return runs_summary
+
+
+def collect_workflows_runs_stats(repo: Repository) -> dict:
+    repo_name = create_canonical_name(repo.name)
+    runs_summary = get_workflows_runs_stats(repo)
+    for status in runs_summary.keys():
+        metric = f'{repo_name}_workflows_status'
+        description = f'Count of {status} workflows runs on {repo_name}'
+        value = runs_summary[status]
+        print(f'{metric}: {value} - {description}')
+
+
+def get_workflow_id_by_name(repo: Repository, name: str) -> int:
+    workflows = repo.get_workflows()
+    for workflow in workflows:
+        if workflow.name == name:
+            return workflow.id
+
+
+def get_workflow_last_run_info(repo: Repository, name: str) -> int:
+    workflow_id = get_workflow_id_by_name(repo, name)
+    workflow = repo.get_workflow(workflow_id)
+    runs = workflow.get_runs(status='completed')
+    last_run = runs[0]
+    workflow_info = {'status': last_run.status, 'conclusion': last_run.conclusion,
+                     'created_at': last_run.created_at, 'updated_at': last_run.updated_at,
+                     'html_url': last_run.html_url}
+    return workflow_info
+
+
+def collect_workflows_last_run_info(repo: Repository) -> int:
+    workflows_metrics = get_github_metrics('workflows')
+    repo_name = create_canonical_name(repo.name)
+    for name in workflows_metrics['names']:
+        workflow_info = get_workflow_last_run_info(repo, name)
+        workflow_name = create_canonical_name(name)
+        for info in workflow_info.keys():
+            metric = f'{repo_name}_workflow_{workflow_name}_info'
+            description = f'Count of {info} workflows runs on {repo_name}'
+            value = workflow_info[info]
+            print(f'{metric}: {value} - {description}')
+
+
+def collect_workflows_information(session: Github, repo_id: str) -> dict:
+    repo = get_repository_object(session, repo_id)
+    collect_workflows_runs_stats(repo)
+    collect_workflows_last_run_info(repo)
+
+
 def collect_repository_metrics_prometheus(session: Github, repo_id: str) -> list:
     repo_name = create_canonical_name(repo_id)
 
@@ -525,6 +581,8 @@ def collect_repository_metrics_prometheus(session: Github, repo_id: str) -> list
             metrics = collect_pulls_lifetime_average(session, repo_id, metrics)
         elif metric == 'issues_lifetime_average':
             metrics = collect_issues_lifetime_average(session, repo_id, metrics)
+        elif metric == 'workflows':
+            collect_workflows_information(session, repo_id)
         else:
             print(f'Metric {metric} is not available.')
             continue

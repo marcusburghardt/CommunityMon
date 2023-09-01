@@ -61,6 +61,8 @@ def get_github_metrics(context):
         return metrics['team']
     elif context == 'no_activity_limit':
         return metrics['no_activity_limit']
+    elif context == 'workflows':
+        return metrics['workflows']
     else:
         return None
 
