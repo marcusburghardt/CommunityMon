@@ -1,0 +1,722 @@
+# HELP policy_requirements_status_anssi anssi Requirements Status
+# TYPE policy_requirements_status_anssi gauge
+policy_requirements_status_anssi{level="minimal",status="automated"} 7.0
+policy_requirements_status_anssi{level="minimal",status="documentation"} 0.0
+policy_requirements_status_anssi{level="minimal",status="does not meet"} 0.0
+policy_requirements_status_anssi{level="minimal",status="inherently met"} 0.0
+policy_requirements_status_anssi{level="minimal",status="manual"} 4.0
+policy_requirements_status_anssi{level="minimal",status="not applicable"} 0.0
+policy_requirements_status_anssi{level="minimal",status="partial"} 0.0
+policy_requirements_status_anssi{level="minimal",status="pending"} 0.0
+policy_requirements_status_anssi{level="minimal",status="planned"} 0.0
+policy_requirements_status_anssi{level="minimal",status="supported"} 1.0
+policy_requirements_status_anssi{level="minimal",status="all"} 12.0
+policy_requirements_status_anssi{level="minimal",status="applicable"} 12.0
+policy_requirements_status_anssi{level="minimal",status="assessed"} 12.0
+policy_requirements_status_anssi{level="minimal",status="not assessed"} 0.0
+policy_requirements_status_anssi{level="minimal",status="full coverage"} 11.0
+policy_requirements_status_anssi{level="intermediary",status="automated"} 24.0
+policy_requirements_status_anssi{level="intermediary",status="documentation"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="does not meet"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="inherently met"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="manual"} 14.0
+policy_requirements_status_anssi{level="intermediary",status="not applicable"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="partial"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="pending"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="planned"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="supported"} 2.0
+policy_requirements_status_anssi{level="intermediary",status="all"} 40.0
+policy_requirements_status_anssi{level="intermediary",status="applicable"} 40.0
+policy_requirements_status_anssi{level="intermediary",status="assessed"} 40.0
+policy_requirements_status_anssi{level="intermediary",status="not assessed"} 0.0
+policy_requirements_status_anssi{level="intermediary",status="full coverage"} 38.0
+policy_requirements_status_anssi{level="enhanced",status="automated"} 32.0
+policy_requirements_status_anssi{level="enhanced",status="documentation"} 2.0
+policy_requirements_status_anssi{level="enhanced",status="does not meet"} 0.0
+policy_requirements_status_anssi{level="enhanced",status="inherently met"} 0.0
+policy_requirements_status_anssi{level="enhanced",status="manual"} 18.0
+policy_requirements_status_anssi{level="enhanced",status="not applicable"} 2.0
+policy_requirements_status_anssi{level="enhanced",status="partial"} 0.0
+policy_requirements_status_anssi{level="enhanced",status="pending"} 0.0
+policy_requirements_status_anssi{level="enhanced",status="planned"} 0.0
+policy_requirements_status_anssi{level="enhanced",status="supported"} 4.0
+policy_requirements_status_anssi{level="enhanced",status="all"} 58.0
+policy_requirements_status_anssi{level="enhanced",status="applicable"} 56.0
+policy_requirements_status_anssi{level="enhanced",status="assessed"} 56.0
+policy_requirements_status_anssi{level="enhanced",status="not assessed"} 0.0
+policy_requirements_status_anssi{level="enhanced",status="full coverage"} 52.0
+policy_requirements_status_anssi{level="high",status="automated"} 47.0
+policy_requirements_status_anssi{level="high",status="documentation"} 2.0
+policy_requirements_status_anssi{level="high",status="does not meet"} 1.0
+policy_requirements_status_anssi{level="high",status="inherently met"} 0.0
+policy_requirements_status_anssi{level="high",status="manual"} 22.0
+policy_requirements_status_anssi{level="high",status="not applicable"} 4.0
+policy_requirements_status_anssi{level="high",status="partial"} 0.0
+policy_requirements_status_anssi{level="high",status="pending"} 0.0
+policy_requirements_status_anssi{level="high",status="planned"} 0.0
+policy_requirements_status_anssi{level="high",status="supported"} 4.0
+policy_requirements_status_anssi{level="high",status="all"} 80.0
+policy_requirements_status_anssi{level="high",status="applicable"} 76.0
+policy_requirements_status_anssi{level="high",status="assessed"} 76.0
+policy_requirements_status_anssi{level="high",status="not assessed"} 0.0
+policy_requirements_status_anssi{level="high",status="full coverage"} 71.0
+# HELP policy_requirements_status_ccn_rhel9 ccn_rhel9 Requirements Status
+# TYPE policy_requirements_status_ccn_rhel9 gauge
+policy_requirements_status_ccn_rhel9{level="basic",status="automated"} 19.0
+policy_requirements_status_ccn_rhel9{level="basic",status="documentation"} 0.0
+policy_requirements_status_ccn_rhel9{level="basic",status="does not meet"} 0.0
+policy_requirements_status_ccn_rhel9{level="basic",status="inherently met"} 0.0
+policy_requirements_status_ccn_rhel9{level="basic",status="manual"} 3.0
+policy_requirements_status_ccn_rhel9{level="basic",status="not applicable"} 0.0
+policy_requirements_status_ccn_rhel9{level="basic",status="partial"} 1.0
+policy_requirements_status_ccn_rhel9{level="basic",status="pending"} 11.0
+policy_requirements_status_ccn_rhel9{level="basic",status="planned"} 0.0
+policy_requirements_status_ccn_rhel9{level="basic",status="supported"} 0.0
+policy_requirements_status_ccn_rhel9{level="basic",status="all"} 34.0
+policy_requirements_status_ccn_rhel9{level="basic",status="applicable"} 34.0
+policy_requirements_status_ccn_rhel9{level="basic",status="assessed"} 23.0
+policy_requirements_status_ccn_rhel9{level="basic",status="not assessed"} 11.0
+policy_requirements_status_ccn_rhel9{level="basic",status="full coverage"} 22.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="automated"} 39.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="documentation"} 0.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="does not meet"} 0.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="inherently met"} 0.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="manual"} 3.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="not applicable"} 0.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="partial"} 2.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="pending"} 17.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="planned"} 0.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="supported"} 0.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="all"} 61.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="applicable"} 61.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="assessed"} 44.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="not assessed"} 17.0
+policy_requirements_status_ccn_rhel9{level="intermediate",status="full coverage"} 42.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="automated"} 56.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="documentation"} 0.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="does not meet"} 0.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="inherently met"} 0.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="manual"} 3.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="not applicable"} 0.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="partial"} 2.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="pending"} 20.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="planned"} 0.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="supported"} 0.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="all"} 81.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="applicable"} 81.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="assessed"} 61.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="not assessed"} 20.0
+policy_requirements_status_ccn_rhel9{level="advanced",status="full coverage"} 59.0
+# HELP policy_requirements_status_cis_ocp_1_4_0 cis_ocp_1_4_0 Requirements Status
+# TYPE policy_requirements_status_cis_ocp_1_4_0 gauge
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="automated"} 94.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="documentation"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="does not meet"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="inherently met"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="manual"} 15.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="not applicable"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="partial"} 2.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="pending"} 13.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="planned"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="supported"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="all"} 124.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="applicable"} 124.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="assessed"} 111.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="not assessed"} 13.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_1",status="full coverage"} 109.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="automated"} 99.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="documentation"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="does not meet"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="inherently met"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="manual"} 22.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="not applicable"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="partial"} 3.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="pending"} 13.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="planned"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="supported"} 0.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="all"} 137.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="applicable"} 137.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="assessed"} 124.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="not assessed"} 13.0
+policy_requirements_status_cis_ocp_1_4_0{level="level_2",status="full coverage"} 121.0
+# HELP policy_requirements_status_cis_rhel7 cis_rhel7 Requirements Status
+# TYPE policy_requirements_status_cis_rhel7 gauge
+policy_requirements_status_cis_rhel7{level="l1_server",status="automated"} 174.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="documentation"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="manual"} 20.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="partial"} 4.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="pending"} 8.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="planned"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="supported"} 7.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="all"} 213.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="applicable"} 213.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="assessed"} 205.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="not assessed"} 8.0
+policy_requirements_status_cis_rhel7{level="l1_server",status="full coverage"} 194.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="automated"} 206.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="documentation"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="manual"} 23.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="partial"} 4.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="pending"} 8.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="planned"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="supported"} 7.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="all"} 248.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="applicable"} 248.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="assessed"} 240.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="not assessed"} 8.0
+policy_requirements_status_cis_rhel7{level="l2_server",status="full coverage"} 229.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="automated"} 168.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="manual"} 20.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="partial"} 4.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="pending"} 8.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="planned"} 0.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="supported"} 7.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="all"} 207.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="applicable"} 207.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="assessed"} 199.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="not assessed"} 8.0
+policy_requirements_status_cis_rhel7{level="l1_workstation",status="full coverage"} 188.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="automated"} 203.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="manual"} 22.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="partial"} 4.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="pending"} 8.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="planned"} 0.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="supported"} 7.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="all"} 244.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="applicable"} 244.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="assessed"} 236.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="not assessed"} 8.0
+policy_requirements_status_cis_rhel7{level="l2_workstation",status="full coverage"} 225.0
+# HELP policy_requirements_status_cis_rhel8 cis_rhel8 Requirements Status
+# TYPE policy_requirements_status_cis_rhel8 gauge
+policy_requirements_status_cis_rhel8{level="l1_server",status="automated"} 192.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="documentation"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="manual"} 23.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="partial"} 2.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="pending"} 10.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="planned"} 1.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="supported"} 3.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="all"} 231.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="applicable"} 231.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="assessed"} 221.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="not assessed"} 10.0
+policy_requirements_status_cis_rhel8{level="l1_server",status="full coverage"} 215.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="automated"} 232.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="documentation"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="manual"} 26.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="partial"} 2.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="pending"} 10.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="planned"} 1.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="supported"} 3.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="all"} 274.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="applicable"} 274.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="assessed"} 264.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="not assessed"} 10.0
+policy_requirements_status_cis_rhel8{level="l2_server",status="full coverage"} 258.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="automated"} 186.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="manual"} 23.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="partial"} 2.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="pending"} 10.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="planned"} 1.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="supported"} 3.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="all"} 225.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="applicable"} 225.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="assessed"} 215.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="not assessed"} 10.0
+policy_requirements_status_cis_rhel8{level="l1_workstation",status="full coverage"} 209.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="automated"} 228.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="manual"} 25.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="partial"} 2.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="pending"} 10.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="planned"} 1.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="supported"} 3.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="all"} 269.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="applicable"} 269.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="assessed"} 259.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="not assessed"} 10.0
+policy_requirements_status_cis_rhel8{level="l2_workstation",status="full coverage"} 253.0
+# HELP policy_requirements_status_cis_rhel9 cis_rhel9 Requirements Status
+# TYPE policy_requirements_status_cis_rhel9 gauge
+policy_requirements_status_cis_rhel9{level="l1_server",status="automated"} 184.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="documentation"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="manual"} 19.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="partial"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="pending"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="planned"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="supported"} 3.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="all"} 206.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="applicable"} 206.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="assessed"} 206.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="not assessed"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_server",status="full coverage"} 203.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="automated"} 233.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="documentation"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="manual"} 21.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="partial"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="pending"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="planned"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="supported"} 3.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="all"} 257.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="applicable"} 257.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="assessed"} 257.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="not assessed"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_server",status="full coverage"} 254.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="automated"} 180.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="manual"} 19.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="partial"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="pending"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="planned"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="supported"} 3.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="all"} 202.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="applicable"} 202.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="assessed"} 202.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="not assessed"} 0.0
+policy_requirements_status_cis_rhel9{level="l1_workstation",status="full coverage"} 199.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="automated"} 228.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="manual"} 21.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="partial"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="pending"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="planned"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="supported"} 3.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="all"} 252.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="applicable"} 252.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="assessed"} 252.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="not assessed"} 0.0
+policy_requirements_status_cis_rhel9{level="l2_workstation",status="full coverage"} 249.0
+# HELP policy_requirements_status_cis_sle12 cis_sle12 Requirements Status
+# TYPE policy_requirements_status_cis_sle12 gauge
+policy_requirements_status_cis_sle12{level="l1_server",status="automated"} 153.0
+policy_requirements_status_cis_sle12{level="l1_server",status="documentation"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="does not meet"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="inherently met"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="manual"} 16.0
+policy_requirements_status_cis_sle12{level="l1_server",status="not applicable"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="partial"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="pending"} 11.0
+policy_requirements_status_cis_sle12{level="l1_server",status="planned"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="supported"} 0.0
+policy_requirements_status_cis_sle12{level="l1_server",status="all"} 180.0
+policy_requirements_status_cis_sle12{level="l1_server",status="applicable"} 180.0
+policy_requirements_status_cis_sle12{level="l1_server",status="assessed"} 169.0
+policy_requirements_status_cis_sle12{level="l1_server",status="not assessed"} 11.0
+policy_requirements_status_cis_sle12{level="l1_server",status="full coverage"} 169.0
+policy_requirements_status_cis_sle12{level="l2_server",status="automated"} 185.0
+policy_requirements_status_cis_sle12{level="l2_server",status="documentation"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="does not meet"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="inherently met"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="manual"} 18.0
+policy_requirements_status_cis_sle12{level="l2_server",status="not applicable"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="partial"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="pending"} 12.0
+policy_requirements_status_cis_sle12{level="l2_server",status="planned"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="supported"} 0.0
+policy_requirements_status_cis_sle12{level="l2_server",status="all"} 215.0
+policy_requirements_status_cis_sle12{level="l2_server",status="applicable"} 215.0
+policy_requirements_status_cis_sle12{level="l2_server",status="assessed"} 203.0
+policy_requirements_status_cis_sle12{level="l2_server",status="not assessed"} 12.0
+policy_requirements_status_cis_sle12{level="l2_server",status="full coverage"} 203.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="automated"} 149.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="manual"} 16.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="partial"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="pending"} 11.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="planned"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="supported"} 0.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="all"} 176.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="applicable"} 176.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="assessed"} 165.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="not assessed"} 11.0
+policy_requirements_status_cis_sle12{level="l1_workstation",status="full coverage"} 165.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="automated"} 183.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="manual"} 18.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="partial"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="pending"} 12.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="planned"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="supported"} 0.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="all"} 213.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="applicable"} 213.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="assessed"} 201.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="not assessed"} 12.0
+policy_requirements_status_cis_sle12{level="l2_workstation",status="full coverage"} 201.0
+# HELP policy_requirements_status_cis_sle15 cis_sle15 Requirements Status
+# TYPE policy_requirements_status_cis_sle15 gauge
+policy_requirements_status_cis_sle15{level="l1_server",status="automated"} 161.0
+policy_requirements_status_cis_sle15{level="l1_server",status="documentation"} 0.0
+policy_requirements_status_cis_sle15{level="l1_server",status="does not meet"} 0.0
+policy_requirements_status_cis_sle15{level="l1_server",status="inherently met"} 0.0
+policy_requirements_status_cis_sle15{level="l1_server",status="manual"} 21.0
+policy_requirements_status_cis_sle15{level="l1_server",status="not applicable"} 0.0
+policy_requirements_status_cis_sle15{level="l1_server",status="partial"} 1.0
+policy_requirements_status_cis_sle15{level="l1_server",status="pending"} 13.0
+policy_requirements_status_cis_sle15{level="l1_server",status="planned"} 0.0
+policy_requirements_status_cis_sle15{level="l1_server",status="supported"} 0.0
+policy_requirements_status_cis_sle15{level="l1_server",status="all"} 196.0
+policy_requirements_status_cis_sle15{level="l1_server",status="applicable"} 196.0
+policy_requirements_status_cis_sle15{level="l1_server",status="assessed"} 183.0
+policy_requirements_status_cis_sle15{level="l1_server",status="not assessed"} 13.0
+policy_requirements_status_cis_sle15{level="l1_server",status="full coverage"} 182.0
+policy_requirements_status_cis_sle15{level="l2_server",status="automated"} 194.0
+policy_requirements_status_cis_sle15{level="l2_server",status="documentation"} 0.0
+policy_requirements_status_cis_sle15{level="l2_server",status="does not meet"} 0.0
+policy_requirements_status_cis_sle15{level="l2_server",status="inherently met"} 0.0
+policy_requirements_status_cis_sle15{level="l2_server",status="manual"} 23.0
+policy_requirements_status_cis_sle15{level="l2_server",status="not applicable"} 0.0
+policy_requirements_status_cis_sle15{level="l2_server",status="partial"} 1.0
+policy_requirements_status_cis_sle15{level="l2_server",status="pending"} 14.0
+policy_requirements_status_cis_sle15{level="l2_server",status="planned"} 0.0
+policy_requirements_status_cis_sle15{level="l2_server",status="supported"} 0.0
+policy_requirements_status_cis_sle15{level="l2_server",status="all"} 232.0
+policy_requirements_status_cis_sle15{level="l2_server",status="applicable"} 232.0
+policy_requirements_status_cis_sle15{level="l2_server",status="assessed"} 218.0
+policy_requirements_status_cis_sle15{level="l2_server",status="not assessed"} 14.0
+policy_requirements_status_cis_sle15{level="l2_server",status="full coverage"} 217.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="automated"} 157.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="manual"} 21.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="partial"} 1.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="pending"} 13.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="planned"} 0.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="supported"} 0.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="all"} 192.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="applicable"} 192.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="assessed"} 179.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="not assessed"} 13.0
+policy_requirements_status_cis_sle15{level="l1_workstation",status="full coverage"} 178.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="automated"} 192.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="documentation"} 0.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="does not meet"} 0.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="inherently met"} 0.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="manual"} 23.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="not applicable"} 0.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="partial"} 1.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="pending"} 14.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="planned"} 0.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="supported"} 0.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="all"} 230.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="applicable"} 230.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="assessed"} 216.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="not assessed"} 14.0
+policy_requirements_status_cis_sle15{level="l2_workstation",status="full coverage"} 215.0
+# HELP policy_requirements_status_cusp_fedora cusp_fedora Requirements Status
+# TYPE policy_requirements_status_cusp_fedora gauge
+# HELP policy_requirements_status_nist_ocp4 nist_ocp4 Requirements Status
+# TYPE policy_requirements_status_nist_ocp4 gauge
+policy_requirements_status_nist_ocp4{level="low",status="automated"} 28.0
+policy_requirements_status_nist_ocp4{level="low",status="documentation"} 0.0
+policy_requirements_status_nist_ocp4{level="low",status="does not meet"} 0.0
+policy_requirements_status_nist_ocp4{level="low",status="inherently met"} 9.0
+policy_requirements_status_nist_ocp4{level="low",status="manual"} 0.0
+policy_requirements_status_nist_ocp4{level="low",status="not applicable"} 413.0
+policy_requirements_status_nist_ocp4{level="low",status="partial"} 0.0
+policy_requirements_status_nist_ocp4{level="low",status="pending"} 159.0
+policy_requirements_status_nist_ocp4{level="low",status="planned"} 0.0
+policy_requirements_status_nist_ocp4{level="low",status="supported"} 17.0
+policy_requirements_status_nist_ocp4{level="low",status="all"} 626.0
+policy_requirements_status_nist_ocp4{level="low",status="applicable"} 213.0
+policy_requirements_status_nist_ocp4{level="low",status="assessed"} 54.0
+policy_requirements_status_nist_ocp4{level="low",status="not assessed"} 159.0
+policy_requirements_status_nist_ocp4{level="low",status="full coverage"} 37.0
+policy_requirements_status_nist_ocp4{level="moderate",status="automated"} 81.0
+policy_requirements_status_nist_ocp4{level="moderate",status="documentation"} 3.0
+policy_requirements_status_nist_ocp4{level="moderate",status="does not meet"} 0.0
+policy_requirements_status_nist_ocp4{level="moderate",status="inherently met"} 17.0
+policy_requirements_status_nist_ocp4{level="moderate",status="manual"} 0.0
+policy_requirements_status_nist_ocp4{level="moderate",status="not applicable"} 213.0
+policy_requirements_status_nist_ocp4{level="moderate",status="partial"} 1.0
+policy_requirements_status_nist_ocp4{level="moderate",status="pending"} 5.0
+policy_requirements_status_nist_ocp4{level="moderate",status="planned"} 0.0
+policy_requirements_status_nist_ocp4{level="moderate",status="supported"} 5.0
+policy_requirements_status_nist_ocp4{level="moderate",status="all"} 325.0
+policy_requirements_status_nist_ocp4{level="moderate",status="applicable"} 112.0
+policy_requirements_status_nist_ocp4{level="moderate",status="assessed"} 107.0
+policy_requirements_status_nist_ocp4{level="moderate",status="not assessed"} 5.0
+policy_requirements_status_nist_ocp4{level="moderate",status="full coverage"} 101.0
+policy_requirements_status_nist_ocp4{level="high",status="automated"} 96.0
+policy_requirements_status_nist_ocp4{level="high",status="documentation"} 3.0
+policy_requirements_status_nist_ocp4{level="high",status="does not meet"} 0.0
+policy_requirements_status_nist_ocp4{level="high",status="inherently met"} 26.0
+policy_requirements_status_nist_ocp4{level="high",status="manual"} 0.0
+policy_requirements_status_nist_ocp4{level="high",status="not applicable"} 277.0
+policy_requirements_status_nist_ocp4{level="high",status="partial"} 3.0
+policy_requirements_status_nist_ocp4{level="high",status="pending"} 6.0
+policy_requirements_status_nist_ocp4{level="high",status="planned"} 0.0
+policy_requirements_status_nist_ocp4{level="high",status="supported"} 10.0
+policy_requirements_status_nist_ocp4{level="high",status="all"} 421.0
+policy_requirements_status_nist_ocp4{level="high",status="applicable"} 144.0
+policy_requirements_status_nist_ocp4{level="high",status="assessed"} 138.0
+policy_requirements_status_nist_ocp4{level="high",status="not assessed"} 6.0
+policy_requirements_status_nist_ocp4{level="high",status="full coverage"} 125.0
+# HELP policy_requirements_status_nist_rhcos4 nist_rhcos4 Requirements Status
+# TYPE policy_requirements_status_nist_rhcos4 gauge
+policy_requirements_status_nist_rhcos4{level="low",status="automated"} 41.0
+policy_requirements_status_nist_rhcos4{level="low",status="documentation"} 0.0
+policy_requirements_status_nist_rhcos4{level="low",status="does not meet"} 0.0
+policy_requirements_status_nist_rhcos4{level="low",status="inherently met"} 0.0
+policy_requirements_status_nist_rhcos4{level="low",status="manual"} 0.0
+policy_requirements_status_nist_rhcos4{level="low",status="not applicable"} 399.0
+policy_requirements_status_nist_rhcos4{level="low",status="partial"} 0.0
+policy_requirements_status_nist_rhcos4{level="low",status="pending"} 172.0
+policy_requirements_status_nist_rhcos4{level="low",status="planned"} 0.0
+policy_requirements_status_nist_rhcos4{level="low",status="supported"} 14.0
+policy_requirements_status_nist_rhcos4{level="low",status="all"} 626.0
+policy_requirements_status_nist_rhcos4{level="low",status="applicable"} 227.0
+policy_requirements_status_nist_rhcos4{level="low",status="assessed"} 55.0
+policy_requirements_status_nist_rhcos4{level="low",status="not assessed"} 172.0
+policy_requirements_status_nist_rhcos4{level="low",status="full coverage"} 41.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="automated"} 47.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="documentation"} 0.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="does not meet"} 0.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="inherently met"} 2.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="manual"} 0.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="not applicable"} 192.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="partial"} 0.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="pending"} 72.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="planned"} 0.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="supported"} 12.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="all"} 325.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="applicable"} 133.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="assessed"} 61.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="not assessed"} 72.0
+policy_requirements_status_nist_rhcos4{level="moderate",status="full coverage"} 49.0
+policy_requirements_status_nist_rhcos4{level="high",status="automated"} 59.0
+policy_requirements_status_nist_rhcos4{level="high",status="documentation"} 0.0
+policy_requirements_status_nist_rhcos4{level="high",status="does not meet"} 0.0
+policy_requirements_status_nist_rhcos4{level="high",status="inherently met"} 2.0
+policy_requirements_status_nist_rhcos4{level="high",status="manual"} 0.0
+policy_requirements_status_nist_rhcos4{level="high",status="not applicable"} 244.0
+policy_requirements_status_nist_rhcos4{level="high",status="partial"} 0.0
+policy_requirements_status_nist_rhcos4{level="high",status="pending"} 101.0
+policy_requirements_status_nist_rhcos4{level="high",status="planned"} 0.0
+policy_requirements_status_nist_rhcos4{level="high",status="supported"} 15.0
+policy_requirements_status_nist_rhcos4{level="high",status="all"} 421.0
+policy_requirements_status_nist_rhcos4{level="high",status="applicable"} 177.0
+policy_requirements_status_nist_rhcos4{level="high",status="assessed"} 76.0
+policy_requirements_status_nist_rhcos4{level="high",status="not assessed"} 101.0
+policy_requirements_status_nist_rhcos4{level="high",status="full coverage"} 61.0
+# HELP policy_requirements_status_pcidss_3 pcidss_3 Requirements Status
+# TYPE policy_requirements_status_pcidss_3 gauge
+policy_requirements_status_pcidss_3{level="base",status="automated"} 34.0
+policy_requirements_status_pcidss_3{level="base",status="documentation"} 0.0
+policy_requirements_status_pcidss_3{level="base",status="does not meet"} 0.0
+policy_requirements_status_pcidss_3{level="base",status="inherently met"} 0.0
+policy_requirements_status_pcidss_3{level="base",status="manual"} 0.0
+policy_requirements_status_pcidss_3{level="base",status="not applicable"} 3.0
+policy_requirements_status_pcidss_3{level="base",status="partial"} 13.0
+policy_requirements_status_pcidss_3{level="base",status="pending"} 218.0
+policy_requirements_status_pcidss_3{level="base",status="planned"} 0.0
+policy_requirements_status_pcidss_3{level="base",status="supported"} 0.0
+policy_requirements_status_pcidss_3{level="base",status="all"} 268.0
+policy_requirements_status_pcidss_3{level="base",status="applicable"} 265.0
+policy_requirements_status_pcidss_3{level="base",status="assessed"} 47.0
+policy_requirements_status_pcidss_3{level="base",status="not assessed"} 218.0
+policy_requirements_status_pcidss_3{level="base",status="full coverage"} 34.0
+# HELP policy_requirements_status_pcidss_4 pcidss_4 Requirements Status
+# TYPE policy_requirements_status_pcidss_4 gauge
+policy_requirements_status_pcidss_4{level="base",status="automated"} 30.0
+policy_requirements_status_pcidss_4{level="base",status="documentation"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="does not meet"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="inherently met"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="manual"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="not applicable"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="partial"} 29.0
+policy_requirements_status_pcidss_4{level="base",status="pending"} 282.0
+policy_requirements_status_pcidss_4{level="base",status="planned"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="supported"} 0.0
+policy_requirements_status_pcidss_4{level="base",status="all"} 341.0
+policy_requirements_status_pcidss_4{level="base",status="applicable"} 341.0
+policy_requirements_status_pcidss_4{level="base",status="assessed"} 59.0
+policy_requirements_status_pcidss_4{level="base",status="not assessed"} 282.0
+policy_requirements_status_pcidss_4{level="base",status="full coverage"} 30.0
+# HELP policy_requirements_status_pcidss_ocp4 pcidss_ocp4 Requirements Status
+# TYPE policy_requirements_status_pcidss_ocp4 gauge
+policy_requirements_status_pcidss_ocp4{level="base",status="automated"} 25.0
+policy_requirements_status_pcidss_ocp4{level="base",status="documentation"} 0.0
+policy_requirements_status_pcidss_ocp4{level="base",status="does not meet"} 0.0
+policy_requirements_status_pcidss_ocp4{level="base",status="inherently met"} 31.0
+policy_requirements_status_pcidss_ocp4{level="base",status="manual"} 0.0
+policy_requirements_status_pcidss_ocp4{level="base",status="not applicable"} 176.0
+policy_requirements_status_pcidss_ocp4{level="base",status="partial"} 9.0
+policy_requirements_status_pcidss_ocp4{level="base",status="pending"} 0.0
+policy_requirements_status_pcidss_ocp4{level="base",status="planned"} 0.0
+policy_requirements_status_pcidss_ocp4{level="base",status="supported"} 1.0
+policy_requirements_status_pcidss_ocp4{level="base",status="all"} 242.0
+policy_requirements_status_pcidss_ocp4{level="base",status="applicable"} 66.0
+policy_requirements_status_pcidss_ocp4{level="base",status="assessed"} 66.0
+policy_requirements_status_pcidss_ocp4{level="base",status="not assessed"} 0.0
+policy_requirements_status_pcidss_ocp4{level="base",status="full coverage"} 56.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="automated"} 25.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="documentation"} 0.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="does not meet"} 0.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="inherently met"} 31.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="manual"} 0.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="not applicable"} 176.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="partial"} 9.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="pending"} 6.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="planned"} 0.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="supported"} 1.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="all"} 248.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="applicable"} 72.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="assessed"} 66.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="not assessed"} 6.0
+policy_requirements_status_pcidss_ocp4{level="shared_hosting_provider",status="full coverage"} 56.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="automated"} 25.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="documentation"} 0.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="does not meet"} 0.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="inherently met"} 31.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="manual"} 0.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="not applicable"} 176.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="partial"} 9.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="pending"} 20.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="planned"} 0.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="supported"} 1.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="all"} 262.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="applicable"} 86.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="assessed"} 66.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="not assessed"} 20.0
+policy_requirements_status_pcidss_ocp4{level="desv",status="full coverage"} 56.0
+# HELP policy_requirements_status_srg_ctr srg_ctr Requirements Status
+# TYPE policy_requirements_status_srg_ctr gauge
+policy_requirements_status_srg_ctr{level="high",status="automated"} 2.0
+policy_requirements_status_srg_ctr{level="high",status="documentation"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="does not meet"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="inherently met"} 1.0
+policy_requirements_status_srg_ctr{level="high",status="manual"} 1.0
+policy_requirements_status_srg_ctr{level="high",status="not applicable"} 1.0
+policy_requirements_status_srg_ctr{level="high",status="partial"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="pending"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="planned"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="supported"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="all"} 5.0
+policy_requirements_status_srg_ctr{level="high",status="applicable"} 4.0
+policy_requirements_status_srg_ctr{level="high",status="assessed"} 4.0
+policy_requirements_status_srg_ctr{level="high",status="not assessed"} 0.0
+policy_requirements_status_srg_ctr{level="high",status="full coverage"} 4.0
+policy_requirements_status_srg_ctr{level="medium",status="automated"} 86.0
+policy_requirements_status_srg_ctr{level="medium",status="documentation"} 0.0
+policy_requirements_status_srg_ctr{level="medium",status="does not meet"} 2.0
+policy_requirements_status_srg_ctr{level="medium",status="inherently met"} 20.0
+policy_requirements_status_srg_ctr{level="medium",status="manual"} 26.0
+policy_requirements_status_srg_ctr{level="medium",status="not applicable"} 31.0
+policy_requirements_status_srg_ctr{level="medium",status="partial"} 0.0
+policy_requirements_status_srg_ctr{level="medium",status="pending"} 0.0
+policy_requirements_status_srg_ctr{level="medium",status="planned"} 0.0
+policy_requirements_status_srg_ctr{level="medium",status="supported"} 0.0
+policy_requirements_status_srg_ctr{level="medium",status="all"} 165.0
+policy_requirements_status_srg_ctr{level="medium",status="applicable"} 134.0
+policy_requirements_status_srg_ctr{level="medium",status="assessed"} 134.0
+policy_requirements_status_srg_ctr{level="medium",status="not assessed"} 0.0
+policy_requirements_status_srg_ctr{level="medium",status="full coverage"} 132.0
+policy_requirements_status_srg_ctr{level="low",status="automated"} 2.0
+policy_requirements_status_srg_ctr{level="low",status="documentation"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="does not meet"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="inherently met"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="manual"} 1.0
+policy_requirements_status_srg_ctr{level="low",status="not applicable"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="partial"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="pending"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="planned"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="supported"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="all"} 3.0
+policy_requirements_status_srg_ctr{level="low",status="applicable"} 3.0
+policy_requirements_status_srg_ctr{level="low",status="assessed"} 3.0
+policy_requirements_status_srg_ctr{level="low",status="not assessed"} 0.0
+policy_requirements_status_srg_ctr{level="low",status="full coverage"} 3.0
+# HELP policy_requirements_status_srg_gpos srg_gpos Requirements Status
+# TYPE policy_requirements_status_srg_gpos gauge
+policy_requirements_status_srg_gpos{level="high",status="automated"} 1.0
+policy_requirements_status_srg_gpos{level="high",status="documentation"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="does not meet"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="inherently met"} 1.0
+policy_requirements_status_srg_gpos{level="high",status="manual"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="not applicable"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="partial"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="pending"} 1.0
+policy_requirements_status_srg_gpos{level="high",status="planned"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="supported"} 0.0
+policy_requirements_status_srg_gpos{level="high",status="all"} 3.0
+policy_requirements_status_srg_gpos{level="high",status="applicable"} 3.0
+policy_requirements_status_srg_gpos{level="high",status="assessed"} 2.0
+policy_requirements_status_srg_gpos{level="high",status="not assessed"} 1.0
+policy_requirements_status_srg_gpos{level="high",status="full coverage"} 2.0
+policy_requirements_status_srg_gpos{level="medium",status="automated"} 155.0
+policy_requirements_status_srg_gpos{level="medium",status="documentation"} 0.0
+policy_requirements_status_srg_gpos{level="medium",status="does not meet"} 8.0
+policy_requirements_status_srg_gpos{level="medium",status="inherently met"} 18.0
+policy_requirements_status_srg_gpos{level="medium",status="manual"} 3.0
+policy_requirements_status_srg_gpos{level="medium",status="not applicable"} 2.0
+policy_requirements_status_srg_gpos{level="medium",status="partial"} 0.0
+policy_requirements_status_srg_gpos{level="medium",status="pending"} 2.0
+policy_requirements_status_srg_gpos{level="medium",status="planned"} 0.0
+policy_requirements_status_srg_gpos{level="medium",status="supported"} 0.0
+policy_requirements_status_srg_gpos{level="medium",status="all"} 188.0
+policy_requirements_status_srg_gpos{level="medium",status="applicable"} 186.0
+policy_requirements_status_srg_gpos{level="medium",status="assessed"} 184.0
+policy_requirements_status_srg_gpos{level="medium",status="not assessed"} 2.0
+policy_requirements_status_srg_gpos{level="medium",status="full coverage"} 176.0
+policy_requirements_status_srg_gpos{level="low",status="automated"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="documentation"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="does not meet"} 2.0
+policy_requirements_status_srg_gpos{level="low",status="inherently met"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="manual"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="not applicable"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="partial"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="pending"} 1.0
+policy_requirements_status_srg_gpos{level="low",status="planned"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="supported"} 0.0
+policy_requirements_status_srg_gpos{level="low",status="all"} 3.0
+policy_requirements_status_srg_gpos{level="low",status="applicable"} 3.0
+policy_requirements_status_srg_gpos{level="low",status="assessed"} 2.0
+policy_requirements_status_srg_gpos{level="low",status="not assessed"} 1.0
+policy_requirements_status_srg_gpos{level="low",status="full coverage"} 0.0
