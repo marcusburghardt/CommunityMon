@@ -34,6 +34,15 @@ Basically, `scripts` interact with the tools' APIs to collect relevant data and 
 
 # Get Started
 It is pretty straightforward to start using this stack. You only need to follow some few steps to start monitoring your Open Source project.
+
+## Fast Track
+```shell
+ansible-playbook -i localhost, Stack/deployment.yaml
+``````
+
+This Playbook will ensure everything needed to start the CommunityMon stack.
+Right after the first execution it is essential to update the `apis.yml`, `.env_grafana` and `.GRAFANA_ADMIN_PASSWORD` files.
+The web server configuration is not in the scope of this Playbook.
 ## Requirements
 ### Packages
 #### Fedora
