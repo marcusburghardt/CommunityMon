@@ -1,0 +1,133 @@
+- name: Deploy CommunityMon Stack
+  hosts: all
+  remote_user: root
+  vars:
+    - var_user: 'community-mon'
+    - var_group: 'community-mon'
+    - var_root_folder: '/opt/CommunityMon'
+    - var_repository: 'https://github.com/marcusburghardt/CommunityMon.git'
+  tasks:
+    - name: Ensure Required Packages
+      ansible.builtin.package:
+        name:
+          - certbot
+          - firewalld
+          - git
+          - nginx
+          - pip
+          - podman
+          - podman-compose
+          - python3-certbot-nginx
+
+    - name: Ensure Necessary Python Modules Used in Scripts
+      ansible.builtin.pip:
+        name:
+          - pyyaml
+          - PyGithub
+          - prometheus_client
+      become: true
+      become_user: '{{ var_user }}'
+
+    - name: Add User to Manage the CommunityMon Stack
+      ansible.builtin.user:
+        name: '{{ var_user }}'
+
+    - name: Create Root Folder to Host the CommunityMon Stack
+      ansible.builtin.file:
+        path: '{{ var_root_folder }}'
+        state: directory
+        owner: '{{ var_user }}'
+        group: '{{ var_group }}'
+        mode: '0755'
+
+    - name: Ensure CommunityMon Git Repository is Cloned and Updated
+      ansible.builtin.git:
+        repo: '{{ var_repository }}'
+        dest: '{{ var_root_folder }}'
+        clone: true
+        update: true
+        version: 'HEAD'
+        force: true
+      become: true
+      become_user: '{{ var_user }}'
+
+    - name: Ensure SELinux Context for Prometheus Data
+      ansible.builtin.file:
+        path: '{{ var_root_folder }}/Stack/prometheus/data'
+        state: directory
+        mode: '0755'
+        setype: container_file_t
+
+    - name: Ensure the apis.yml File is Present
+      ansible.builtin.copy:
+        src: '{{ var_root_folder }}/Sample_Files/apis_apis.yml'
+        dest: '{{ var_root_folder }}/APIs/apis.yml'
+        owner: '{{ var_user }}'
+        group: '{{ var_group }}'
+        mode: '0640'
+        force: false
+      notify: Inform User That APIs Configuration File Needs to be Reviewed
+
+    - name: Ensure the Grafana Environment Definitions File is Present
+      ansible.builtin.copy:
+        src: '{{ var_root_folder }}/Sample_Files/stack_dot_env_grafana'
+        dest: '{{ var_root_folder }}/Stack/.env_grafana'
+        owner: '{{ var_user }}'
+        group: '{{ var_group }}'
+        mode: '0640'
+        force: false
+      notify: Inform User That Grafana Environment File Needs to be Reviewed
+
+    - name: Ensure the Grafana Credentials File is Present
+      ansible.builtin.copy:
+        src: '{{ var_root_folder }}/Sample_Files/stack_dot_GRAFANA_ADMIN_PASSWORD'
+        dest: '{{ var_root_folder }}/Stack/.GRAFANA_ADMIN_PASSWORD'
+        owner: '{{ var_user }}'
+        group: '{{ var_group }}'
+        mode: '0640'
+        force: false
+      notify: Inform User That Grafana Credentials File Needs to be Reviewed
+
+    - name: Ensure the CommunityMon Cron File is Present
+      ansible.builtin.copy:
+        src: '{{ var_root_folder }}/Sample_Files/cron_communitymon'
+        dest: '/etc/cron.d/communitymon'
+        mode: '0640'
+        force: false
+      register: result_file_copy_cron
+
+    - name: Check if User is Lingering
+      ansible.builtin.stat:
+        path: '/var/lib/systemd/linger/{{ var_user }}'
+      register: result_user_lingering
+
+    - name: Enable Lingering for {{ var_user }}
+      ansible.builtin.command: 'loginctl enable-linger {{ var_user }}'
+      when: not result_user_lingering.stat.exists
+
+    - name: Permit HTTPS Traffic in Default Zone
+      ansible.posix.firewalld:
+        service: https
+        permanent: true
+        immediate: true
+        state: enabled
+
+    - name: Permit HTTP Traffic in Default Zone
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        immediate: true
+        state: enabled
+
+  handlers:
+    - name: Inform User That APIs Configuration File Needs to be Reviewed
+      ansible.builtin.debug:
+        msg: You Must Review the Default Content of 'apis.yml' File
+
+    - name: Inform User That Grafana Environment File Needs to be Reviewed
+      ansible.builtin.debug:
+        msg: You Must Review the Default Content of '.env_grafana' File
+
+    - name: Inform User That Grafana Credentials File Needs to be Reviewed
+      ansible.builtin.debug:
+        msg: You Must Review and Update the Content of '.GRAFANA_ADMIN_PASSWORD' File
