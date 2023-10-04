@@ -53,6 +53,8 @@
             "seriesBy": "last"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
@@ -65,6 +67,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -131,14 +134,15 @@
       "options": {
         "legend": {
           "calcs": [
-            "last",
+            "lastNotNull",
             "min",
             "max",
             "mean",
             "diff"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -285,7 +289,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -388,7 +392,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -471,6 +475,7 @@
         "legend": {
           "displayMode": "table",
           "placement": "right",
+          "showLegend": true,
           "values": [
             "value",
             "percent"
@@ -581,6 +586,7 @@
         "legend": {
           "displayMode": "table",
           "placement": "bottom",
+          "showLegend": true,
           "values": [
             "percent",
             "value"
@@ -715,7 +721,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -818,7 +824,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -848,6 +854,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
@@ -860,6 +868,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -915,13 +924,14 @@
       "options": {
         "legend": {
           "calcs": [
-            "last",
+            "lastNotNull",
             "min",
             "max",
             "diff"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -1063,7 +1073,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1146,6 +1156,7 @@
         "legend": {
           "displayMode": "table",
           "placement": "right",
+          "showLegend": true,
           "values": [
             "value",
             "percent"
@@ -1231,6 +1242,8 @@
             "mode": "continuous-GrYlRd"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisGridShow": false,
             "axisLabel": "",
             "axisPlacement": "auto",
@@ -1243,6 +1256,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -1309,14 +1323,15 @@
       "options": {
         "legend": {
           "calcs": [
-            "last",
+            "lastNotNull",
             "min",
             "max",
             "mean",
             "diff"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -1463,7 +1478,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1566,7 +1581,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1639,6 +1654,7 @@
         "legend": {
           "displayMode": "table",
           "placement": "right",
+          "showLegend": true,
           "values": [
             "percent",
             "value"
@@ -1760,7 +1776,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1860,7 +1876,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1963,7 +1979,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -2041,6 +2057,7 @@
         "legend": {
           "displayMode": "table",
           "placement": "right",
+          "showLegend": true,
           "values": [
             "percent",
             "value"
@@ -2112,6 +2129,8 @@
                 "seriesBy": "last"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisGridShow": false,
                 "axisLabel": "",
                 "axisPlacement": "auto",
@@ -2124,6 +2143,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineStyle": {
                   "fill": "solid"
@@ -2190,14 +2210,15 @@
           "options": {
             "legend": {
               "calcs": [
-                "last",
+                "lastNotNull",
                 "min",
                 "max",
                 "mean",
                 "diff"
               ],
               "displayMode": "table",
-              "placement": "right"
+              "placement": "right",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single",
@@ -2343,7 +2364,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2446,7 +2467,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2524,6 +2545,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "value",
                 "percent"
@@ -2657,7 +2679,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2680,8 +2702,8 @@
       "type": "row"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 36,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2695,6 +2717,6 @@
   "timezone": "",
   "title": "Team_Meeting",
   "uid": "8ho1fhMVk",
-  "version": 16,
+  "version": 1,
   "weekStart": ""
 }
