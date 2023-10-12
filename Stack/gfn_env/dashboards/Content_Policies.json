@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -68,7 +67,7 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
             "y": 1
@@ -88,6 +87,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -143,6 +143,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -154,6 +156,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -191,8 +194,8 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
             "y": 1
           },
@@ -215,6 +218,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -282,7 +286,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 1
           },
           "id": 83,
@@ -308,7 +312,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -377,7 +381,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 1
           },
           "id": 69,
@@ -402,7 +406,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -462,7 +466,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 5
           },
           "id": 84,
@@ -488,7 +492,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -557,7 +561,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 5
           },
           "id": 86,
@@ -582,7 +586,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -652,7 +656,7 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
             "y": 2
@@ -672,6 +676,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -727,6 +732,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -738,6 +745,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -775,8 +783,8 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
             "y": 2
           },
@@ -799,6 +807,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -866,7 +875,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 2
           },
           "id": 91,
@@ -892,7 +901,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -961,7 +970,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 2
           },
           "id": 93,
@@ -986,7 +995,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1046,7 +1055,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 6
           },
           "id": 92,
@@ -1072,7 +1081,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1141,7 +1150,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 6
           },
           "id": 94,
@@ -1166,7 +1175,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1236,7 +1245,7 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
             "y": 3
@@ -1256,6 +1265,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -1311,6 +1321,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -1322,6 +1334,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -1359,8 +1372,8 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
             "y": 3
           },
@@ -1383,6 +1396,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -1450,7 +1464,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 3
           },
           "id": 101,
@@ -1476,7 +1490,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1545,7 +1559,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 3
           },
           "id": 103,
@@ -1570,7 +1584,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1630,7 +1644,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 7
           },
           "id": 102,
@@ -1656,7 +1670,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1725,7 +1739,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 7
           },
           "id": 104,
@@ -1750,7 +1764,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -1820,7 +1834,7 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
             "y": 4
@@ -1840,6 +1854,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -1895,6 +1910,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -1906,6 +1923,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -1943,8 +1961,8 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
             "y": 4
           },
@@ -1967,6 +1985,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -2034,7 +2053,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 4
           },
           "id": 109,
@@ -2060,7 +2079,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2129,7 +2148,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 4
           },
           "id": 111,
@@ -2154,7 +2173,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2214,7 +2233,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
+            "x": 18,
             "y": 8
           },
           "id": 110,
@@ -2240,7 +2259,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2309,7 +2328,7 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
+            "x": 21,
             "y": 8
           },
           "id": 112,
@@ -2334,7 +2353,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2372,6 +2391,1184 @@
         "x": 0,
         "y": 4
       },
+      "id": 127,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 5
+          },
+          "id": 128,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 5
+          },
+          "id": 129,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 5
+          },
+          "id": 130,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 5
+          },
+          "id": 131,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 9
+          },
+          "id": 132,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 9
+          },
+          "id": 133,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "pcidss_3",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 120,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 6
+          },
+          "id": 121,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 6
+          },
+          "id": 122,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 6
+          },
+          "id": 123,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 6
+          },
+          "id": 125,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 10
+          },
+          "id": 124,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 10
+          },
+          "id": 126,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "pcidss_4",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
       "id": 56,
       "panels": [
         {
@@ -2404,10 +3601,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 6
+            "y": 15
           },
           "id": 57,
           "links": [
@@ -2424,6 +3621,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -2479,6 +3677,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -2490,6 +3690,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -2527,10 +3728,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 6
+            "y": 15
           },
           "id": 58,
           "links": [
@@ -2551,6 +3752,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -2618,8 +3820,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 6
+            "x": 18,
+            "y": 15
           },
           "id": 59,
           "links": [
@@ -2644,7 +3846,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2713,8 +3915,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 6
+            "x": 21,
+            "y": 15
           },
           "id": 85,
           "links": [
@@ -2738,7 +3940,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2798,8 +4000,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 10
+            "x": 18,
+            "y": 19
           },
           "id": 61,
           "links": [
@@ -2824,7 +4026,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2893,8 +4095,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 10
+            "x": 21,
+            "y": 19
           },
           "id": 62,
           "links": [
@@ -2918,7 +4120,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2954,7 +4156,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 7
       },
       "id": 64,
       "panels": [
@@ -2988,10 +4190,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 2
+            "y": 16
           },
           "id": 65,
           "links": [
@@ -3008,6 +4210,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -3063,6 +4266,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -3074,6 +4279,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -3111,10 +4317,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 2
+            "y": 16
           },
           "id": 66,
           "links": [
@@ -3135,6 +4341,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -3202,8 +4409,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 2
+            "x": 18,
+            "y": 16
           },
           "id": 67,
           "links": [
@@ -3228,7 +4435,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -3297,8 +4504,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 2
+            "x": 21,
+            "y": 16
           },
           "id": 77,
           "links": [
@@ -3322,7 +4529,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -3382,8 +4589,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 6
+            "x": 18,
+            "y": 20
           },
           "id": 68,
           "links": [
@@ -3408,7 +4615,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -3477,8 +4684,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 6
+            "x": 21,
+            "y": 20
           },
           "id": 70,
           "links": [
@@ -3502,7 +4709,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -3538,7 +4745,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 8
       },
       "id": 72,
       "panels": [
@@ -3572,10 +4779,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 7
+            "y": 17
           },
           "id": 73,
           "links": [
@@ -3592,6 +4799,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -3647,6 +4855,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -3658,6 +4868,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -3695,10 +4906,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 7
+            "y": 17
           },
           "id": 74,
           "links": [
@@ -3719,6 +4930,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -3786,8 +4998,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 7
+            "x": 18,
+            "y": 17
           },
           "id": 75,
           "links": [
@@ -3812,7 +5024,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -3881,8 +5093,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 7
+            "x": 21,
+            "y": 17
           },
           "id": 11,
           "links": [
@@ -3906,7 +5118,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -3966,8 +5178,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 11
+            "x": 18,
+            "y": 21
           },
           "id": 76,
           "links": [
@@ -3992,7 +5204,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -4061,8 +5273,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 11
+            "x": 21,
+            "y": 21
           },
           "id": 78,
           "links": [
@@ -4086,7 +5298,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -4122,7 +5334,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 9
       },
       "id": 13,
       "panels": [
@@ -4156,10 +5368,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 8
+            "y": 18
           },
           "id": 7,
           "links": [
@@ -4176,6 +5388,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -4231,6 +5444,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -4242,6 +5457,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -4279,10 +5495,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 8
+            "y": 18
           },
           "id": 2,
           "links": [
@@ -4303,6 +5519,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -4370,8 +5587,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 8
+            "x": 18,
+            "y": 18
           },
           "id": 9,
           "links": [
@@ -4396,7 +5613,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -4465,8 +5682,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 8
+            "x": 21,
+            "y": 18
           },
           "id": 119,
           "links": [
@@ -4490,7 +5707,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -4550,8 +5767,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 12
+            "x": 18,
+            "y": 22
           },
           "id": 14,
           "links": [
@@ -4576,7 +5793,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -4645,8 +5862,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 12
+            "x": 21,
+            "y": 22
           },
           "id": 10,
           "links": [
@@ -4670,7 +5887,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -4706,7 +5923,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 10
       },
       "id": 16,
       "panels": [
@@ -4740,10 +5957,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 9
+            "y": 19
           },
           "id": 17,
           "links": [
@@ -4760,6 +5977,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -4815,6 +6033,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -4826,6 +6046,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -4863,10 +6084,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 9
+            "y": 19
           },
           "id": 18,
           "links": [
@@ -4887,6 +6108,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -4954,8 +6176,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 9
+            "x": 18,
+            "y": 19
           },
           "id": 19,
           "links": [
@@ -4980,7 +6202,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5049,8 +6271,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 9
+            "x": 21,
+            "y": 19
           },
           "id": 21,
           "links": [
@@ -5074,7 +6296,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5134,8 +6356,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 13
+            "x": 18,
+            "y": 23
           },
           "id": 20,
           "links": [
@@ -5160,7 +6382,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5229,8 +6451,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 13
+            "x": 21,
+            "y": 23
           },
           "id": 22,
           "links": [
@@ -5254,7 +6476,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5290,7 +6512,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 11
       },
       "id": 32,
       "panels": [
@@ -5324,10 +6546,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 3
+            "y": 20
           },
           "id": 33,
           "links": [
@@ -5344,6 +6566,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -5399,6 +6622,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -5410,6 +6635,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -5447,10 +6673,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 3
+            "y": 20
           },
           "id": 26,
           "links": [
@@ -5471,6 +6697,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -5538,8 +6765,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 3
+            "x": 18,
+            "y": 20
           },
           "id": 35,
           "links": [
@@ -5564,7 +6791,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5633,8 +6860,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 3
+            "x": 21,
+            "y": 20
           },
           "id": 29,
           "links": [
@@ -5658,7 +6885,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5718,8 +6945,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 7
+            "x": 18,
+            "y": 24
           },
           "id": 36,
           "links": [
@@ -5744,7 +6971,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5813,8 +7040,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 7
+            "x": 21,
+            "y": 24
           },
           "id": 30,
           "links": [
@@ -5838,7 +7065,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -5874,7 +7101,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 12
       },
       "id": 24,
       "panels": [
@@ -5908,10 +7135,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 4
+            "y": 21
           },
           "id": 25,
           "links": [
@@ -5928,6 +7155,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -5983,6 +7211,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -5994,6 +7224,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -6031,10 +7262,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 4
+            "y": 21
           },
           "id": 34,
           "links": [
@@ -6055,6 +7286,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -6122,8 +7354,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 4
+            "x": 18,
+            "y": 21
           },
           "id": 27,
           "links": [
@@ -6148,7 +7380,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6217,8 +7449,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 4
+            "x": 21,
+            "y": 21
           },
           "id": 37,
           "links": [
@@ -6242,7 +7474,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6302,8 +7534,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 8
+            "x": 18,
+            "y": 25
           },
           "id": 28,
           "links": [
@@ -6328,7 +7560,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6397,8 +7629,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 8
+            "x": 21,
+            "y": 25
           },
           "id": 38,
           "links": [
@@ -6422,7 +7654,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6458,7 +7690,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 13
       },
       "id": 48,
       "panels": [
@@ -6492,10 +7724,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 5
+            "y": 22
           },
           "id": 49,
           "links": [
@@ -6512,6 +7744,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -6567,6 +7800,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -6578,6 +7813,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -6615,10 +7851,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 5
+            "y": 22
           },
           "id": 42,
           "links": [
@@ -6639,6 +7875,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -6706,8 +7943,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 5
+            "x": 18,
+            "y": 22
           },
           "id": 51,
           "links": [
@@ -6732,7 +7969,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6801,8 +8038,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 5
+            "x": 21,
+            "y": 22
           },
           "id": 45,
           "links": [
@@ -6826,7 +8063,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6886,8 +8123,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 9
+            "x": 18,
+            "y": 26
           },
           "id": 52,
           "links": [
@@ -6912,7 +8149,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -6981,8 +8218,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 9
+            "x": 21,
+            "y": 26
           },
           "id": 46,
           "links": [
@@ -7006,7 +8243,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -7042,7 +8279,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 14
       },
       "id": 40,
       "panels": [
@@ -7076,10 +8313,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 7,
             "x": 0,
-            "y": 7
+            "y": 23
           },
           "id": 41,
           "links": [
@@ -7096,6 +8333,7 @@
             "legend": {
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "values": [
                 "percent",
                 "value"
@@ -7151,6 +8389,8 @@
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -7162,6 +8402,7 @@
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -7199,10 +8440,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 10,
+            "h": 9,
+            "w": 11,
             "x": 7,
-            "y": 7
+            "y": 23
           },
           "id": 50,
           "links": [
@@ -7223,6 +8464,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last *",
               "sortDesc": true
             },
@@ -7290,8 +8532,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 7
+            "x": 18,
+            "y": 23
           },
           "id": 43,
           "links": [
@@ -7316,7 +8558,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -7385,8 +8627,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 7
+            "x": 21,
+            "y": 23
           },
           "id": 53,
           "links": [
@@ -7410,7 +8652,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -7470,8 +8712,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 17,
-            "y": 11
+            "x": 18,
+            "y": 27
           },
           "id": 44,
           "links": [
@@ -7496,7 +8738,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -7565,8 +8807,8 @@
           "gridPos": {
             "h": 4,
             "w": 3,
-            "x": 20,
-            "y": 11
+            "x": 21,
+            "y": 27
           },
           "id": 54,
           "links": [
@@ -7590,7 +8832,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -7621,7 +8863,8 @@
       "type": "row"
     }
   ],
-  "schemaVersion": 36,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
