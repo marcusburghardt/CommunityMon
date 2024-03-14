@@ -5491,9 +5491,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 18
+            "y": 10
           },
           "id": 7,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5501,6 +5502,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -5594,6 +5596,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -5606,7 +5609,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -5617,9 +5621,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 18
+            "y": 10
           },
           "id": 2,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5627,6 +5632,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -5695,7 +5701,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -5706,9 +5713,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 18
+            "y": 10
           },
           "id": 9,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5716,6 +5724,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -5776,7 +5785,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -5800,9 +5810,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 18
+            "y": 10
           },
           "id": 119,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5810,6 +5821,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -5873,7 +5885,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -5884,9 +5897,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 22
+            "y": 14
           },
           "id": 14,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5894,6 +5908,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -5954,7 +5969,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -5978,9 +5994,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 22
+            "y": 14
           },
           "id": 10,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5988,6 +6005,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -6075,9 +6093,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 19
+            "y": 11
           },
           "id": 17,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6085,6 +6104,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -6178,6 +6198,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -6190,7 +6211,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -6201,9 +6223,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 19
+            "y": 11
           },
           "id": 18,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6211,6 +6234,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -6279,7 +6303,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -6290,9 +6315,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 19
+            "y": 11
           },
           "id": 19,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6300,6 +6326,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -6360,7 +6387,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -6384,9 +6412,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 19
+            "y": 11
           },
           "id": 21,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6394,6 +6423,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -6457,7 +6487,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -6468,9 +6499,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 23
+            "y": 15
           },
           "id": 20,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6478,6 +6510,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -6538,7 +6571,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -6562,9 +6596,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 23
+            "y": 15
           },
           "id": 22,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6572,6 +6607,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -6659,9 +6695,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 20
+            "y": 12
           },
           "id": 33,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6669,6 +6706,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -6762,6 +6800,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -6774,7 +6813,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -6785,9 +6825,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 20
+            "y": 12
           },
           "id": 26,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6795,6 +6836,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -6863,7 +6905,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -6874,9 +6917,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 20
+            "y": 12
           },
           "id": 35,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6884,6 +6928,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -6944,7 +6989,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -6968,9 +7014,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 20
+            "y": 12
           },
           "id": 29,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -6978,6 +7025,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -7041,7 +7089,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -7052,9 +7101,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 24
+            "y": 16
           },
           "id": 36,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7062,6 +7112,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -7122,7 +7173,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -7146,9 +7198,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 24
+            "y": 16
           },
           "id": 30,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7156,6 +7209,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -7243,9 +7297,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 21
+            "y": 13
           },
           "id": 25,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7253,6 +7308,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -7346,6 +7402,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -7358,7 +7415,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -7369,9 +7427,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 21
+            "y": 13
           },
           "id": 34,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7379,6 +7438,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -7447,7 +7507,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -7458,9 +7519,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 21
+            "y": 13
           },
           "id": 27,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7468,6 +7530,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -7528,7 +7591,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -7552,9 +7616,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 21
+            "y": 13
           },
           "id": 37,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7562,6 +7627,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -7625,7 +7691,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -7636,9 +7703,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 25
+            "y": 17
           },
           "id": 28,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7646,6 +7714,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -7706,7 +7775,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -7730,9 +7800,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 25
+            "y": 17
           },
           "id": 38,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7740,6 +7811,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel8.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -7827,9 +7899,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 22
+            "y": 14
           },
           "id": 49,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7837,6 +7910,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -7930,6 +8004,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -7942,7 +8017,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -7953,9 +8029,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 22
+            "y": 14
           },
           "id": 42,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -7963,6 +8040,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -8031,7 +8109,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -8042,9 +8121,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 22
+            "y": 14
           },
           "id": 51,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8052,6 +8132,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -8112,7 +8193,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -8136,9 +8218,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 22
+            "y": 14
           },
           "id": 45,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8146,6 +8229,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -8209,7 +8293,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -8220,9 +8305,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 26
+            "y": 18
           },
           "id": 52,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8230,6 +8316,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -8290,7 +8377,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -8314,9 +8402,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 26
+            "y": 18
           },
           "id": 46,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8324,6 +8413,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -8411,9 +8501,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 23
+            "y": 15
           },
           "id": 41,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8421,6 +8512,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -8514,6 +8606,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -8526,7 +8619,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -8537,9 +8631,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 23
+            "y": 15
           },
           "id": 50,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8547,6 +8642,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -8615,7 +8711,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -8626,9 +8723,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 23
+            "y": 15
           },
           "id": 43,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8636,6 +8734,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -8696,7 +8795,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -8720,9 +8820,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 23
+            "y": 15
           },
           "id": 53,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8730,6 +8831,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -8793,7 +8895,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -8804,9 +8907,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 27
+            "y": 19
           },
           "id": 44,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8814,6 +8918,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -8874,7 +8979,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -8898,9 +9004,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 27
+            "y": 19
           },
           "id": 54,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -8908,6 +9015,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/cis_rhel7.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
