@@ -2446,1210 +2446,6 @@
         "x": 0,
         "y": 4
       },
-      "id": 127,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "This pie chart shows the latest status of all requirements included in the control file.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_3 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-                }
-              ],
-              "mappings": []
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 7,
-            "x": 0,
-            "y": 5
-          },
-          "id": 128,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_3 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "displayLabels": [
-              "name"
-            ],
-            "legend": {
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true,
-              "values": [
-                "percent",
-                "value"
-              ]
-            },
-            "pieType": "donut",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "status",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "This chart shows the status history of all requirements included in the control file.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "smooth",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "decimals": 0,
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_3 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 11,
-            "x": 7,
-            "y": 5
-          },
-          "id": 129,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_3 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull",
-                "min",
-                "max",
-                "mean",
-                "diff"
-              ],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true,
-              "sortBy": "Last *",
-              "sortDesc": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "status history",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_3 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 18,
-            "y": 5
-          },
-          "id": 130,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_3 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status=\"all\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Existing Labels",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "all requirements",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_3 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "red",
-                    "value": null
-                  },
-                  {
-                    "color": "orange",
-                    "value": 50
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 80
-                  },
-                  {
-                    "color": "green",
-                    "value": 95
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 21,
-            "y": 5
-          },
-          "id": 131,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_3 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"all\"}) * 100",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "assessed",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_3 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 18,
-            "y": 9
-          },
-          "id": 132,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_3 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status=\"applicable\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Existing Labels",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "applicable requirements",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_3 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "red",
-                    "value": null
-                  },
-                  {
-                    "color": "orange",
-                    "value": 50
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 80
-                  },
-                  {
-                    "color": "green",
-                    "value": 95
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 21,
-            "y": 9
-          },
-          "id": 133,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_3 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"all\"}) * 100",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "full coverage",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "stat"
-        }
-      ],
-      "title": "pcidss_3",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 5
-      },
-      "id": 120,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "This pie chart shows the latest status of all requirements included in the control file.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                }
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_4 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-                }
-              ],
-              "mappings": []
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 7,
-            "x": 0,
-            "y": 6
-          },
-          "id": 121,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_4 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "displayLabels": [
-              "name"
-            ],
-            "legend": {
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true,
-              "values": [
-                "percent",
-                "value"
-              ]
-            },
-            "pieType": "donut",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "status",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "piechart"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "This chart shows the status history of all requirements included in the control file.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "smooth",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": true,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "decimals": 0,
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_4 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 11,
-            "x": 7,
-            "y": 6
-          },
-          "id": 122,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_4 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull",
-                "min",
-                "max",
-                "mean",
-                "diff"
-              ],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true,
-              "sortBy": "Last *",
-              "sortDesc": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "status history",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_4 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 18,
-            "y": 6
-          },
-          "id": 123,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_4 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status=\"all\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Existing Labels",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "all requirements",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_4 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "red",
-                    "value": null
-                  },
-                  {
-                    "color": "orange",
-                    "value": 50
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 80
-                  },
-                  {
-                    "color": "green",
-                    "value": 95
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 21,
-            "y": 6
-          },
-          "id": 125,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_4 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"all\"}) * 100",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "assessed",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_4 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 18,
-            "y": 10
-          },
-          "id": 124,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_4 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status=\"applicable\"}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "legendFormat": "Existing Labels",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "applicable requirements",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "links": [
-                {
-                  "targetBlank": true,
-                  "title": "pcidss_4 control file",
-                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-                }
-              ],
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "red",
-                    "value": null
-                  },
-                  {
-                    "color": "orange",
-                    "value": 50
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 80
-                  },
-                  {
-                    "color": "green",
-                    "value": 95
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 21,
-            "y": 10
-          },
-          "id": 126,
-          "interval": "10m",
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "pcidss_4 control file",
-              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
-            }
-          ],
-          "maxDataPoints": 6000,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.1.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"all\"}) * 100",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "full coverage",
-          "transformations": [
-            {
-              "id": "labelsToFields",
-              "options": {
-                "valueLabel": "status"
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "stat"
-        }
-      ],
-      "title": "pcidss_4",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 6
-      },
       "id": 56,
       "panels": [
         {
@@ -4250,7 +3046,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 5
       },
       "id": 64,
       "panels": [
@@ -4852,7 +3648,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 6
       },
       "id": 72,
       "panels": [
@@ -5454,7 +4250,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 7
       },
       "id": 13,
       "panels": [
@@ -6056,7 +4852,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 8
       },
       "id": 16,
       "panels": [
@@ -6658,7 +5454,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 9
       },
       "id": 32,
       "panels": [
@@ -7260,7 +6056,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 10
       },
       "id": 24,
       "panels": [
@@ -7862,7 +6658,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 11
       },
       "id": 48,
       "panels": [
@@ -8464,7 +7260,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 12
       },
       "id": 40,
       "panels": [
@@ -9058,6 +7854,3016 @@
         }
       ],
       "title": "cis_rhel7 - l2_server",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 127,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 5
+          },
+          "id": 128,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 5
+          },
+          "id": 129,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 5
+          },
+          "id": 130,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 5
+          },
+          "id": 131,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 9
+          },
+          "id": 132,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_3{level=\"base\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_3 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 9
+          },
+          "id": 133,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_3 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_3.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_pcidss_3{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "pcidss_3",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 120,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 15
+          },
+          "id": 121,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 15
+          },
+          "id": 122,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 15
+          },
+          "id": 123,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 15
+          },
+          "id": 125,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 19
+          },
+          "id": 124,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_pcidss_4{level=\"base\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "pcidss_4 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 19
+          },
+          "id": 126,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "pcidss_4 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/pcidss_4.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_pcidss_4{level=\"base\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "pcidss_4",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 134,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 16
+          },
+          "id": 135,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_stig_rhel9{level=\"low\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 16
+          },
+          "id": 136,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_stig_rhel9{level=\"low\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 16
+          },
+          "id": 137,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_stig_rhel9{level=\"low\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 16
+          },
+          "id": 138,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_stig_rhel9{level=\"low\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_stig_rhel9{level=\"low\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 20
+          },
+          "id": 139,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_stig_rhel9{level=\"low\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 20
+          },
+          "id": 140,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_stig_rhel9{level=\"low\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_stig_rhel9{level=\"low\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "stig_rhel9 - low",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 141,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 17
+          },
+          "id": 142,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_stig_rhel9{level=\"medium\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 17
+          },
+          "id": 143,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_stig_rhel9{level=\"medium\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 17
+          },
+          "id": 144,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_stig_rhel9{level=\"medium\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 17
+          },
+          "id": 146,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_stig_rhel9{level=\"medium\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_stig_rhel9{level=\"medium\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 21
+          },
+          "id": 145,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_stig_rhel9{level=\"medium\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 21
+          },
+          "id": 147,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_stig_rhel9{level=\"medium\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_stig_rhel9{level=\"medium\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "stig_rhel9 - medium",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 148,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This pie chart shows the latest status of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 18
+          },
+          "id": 149,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "displayLabels": [
+              "name"
+            ],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "percent",
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_stig_rhel9{level=\"high\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This chart shows the status history of all requirements included in the control file.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 7,
+            "y": 18
+          },
+          "id": 150,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean",
+                "diff"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Last *",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "policy_requirements_status_stig_rhel9{level=\"high\",status!=\"assessed\",status!=\"not assessed\",status!=\"applicable\",status!=\"full coverage\",status!=\"all\"}",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "status history",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 18
+          },
+          "id": 151,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_stig_rhel9{level=\"high\",status=\"all\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "all requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Assessed requirements are all requirements not in \"pending\" status. It means they were already assessed and properly classified.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 18
+          },
+          "id": 152,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_stig_rhel9{level=\"high\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_stig_rhel9{level=\"high\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "assessed",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "All applicable requirements included in the policy. If the policy contains different levels, the number will represent the number of requirements in selected level.\n\nSome policies may include requirements for different components but make them optional or applicable only in some specific circumstances.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 18,
+            "y": 22
+          },
+          "id": 153,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "none",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "policy_requirements_status_stig_rhel9{level=\"high\",status=\"applicable\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "Existing Labels",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "applicable requirements",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "full coverage includes all requirements in the following status:\n- automated\n- documentation\n- inherently_met\n- manual\n\nFor more detailed information, check the utils/controleval.py tool in ComplianceAsCode/content repository.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "stig_rhel9 control file",
+                  "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  },
+                  {
+                    "color": "green",
+                    "value": 95
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 21,
+            "y": 22
+          },
+          "id": 154,
+          "interval": "10m",
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "stig_rhel9 control file",
+              "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/stig_rhel9.yml"
+            }
+          ],
+          "maxDataPoints": 6000,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.1.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum by (level) (policy_requirements_status_stig_rhel9{level=\"high\", status=\"full coverage\"}) / sum by (level) (policy_requirements_status_stig_rhel9{level=\"high\", status=\"all\"}) * 100",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "full coverage",
+          "transformations": [
+            {
+              "id": "labelsToFields",
+              "options": {
+                "valueLabel": "status"
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "stat"
+        }
+      ],
+      "title": "stig_rhel9 - high",
       "type": "row"
     }
   ],
