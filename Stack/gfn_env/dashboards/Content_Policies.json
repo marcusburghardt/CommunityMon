@@ -73,6 +73,7 @@
             "y": 1
           },
           "id": 81,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -80,6 +81,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -173,6 +175,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -200,6 +203,7 @@
             "y": 1
           },
           "id": 82,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -207,6 +211,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -290,6 +295,7 @@
             "y": 1
           },
           "id": 83,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -297,6 +303,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -385,6 +392,7 @@
             "y": 1
           },
           "id": 69,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -392,6 +400,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -470,6 +479,7 @@
             "y": 5
           },
           "id": 84,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -477,6 +487,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -565,6 +576,7 @@
             "y": 5
           },
           "id": 86,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -572,6 +584,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -662,6 +675,7 @@
             "y": 2
           },
           "id": 95,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -669,6 +683,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -762,6 +777,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -789,6 +805,7 @@
             "y": 2
           },
           "id": 96,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -796,6 +813,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -879,6 +897,7 @@
             "y": 2
           },
           "id": 91,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -886,6 +905,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -974,6 +994,7 @@
             "y": 2
           },
           "id": 93,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -981,6 +1002,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -1059,6 +1081,7 @@
             "y": 6
           },
           "id": 92,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1066,6 +1089,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -1154,6 +1178,7 @@
             "y": 6
           },
           "id": 94,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1161,6 +1186,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -1251,6 +1277,7 @@
             "y": 3
           },
           "id": 99,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1258,6 +1285,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -1351,6 +1379,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -1378,6 +1407,7 @@
             "y": 3
           },
           "id": 100,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1385,6 +1415,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -1468,6 +1499,7 @@
             "y": 3
           },
           "id": 101,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1475,6 +1507,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -1563,6 +1596,7 @@
             "y": 3
           },
           "id": 103,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1570,6 +1604,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -1648,6 +1683,7 @@
             "y": 7
           },
           "id": 102,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1655,6 +1691,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -1743,6 +1780,7 @@
             "y": 7
           },
           "id": 104,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1750,6 +1788,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -1840,6 +1879,7 @@
             "y": 4
           },
           "id": 107,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1847,6 +1887,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -1940,6 +1981,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -1967,6 +2009,7 @@
             "y": 4
           },
           "id": 108,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -1974,6 +2017,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -2057,6 +2101,7 @@
             "y": 4
           },
           "id": 109,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -2064,6 +2109,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -2089,7 +2135,7 @@
               "editorMode": "code",
               "exemplar": false,
               "expr": "policy_requirements_status_anssi{level=\"high\",status=\"all\"}",
-              "format": "time_series",
+              "format": "table",
               "instant": false,
               "interval": "",
               "legendFormat": "Existing Labels",
@@ -2152,6 +2198,7 @@
             "y": 4
           },
           "id": 111,
+          "interval": "10",
           "links": [
             {
               "targetBlank": true,
@@ -2159,6 +2206,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -2181,7 +2229,10 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
+              "exemplar": false,
               "expr": "sum by (level) (policy_requirements_status_anssi{level=\"high\", status=\"assessed\"}) / sum by (level) (policy_requirements_status_anssi{level=\"high\", status=\"all\"}) * 100",
+              "format": "time_series",
+              "instant": false,
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -2237,6 +2288,7 @@
             "y": 8
           },
           "id": 110,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -2244,6 +2296,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -2332,6 +2385,7 @@
             "y": 8
           },
           "id": 112,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -2339,6 +2393,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/anssi.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -3130,8 +3185,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -3220,8 +3274,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -3302,8 +3355,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -3400,8 +3452,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -3482,8 +3533,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -3719,8 +3769,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -3809,8 +3858,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -3891,8 +3939,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -3989,8 +4036,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -4071,8 +4117,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -4308,8 +4353,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -4398,8 +4442,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -4480,8 +4523,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -4578,8 +4620,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -4660,8 +4701,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -4897,8 +4937,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -4987,8 +5026,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -5069,8 +5107,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -5167,8 +5204,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -5249,8 +5285,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -5486,8 +5521,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -5576,8 +5610,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -5658,8 +5691,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -5756,8 +5788,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -5838,8 +5869,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -6075,8 +6105,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -6165,8 +6194,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -6247,8 +6275,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -6345,8 +6372,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -6427,8 +6453,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -6664,8 +6689,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -6754,8 +6778,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -6836,8 +6859,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -6934,8 +6956,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -7016,8 +7037,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -7253,8 +7273,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -7343,8 +7362,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -7425,8 +7443,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -7523,8 +7540,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -7605,8 +7621,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -7842,8 +7857,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -7932,8 +7946,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -8014,8 +8027,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -8112,8 +8124,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -8194,8 +8205,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -8431,8 +8441,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -8521,8 +8530,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -8603,8 +8611,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -8701,8 +8708,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               }
@@ -8783,8 +8789,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "orange",
@@ -8863,7 +8868,7 @@
       "type": "row"
     }
   ],
-  "refresh": "",
+  "refresh": false,
   "schemaVersion": 38,
   "style": "dark",
   "tags": [],
