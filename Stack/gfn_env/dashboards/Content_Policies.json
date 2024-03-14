@@ -3685,9 +3685,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 16
+            "y": 7
           },
           "id": 57,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -3695,6 +3696,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -3788,6 +3790,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -3812,9 +3815,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 16
+            "y": 7
           },
           "id": 58,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -3822,6 +3826,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -3902,9 +3907,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 16
+            "y": 7
           },
           "id": 59,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -3912,6 +3918,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -3997,9 +4004,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 16
+            "y": 7
           },
           "id": 85,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4007,6 +4015,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -4082,9 +4091,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 20
+            "y": 11
           },
           "id": 61,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4092,6 +4102,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -4177,9 +4188,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 20
+            "y": 11
           },
           "id": 62,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4187,6 +4199,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -4274,9 +4287,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 16
+            "y": 8
           },
           "id": 65,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4284,6 +4298,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -4377,6 +4392,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -4389,7 +4405,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -4400,9 +4417,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 16
+            "y": 8
           },
           "id": 66,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4410,6 +4428,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -4478,7 +4497,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -4489,9 +4509,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 16
+            "y": 8
           },
           "id": 67,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4499,6 +4520,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -4559,7 +4581,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -4583,9 +4606,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 16
+            "y": 8
           },
           "id": 77,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4593,6 +4617,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -4656,7 +4681,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -4667,9 +4693,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 20
+            "y": 12
           },
           "id": 68,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4677,6 +4704,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -4737,7 +4765,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -4761,9 +4790,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 20
+            "y": 12
           },
           "id": 70,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4771,6 +4801,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -4858,9 +4889,10 @@
             "h": 9,
             "w": 7,
             "x": 0,
-            "y": 17
+            "y": 9
           },
           "id": 73,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4868,6 +4900,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "displayLabels": [
               "name"
@@ -4961,6 +4994,7 @@
                   "mode": "off"
                 }
               },
+              "decimals": 0,
               "links": [
                 {
                   "targetBlank": true,
@@ -4973,7 +5007,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -4984,9 +5019,10 @@
             "h": 9,
             "w": 11,
             "x": 7,
-            "y": 17
+            "y": 9
           },
           "id": 74,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -4994,6 +5030,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "legend": {
               "calcs": [
@@ -5062,7 +5099,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -5073,9 +5111,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 17
+            "y": 9
           },
           "id": 75,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5083,6 +5122,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -5143,7 +5183,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -5167,9 +5208,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 17
+            "y": 9
           },
           "id": 11,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5177,6 +5219,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -5240,7 +5283,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -5251,9 +5295,10 @@
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 21
+            "y": 13
           },
           "id": 76,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5261,6 +5306,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "none",
             "graphMode": "none",
@@ -5321,7 +5367,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "orange",
@@ -5345,9 +5392,10 @@
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 21
+            "y": 13
           },
           "id": 78,
+          "interval": "10m",
           "links": [
             {
               "targetBlank": true,
@@ -5355,6 +5403,7 @@
               "url": "https://github.com/ComplianceAsCode/content/blob/master/controls/ccn_rhel9.yml"
             }
           ],
+          "maxDataPoints": 6000,
           "options": {
             "colorMode": "value",
             "graphMode": "none",
