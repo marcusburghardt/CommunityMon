@@ -14,6 +14,7 @@ services:
       #- '--web.console.templates=/etc/prometheus/consoles'
       - '--storage.tsdb.retention=5y'
       - '--web.enable-lifecycle'
+      #- '--web.enable-admin-api'
     expose:
       - 9090
     ports:
